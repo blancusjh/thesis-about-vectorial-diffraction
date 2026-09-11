@@ -1,0 +1,282 @@
+% =====================================================================
+% main-uis.tex — Versión con formato UIS (Universidad Industrial de
+% Santander): portada, agradecimientos, tabla de contenido, lista de
+% figuras, lista de tablas, lista de apéndices, resumen y abstract.
+% Genera main-uis.pdf con las figuras a resolución completa, sin tocar
+% el build de trabajo (main.tex / main.pdf).
+% Compilar: latexmk -lualatex main-uis.tex
+% =====================================================================
+\documentclass[12pt, a4paper, oneside]{book}
+\usepackage{iftex}
+
+% ======================
+% Language
+% ======================
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{lmodern}
+  \usepackage{textalpha}
+  \usepackage{textgreek}
+  \providecommand{\greekfont}{}
+\else
+  \usepackage{fontspec}
+  \setmainfont{Latin Modern Roman}
+  \setsansfont{Latin Modern Sans}
+  \setmonofont{Latin Modern Mono}
+  \newfontfamily{\greekfont}[Script=Greek]{GFS Didot}
+\fi
+\usepackage[spanish,es-tabla,es-nodecimaldot]{babel}
+% babel-spanish redefine \% para insertar un espacio fino automático; en modo
+% matemático eso choca con el \, explícito ("Incompatible glue units").
+\spanishplainpercent
+\usepackage{csquotes}
+
+% Nombres de las secciones preliminares según el formato UIS
+\addto\captionsspanish{%
+  \renewcommand{\contentsname}{Tabla de contenido}%
+  \renewcommand{\listfigurename}{Lista de figuras}%
+  \renewcommand{\listtablename}{Lista de tablas}%
+}
+
+% ======================
+% Page Layout (encabezado UIS: título corrido en cursiva mayúscula a la
+% izquierda, folio a la derecha, filete horizontal)
+% ======================
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage{fancyhdr}
+\setlength{\headheight}{15pt}
+
+\fancypagestyle{uis}{%
+  \fancyhf{}%
+  \fancyhead[L]{\itshape\MakeUppercase{\leftmark}}%
+  \fancyhead[R]{\thepage}%
+  \renewcommand{\headrulewidth}{0.4pt}%
+  \renewcommand{\footrulewidth}{0pt}%
+}
+% Folio inferior centrado, sin encabezado (páginas de Resumen y Abstract)
+\fancypagestyle{uisfolioinferior}{%
+  \fancyhf{}%
+  \fancyfoot[C]{\thepage}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0pt}%
+}
+% Las primeras páginas de capítulo usan el mismo encabezado UIS
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \fancyhead[L]{\itshape\MakeUppercase{\leftmark}}%
+  \fancyhead[R]{\thepage}%
+  \renewcommand{\headrulewidth}{0.4pt}%
+  \renewcommand{\footrulewidth}{0pt}%
+}
+\pagestyle{uis}
+
+% En clase oneside el mark de capítulo va a \markright; lo llevamos a
+% \markboth para que \leftmark siempre contenga el título corrido.
+\renewcommand{\chaptermark}[1]{%
+  \markboth{\ifnum\value{chapter}>0 \thechapter.\ \fi #1}{}}
+
+% ======================
+% Hyperlinks & TOC
+% ======================
+\usepackage[hidelinks]{hyperref}
+\hypersetup{unicode=true}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\usepackage{enumitem}
+
+% Listas de figuras y tablas con la palabra completa (formato UIS)
+\usepackage[titles]{tocloft}
+\renewcommand{\cftfigpresnum}{Figura\ }
+\renewcommand{\cftfigaftersnum}{.}
+\setlength{\cftfignumwidth}{6.5em}
+\renewcommand{\cfttabpresnum}{Tabla\ }
+\renewcommand{\cfttabaftersnum}{.}
+\setlength{\cfttabnumwidth}{6em}
+
+% ======================
+% Mathematics
+% ======================
+\usepackage{amsmath, amssymb, mathtools, bm}
+\usepackage{mathrsfs}   % for \mathscr
+\usepackage{physics}
+\usepackage{cancel}
+
+\usepackage{lettrine}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\floatname{algorithm}{Algoritmo}
+\renewcommand{\algorithmicrequire}{\textbf{Entrada:}}
+\renewcommand{\algorithmicensure}{\textbf{Salida:}}
+\algrenewcommand{\algorithmicfor}{\textbf{para}}
+\algrenewcommand{\algorithmicdo}{\textbf{hacer}}
+\algrenewcommand{\algorithmicend}{\textbf{fin}}
+\algrenewcommand{\algorithmicif}{\textbf{si}}
+\algrenewcommand{\algorithmicthen}{\textbf{entonces}}
+\algrenewcommand{\algorithmicelse}{\textbf{si no}}
+\algrenewcommand{\algorithmicwhile}{\textbf{mientras}}
+\algrenewcommand{\algorithmicreturn}{\textbf{retornar}}
+
+% Numeración de ecuaciones por capítulo
+\numberwithin{equation}{chapter}
+
+% ======================
+% Graphics
+% ======================
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{babel}
+\usetikzlibrary{calc,angles,quotes,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{float}
+\usepackage{longtable}
+
+% Este build usa siempre las figuras a resolución completa.
+\newif\iffastbuild
+\fastbuildfalse
+
+% #1: graphicx options; #2: final asset; #3: optimized preview.
+\newcommand{\thesisincludegraphics}[3][]{%
+  \iffastbuild
+    \includegraphics[#1]{#3}%
+  \else
+    \IfFileExists{#2}{%
+      \includegraphics[#1]{#2}%
+    }{%
+      \PackageWarning{thesis}{Full-quality figure '#2' not found; using preview '#3'}%
+      \includegraphics[#1]{#3}%
+    }%
+  \fi
+}
+
+% ======================
+% Bibliography
+% ======================
+\usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
+\addbibresource{bibliography.bib}
+
+% Commands
+\newcommand{\uvec}[1]{\bm{\hat{\mathbf{#1}}}}
+\newcommand{\mcal}[1]{\mathcal{#1}}
+\newcommand{\lvec}[1]{\overrightarrow{#1}}
+
+% Entrada de la lista de apéndices
+\newcommand{\aplinea}[2]{%
+  \par\noindent\hangindent=2.4em\hangafter=1
+  #1~\dotfill~\pageref{#2}\par\addvspace{0.7em}}
+
+% ======================
+% Document
+% ======================
+\begin{document}
+
+% ===== Portada (formato UIS) =====
+\begin{center}
+\noindent\rule{\textwidth}{0.4pt}\\[0.9em]
+{\large Estudio de las aberraciones vectoriales en sistemas estigmáticos}\\[0.9em]
+\rule{\textwidth}{0.4pt}
+
+\vspace{3.2cm}
+{\large Jhonatan S. Blanco}
+
+\vspace{2.6cm}
+{\large\itshape Trabajo de grado para optar al título de Físico}
+
+\vspace{2.2cm}
+{\large Director:}\\
+{\large Rafael Ángel Torres Amarís}\\
+{\large Físico, Mg., Dr.}
+
+\vspace{1.1cm}
+{\large Codirector:}\\
+{\large Cristian Hernández Celis}\\
+{\large Físico, Mg.}
+
+\vfill
+{\large Universidad Industrial de Santander}\\[0.2em]
+{\large\scshape Facultad de ciencias}\\
+{\large\scshape Escuela de física}\\
+{\large\scshape Bucaramanga}\\
+{\large 2026}
+\end{center}
+\clearpage
+
+% ===== Agradecimientos =====
+\input{chapters/00.Agradecimientos.tex}
+
+% ===== Tabla de contenido =====
+\tableofcontents
+\clearpage
+
+% ===== Lista de figuras =====
+\listoffigures
+\clearpage
+
+% ===== Lista de tablas =====
+\listoftables
+\clearpage
+
+% ===== Lista de apéndices =====
+\chapter*{Lista de apéndices}
+\markboth{Lista de apéndices}{Lista de apéndices}
+\vspace{1em}
+{\setlength{\parindent}{0pt}
+\aplinea{Apéndice A.\enspace Transformada de Fourier bidimensional en coordenadas polares}{sec:fourier_2d_polar}
+\aplinea{Apéndice B.\enspace Condiciones de frontera y coeficientes de Fresnel en dieléctricos}{sec:appendix_maxwell_frontera_fresnel}
+\aplinea{Apéndice C.\enspace Deducción de la ecuación implícita del dioptrio estigmático}{apx:ovoid_implicit_deduction}
+\aplinea{Apéndice D.\enspace Expansión en series para las superficies cartesianas y cantidades asociadas}{apx:ovoids_series}
+\aplinea{Apéndice E.\enspace Pupila circular uniforme: resultados analíticos}{apx:focal_forms}
+\aplinea{Apéndice F.\enspace Algoritmo de cálculo del campo focal}{apx:numerical_algorithm}
+}
+\clearpage
+
+% ===== Resumen y Abstract (folio inferior, sin encabezado) =====
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \fancyfoot[C]{\thepage}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0pt}%
+}
+\input{resumen.tex}
+\clearpage
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \fancyhead[L]{\itshape\MakeUppercase{\leftmark}}%
+  \fancyhead[R]{\thepage}%
+  \renewcommand{\headrulewidth}{0.4pt}%
+  \renewcommand{\footrulewidth}{0pt}%
+}
+
+% ======================
+
+\input{chapters/00.Notacion_y_convenciones.tex}
+
+\input{chapters/00.Introduccion.tex}
+
+\input{chapters/I.Optica_Geometrica.tex}
+
+\input{chapters/II.Optica_Ondulatoria.tex}
+
+\input{chapters/III.Campo_en_el_plano_focal_en_un_sistema_estigmatico_simple_refractivo.tex}
+
+\input{chapters/V.Conclusiones.tex}
+
+% ==== APÉNDICES ======
+\appendix
+
+\input{appendices/apen_polar_fourier_transform.tex}
+
+\input{appendices/apen_maxwell_frontera_fresnel.tex}
+
+\input{appendices/apen_ovoid_implicit_deduction.tex}
+
+\input{appendices/apen_ovoids_series}
+
+\input{appendices/apen_focal_field_explicit_forms}
+
+\input{appendices/apen_numerical_algorithm}
+
+\printbibliography[heading=bibintoc,title={Referencias}]
+
+\end{document}

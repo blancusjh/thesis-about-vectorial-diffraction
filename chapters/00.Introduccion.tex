@@ -2,34 +2,81 @@
 \addcontentsline{toc}{chapter}{Introducción}
 \markboth{Introducción}{Introducción}
 
-\lettrine[lines=2]{L}{a} visión es el más noble y elevado de los sentidos que nos han sido otorgados, sin embargo, está limitada en cuanto puede discernir. Sabemos por experiencia que nos es imposible resolver objetos demasiado alejados, como los planetas, las estrellas, como también los objetos diminutos, como lo pueden ser los tejidos y las células. Sin embargo, gracias al conocimiento de la naturaleza de la luz hemos podido sortear esta dificultad en la capacidad de discernir, por medio de la manipulación de la luz que emana de estos cuerpos, ya sea por emisión directa o por reflexión, de una manera tal que el objeto en un mayor detalle se manifieste en los dominios accesibles a la visión humana, permitiéndonos discernir detalles que sin instrumento nos serían ocultos. 
+\lettrine[lines=2]{L}{os} sistemas estigmáticos son de gran importancia en
+la óptica, debido a que resuelven el problema de la formación de una imagen
+perfecta de un objeto puntual en la óptica geométrica
+\cite{bornwolf1999,Tyc2011Absolute}, con aplicaciones directas en la
+microscopía de superresolución y la litografía óptica
+\cite{Shen2022,flagello1996}, el procesamiento láser de materiales
+\cite{Niziev1999Cutting} y el atrapamiento óptico de partículas
+\cite{Kozawa2010Trapping}.
 
-Llamamos imagen a la luz que, emanada desde el objeto, se proyecta sobre la superficie o dominio de observación. Una imagen no siempre es una representación del objeto, pero en los \emph{sistemas formadores de imagen} se procura que lo sea. Cuando a cada punto del objeto le corresponde un punto en la imagen, y la forma del objeto y la forma de la imagen son similares, se dice que la imagen es perfecta \cite[\S 5.2]{bornwolf1999}. El problema de la formación de la imagen perfecta es de una gran importancia, tanto para discernir los diferentes objetos de la naturaleza como para los sistemas fotográficos y de impresión, y mucho más aún en los sistemas que requieren de una alta resolución, como en el caso de la litografía, la microscopía y la astronomía\dots
+El estigmatismo es un importante punto de partida para el estudio
+de la formación de imágenes \cite{singlet2020, bornwolf1999}. Las Superficies Cartesianas aseguran esta
+condición en la refracción entre dos medios homogéneos y permiten construir
+sistemas mediante su composición \cite{singlet2020,ovoids2023}. Una elección
+adecuada de las Superficies Cartesianas permite obtener propiedades como el
+aplanatismo y el acromatismo, lo que demuestra su utilidad y potencial en el
+diseño óptico \cite{aplan2020,achro2022}.
 
-El problema de la formación perfecta de un objeto extendido es un problema de naturaleza general, que requiere que el problema de la imagen perfecta de un punto sea resuelto, debido a que, como dijimos, la imagen perfecta de un objeto se da cuando cada punto del objeto $Q$ tiene como imagen un punto $Q'$ en el espacio imagen, y cuando se da esto decimos que el punto $Q$ tiene una imagen estigmática, que es $Q'$. Es por ello que los \emph{sistemas estigmáticos} son de gran interés en óptica, por \emph{sistema estigmático} nos referimos a los sistemas que aseguran que un par de puntos sean conjugados, es decir que uno sea la imagen estigmática del otro.
+La minimización de las aberraciones geométricas conserva su importancia aun
+en la óptica física, donde estas se manifiestan como aberraciones de fase
+que alteran el campo en la imagen \cite{bornwolf1999,goodman2005}. La relación directa con la función aberración de fase y la longitud de camino óptico, permite deducir que en los sistemas estigmaticos esta aberración es nula. Esta propiedad hace de las Superficies Cartesianas un
+escenario apropiado para aislar las aberraciones vectoriales, pues permite
+estudiar la transformación de amplitud y polarización sin mezclarla con
+defectos de camino óptico. Aun así, la difracción produce una distribución
+extendida,
+descrita por la función de dispersión de punto (PSF, por sus siglas en inglés),
+y establece limitaciones de resolución cuya referencia clásica es el límite
+de Abbe \cite{Abbe1873,goodman2005}. La descripción escalar no permite
+identificar los efectos de la polarización sobre esa distribución. Las
+variaciones de amplitud y polarización sobre la pupila pueden deformar la
+PSF y reducir el contraste de la imagen aun sin aberración de fase, lo que
+motiva su estudio mediante una descripción vectorial
+\cite{McGuire1991Response,mcguire1994,flagello1996}.
 
-Esta definición del sistema estigmático, y la noción misma de ``punto''
-sobre la que descansa, pertenece propiamente a la óptica geométrica, pues en
-óptica ondulatoria un punto objeto no tiene como imagen un punto en el sentido matemático, sino que su imagen es una distribución extendida que llamamos \emph{PSF (Point Spread Function)} por la difracción.
-Aun así, los sistemas que son estigmáticos en el régimen geométrico no dejan de ser importantes en el marco de la \emph{Teoría Ondulatoria de la Luz} debido a que las aberraciones geométricas tienen un gran impacto en la teoría ondulatoria de la formación de imágenes \cite{bornwolf1999, zernike1934}, pues estas se manifiestan como una aberración de fase (camino óptico) sobre la pupila del sistema.
-Dicha aberración modifica la función de dispersión puntual (PSF): en lugar de la
-PSF ideal de un sistema limitado únicamente por difracción, el sistema produce
-una PSF aberrada por los defectos en la geometría, por lo que es en general más extensa, y con menor
-concentración de energía en el máximo principal \cite{bornwolf1999}. La
-corrección de las aberraciones geométricas determina cuán cerca puede hallarse
-la imagen del límite impuesto por la sola difracción. Por ello los
-sistemas estigmáticos conservan su interés aun en el marco ondulatorio, pues están libres de aberración esférica.
+El impacto de estos efectos alcanza tanto la formación de imágenes como la
+interacción de la luz con la materia. En litografía de alta apertura
+numérica, la polarización modifica la distribución de intensidad y las
+asimetrías de la imagen \cite{flagello1996}. En microscopía de
+superresolución, las aberraciones de polarización pueden alterar el mínimo
+de intensidad de los haces de agotamiento y los patrones de iluminación
+estructurada. En microscopía polarimétrica, pueden introducir errores en
+la información de polarización atribuida a la muestra \cite{Shen2022}.
+Asimismo, la
+polarización condiciona la eficiencia axial y transversal de las pinzas
+ópticas \cite{Kozawa2010Trapping} y la absorción de energía que determina la
+eficiencia del corte láser \cite{Niziev1999Cutting}. Estas aplicaciones
+motivan la caracterización de las alteraciones de amplitud y polarización
+introducidas por la refracción, incluso cuando la aberración de fase ya se
+ha eliminado.
 
-Con esto justificamos el estudio de los sistemas estigmáticos en la óptica ondulatoria, y nos dedicamos a estudiar el más simple de ellos, el formado por dos 
-medios con diferente índice de refracción separados por una superficie que asegura el estigmatismo para un par de puntos conjugados $A$ y $A'$. Estas superficies son conocidas desde 1637, cuando Descartes las introdujo en \emph{La Dioptrique}, uno de los ensayos que acompañan al \emph{Discours de la méthode} \cite{dioptrique}. Si bien, bajo la aproximación paraxial se usan parábolas y estas aseguran el estigmatismo para un par de puntos igualmente, esto debido a que las superficies cartesianas en el régimen paraxial son parábolas, hecho del que se puede deducir la posición de los puntos estigmáticos para este tipo de sistemas.
+El tratamiento electromagnético dispone de representaciones integrales
+exactas basadas en identidades vectoriales de Green \cite{StrattonChu1939}
+y de métodos numéricos como el de elementos finitos (FEM) y el de diferencias
+finitas en el dominio del tiempo (FDTD), cuyo costo computacional dificulta
+el estudio de sistemas grandes respecto de la longitud de onda
+\cite{Shi2019Curved,Wende2022,Song2025}. Las aproximaciones de Debye y
+Richards--Wolf permiten un cálculo focal eficiente, pero presentan
+restricciones de validez y, en el modelo aplanático ideal de
+Richards--Wolf, omiten la transmisión diferencial de Fresnel en las
+superficies de la lente
+\cite{RichardsWolf1959,Sheppard2013Debye,Shi2019RealLenses,Wang2020Debye}.
+Otros métodos incorporan la transmisión local mediante trazado vectorial,
+aproximaciones de interfaz plana y operaciones espectrales
+\cite{Kim18,Shi2019Curved,Wende2022,Song2025}.\footnote{El presente
+desarrollo es independiente de los trabajos de Shi et
+al.~\cite{Shi2019Curved} y Song et al.~\cite{Song2025}, conocidos durante
+la revisión bibliográfica posterior.} Sin embargo, estos tratamientos
+generales no caracterizan las aberraciones vectoriales de las Superficies
+Cartesianas, y el antecedente específico de difracción vectorial en estas
+superficies considera su apodización, pero excluye los coeficientes de
+Fresnel en la comparación focal \cite{GonzalezAcuna2022Oval}. Queda así por
+determinar la contribución de la transmisión vectorial a la estructura del
+campo focal en ausencia de aberración de fase.
 
-El régimen paraxial, donde las superficies cartesianas se reducen a parábolas, corresponde también al régimen de baja apertura numérica, en el que la descripción escalar del campo es suficiente. Al aumentar la apertura numérica, condición indispensable para mejorar la resolución espacial, las superficies cartesianas se alejan apreciablemente de las parábolas y, con ello, la dirección local de propagación varía de manera significativa sobre la pupila del sistema. En este régimen, la refracción en la interfaz dióptrica no actúa como una simple modulación escalar de amplitud: en cada punto de la superficie aparecen direcciones locales de polarización $(s)$ y $(p)$, coeficientes de Fresnel distintos $t_s \neq t_p$, y una transformación vectorial que depende de la posición. Como consecuencia, los diferentes estados de polarización pueden acoplarse entre sí, y componentes del campo inicialmente ausentes pueden emerger tras la transmisión~\cite{Quabis2000,Dorn2003}.
-
-A las desviaciones entre la distribución de intensidad predicha por la teoría escalar y la obtenida mediante una descripción electromagnética completa se las denomina \emph{aberraciones vectoriales}~\cite{Shen2022,Ma2025}. Estas aberraciones son de especial relevancia en sistemas de alta apertura numérica como los empleados en litografía óptica, microscopía confocal y detección astronómica, donde se exige llevar la resolución al límite impuesto por la difracción. En esos contextos, la corrección de las aberraciones geométricas mediante superficies estigmáticas elimina la aberración de fase sobre la pupila, pero no garantiza una PSF ideal: las aberraciones vectoriales constituyen un mecanismo de degradación adicional, de origen puramente electromagnético.
-
-El objetivo de este trabajo es demostrar que en un sistema libre de aberraciones geométricas, formado por una única superficie dióptrica estigmática, existen aberraciones de origen vectorial que modifican la distribución de intensidad en el plano focal y pueden deteriorar la resolución efectiva del sistema. Para ello se calcula el campo electromagnético resultante de la transmisión, a través del dioptrio, del frente de onda esférico emitido desde el punto objeto del sistema, incorporando de manera explícita los efectos vectoriales de la refracción, y se compara con la predicción de la teoría escalar.
-
-El trabajo se organiza como sigue. En el capítulo~\ref{ch:geometrica} se establece el marco geométrico del problema: se deriva la forma de las superficies cartesianas a partir de la condición de igual camino óptico y se obtienen las cantidades locales necesarias para describir la refracción. El capítulo~\ref{ch:ondulatoria} introduce la descripción electromagnética del campo, las condiciones de frontera y los coeficientes de Fresnel que determinan la transformación vectorial en la superficie. Finalmente, en el capítulo~\ref{ch:focal} se combinan estos elementos para construir la función pupila vectorial del sistema y propagar el campo hasta el plano focal, identificando las diferencias respecto a la predicción escalar.
-% El capítulo~\ref{ch:esfera} aplica el formalismo al dioptrio esférico, cuyo caso límite de estigmatismo (puntos de Young–Weierstrass) permite validar los resultados y examinar en qué medida la geometría de la superficie incide en las aberraciones vectoriales observadas.
-% (Capítulo IV actualmente excluido de main.tex; restaurar esta frase si se reincorpora.)
-
+El objetivo de este trabajo es aislar y caracterizar las aberraciones de
+origen netamente vectorial que estan presentes aun en ausencia de aberración de
+fase. Para ello se calcula el campo eléctrico transmitido hacia el plano focal de una Superficie Cartesiana entre dos medios dieléctricos homogéneos e isótropos, donde el campo incidente es una onda esférica centrada en el punto objeto.
+Este sistema es el sistema estigmático más simple, y nos permite examinar los efectos de la refracción vectorial sin la contribución de las aberraciones de camino óptico. 
+En este trabajo expresamos la transmisión de forma operacional, dado el campo incidente mediante el operador matricial que se contruyó en este trabajo, damos el campo transmitido sobre la esféra gaussiana centrada en el punto imagen, matriz que a su vez, nos permite caracterizar la aberración vectorial siguiendo los métodos de McGuire y Chipman \cite{McGuire1991Response}. Este campo transmitido, lo propagamos usando un método vectorial que usa la linealidad de la ecuación de Helmholtz para resolver el problema vectorial propagando cada componente lineal como campos escalares, respetando la condición de transversalidad \cite{Song2025}. Bajo la aproximación de Fresnel el campo en el plano focal queda determinado por una transformación de Fourier de la aliación del operador de transmisión sobre el campo incidente. Resultado que se reduce a transformadas de Hankel cuando la iluminación incidente presenta simetría axial, formulación que permite interpretar con mayor facilidad los efectos vectoriales sobre el plano focal.  Nuestro formalismo tiene en cuenta los efectos vectoriales tales como el acoplamiento y modulación de las polarizaciones, y la componente longitudinal del campo. Este análisis de las aberraciones vectoriales en sistemas estigmáticos es un primer paso hacia su posterior corrección. La composición de las operaciones permite, además, extender el cálculo a sistemas formados por varias Superficies Cartesianas.

@@ -1,0 +1,356 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{lmodern}
+\else
+  \usepackage{fontspec}
+  \setmainfont{Latin Modern Roman}
+\fi
+\usepackage[spanish,es-tabla,es-nodecimaldot]{babel}
+\spanishplainpercent
+\usepackage{csquotes}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm,mathrsfs}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{babel,calc,angles,quotes,shapes.geometric}
+\usepackage{float}
+\usepackage[hidelinks]{hyperref}
+\usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
+\addbibresource{bibliography.bib}
+
+\numberwithin{equation}{section}
+\newcommand{\uvec}[1]{\bm{\hat{\mathbf{#1}}}}
+\newcommand{\thesisincludegraphics}[3][]{%
+  \IfFileExists{#2}{\includegraphics[#1]{#2}}{\includegraphics[#1]{#3}}%
+}
+
+\title{Propagación de campos mediante el espectro angular\\
+\large Desarrollo del método y límite de resolución}
+\author{Jhonatan S. Blanco}
+\date{}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{Propagación de los campos}
+
+Establecida la ecuación de Helmholtz como la ecuación que gobierna cada componente armónica del campo, el siguiente paso es resolverla: dado el campo sobre un plano inicial, determinar su valor en cualquier otro punto del espacio. En esta sección presentamos el primero de los métodos exactos de propagación, el método del espectro angular \cite{goodman2005}, y extraemos de él una consecuencia física fundamental: el límite de resolución que impone la finitud de los sistemas ópticos.
+
+\subsection{Método de espectro angular}
+
+El método de espectro angular permite determinar el campo escalar en un plano $z>0$ a partir de su valor conocido en el plano inicial $z=0$ \cite{goodman2005}. Su fundamento consiste en descomponer el campo como una superposición continua de ondas planas, cada una de las cuales evoluciona de manera simple bajo la ecuación de Helmholtz.
+
+Para ello, se separa primero el operador laplaciano en su parte transversal y longitudinal,
+\begin{equation}
+\nabla^2
+=
+\nabla_\perp^2
++
+\frac{\partial^2}{\partial z^2},
+\qquad
+\nabla_\perp^2
+=
+\frac{\partial^2}{\partial x^2}
++
+\frac{\partial^2}{\partial y^2},
+\label{eq:laplacian_transverse_longitudinal}
+\end{equation}
+de modo que la ecuación de Helmholtz toma la forma
+\begin{equation}
+\left(
+\nabla_\perp^2
++
+\frac{\partial^2}{\partial z^2}
++
+k^2
+\right)
+\Psi(\vb r,z)
+=
+0,
+\label{eq:helmholtz_split}
+\end{equation}
+donde $\vb r=(x,y)$ representa la coordenada transversal.
+
+Introducimos ahora la transformada de Fourier bidimensional sobre el plano transversal mediante
+\begin{equation}
+\mathscr F_\perp\{\Psi\}
+=
+\tilde{\Psi}(\mathbf k_\perp;z)
+=
+\iint_{\mathbb R^2}
+\Psi(\vb r,z)\,
+e^{-i\,\mathbf k_\perp\cdot\vb r}
+\,d^2\vb r,
+\label{eq:fourier_forward}
+\end{equation}
+y su inversa
+\begin{equation}
+\Psi(\vb r,z)
+=
+\frac{1}{(2\pi)^2}
+\iint_{\mathbb R^2}
+\tilde{\Psi}(\mathbf k_\perp;z)\,
+e^{i\,\mathbf k_\perp\cdot\vb r}
+\,d^2\mathbf k_\perp,
+\label{eq:fourier_inverse}
+\end{equation}
+donde $\mathbf k_\perp=(k_x,k_y)$ es el vector de onda transversal.
+
+Aplicando $\mathscr F_\perp$ sobre la ecuación \eqref{eq:helmholtz_split}, y usando que
+\begin{equation}
+\mathscr F_\perp
+\left\{
+\nabla_\perp^2\Psi
+\right\}
+=
+-|\mathbf k_\perp|^2
+\tilde{\Psi},
+\label{eq:fourier_laplacian}
+\end{equation}
+se obtiene la ecuación diferencial ordinaria
+\begin{equation}
+\frac{\partial^2\tilde{\Psi}}{\partial z^2}
++
+\left(
+k^2
+-
+|\mathbf k_\perp|^2
+\right)
+\tilde{\Psi}
+=
+0.
+\label{eq:spectral_ode}
+\end{equation}
+Esta expresión muestra que cada componente espectral transversal evoluciona independientemente como una onda plana. Definiendo la componente longitudinal del vector de onda mediante la relación de dispersión
+\begin{equation}
+k^2
+=
+|\mathbf k_\perp|^2
++
+k_z^2,
+\label{eq:dispersion_relation}
+\end{equation}
+se obtiene
+\begin{equation}
+k_z(\mathbf k_\perp)
+=
+\begin{cases}
+\sqrt{
+k^2-|\mathbf k_\perp|^2
+},
+&
+|\mathbf k_\perp|^2\leq k^2,
+\\[6pt]
+i\sqrt{
+|\mathbf k_\perp|^2-k^2
+},
+&
+|\mathbf k_\perp|^2>k^2.
+\end{cases}
+\label{eq:kz_definition}
+\end{equation}
+La elección de la rama con $\operatorname{Im}(k_z)\geq0$ garantiza que las componentes evanescentes no crezcan exponencialmente para $z>0$. Las componentes tales que
+$|\mathbf k_\perp|^2\leq k^2$
+corresponden a ondas propagantes, mientras que aquellas con
+$|\mathbf k_\perp|^2>k^2$
+representan campos evanescentes que decaen exponencialmente con la distancia.
+
+La solución general de \eqref{eq:spectral_ode} es
+\begin{equation}
+\tilde{\Psi}(\mathbf k_\perp;z)
+=
+A(\mathbf k_\perp)\,
+e^{ik_z z}
++
+B(\mathbf k_\perp)\,
+e^{-ik_z z},
+\label{eq:general_solution_spectral}
+\end{equation}
+y para propagación hacia adelante ($z>0$) se conserva únicamente la componente físicamente saliente,
+\begin{equation}
+\tilde{\Psi}(\mathbf k_\perp;z)
+=
+\tilde{\Psi}(\mathbf k_\perp;0)\,
+e^{ik_z(\mathbf k_\perp)\,z}.
+\label{eq:spectral_propagation}
+\end{equation}
+Así el espectro transversal se propaga retrasando cada componente acorde a la fase $\left( \sqrt{k^2 - k_r^2} \right ) z$; nótese cómo cada componente se retrasa de manera distinta según $k_r$: los mayores retardos corresponden a los menores valores que puede tomar $k_r$, es decir, las frecuencias transversales cercanas a cero.
+
+Finalmente, sustituyendo \eqref{eq:spectral_propagation} en la transformada inversa \eqref{eq:fourier_inverse}, obtenemos
+\begin{equation}
+\Psi(\vb r,z)
+=
+\frac{1}{(2\pi)^2}
+\iint_{\mathbb R^2}
+\tilde{\Psi}_0(\mathbf k_\perp)\,
+\exp
+\left[
+i\left(
+\mathbf k_\perp\cdot\vb r
++
+k_z(\mathbf k_\perp)\,z
+\right)
+\right]
+\,d^2\mathbf k_\perp.
+\label{eq:angular_spectrum_propagation}
+\end{equation}
+
+En esta representación el campo $\Psi$ en el plano $z$ es una suma de ondas planas con vector de onda $\vb k = \vb k_\perp + k_z(\vb k_\perp)\,\uvec z$, cuya amplitud es el espectro angular del campo en $z=0$.
+
+De manera operacional, la propagación puede escribirse como
+\begin{equation}
+\Psi(\vb r,z)
+=
+\mathscr R_{ASM}(z)\,
+\Psi(\vb r,0),
+\label{eq:operator_form}
+\end{equation}
+donde
+\begin{equation}
+\mathscr R_{ASM}(z)
+=
+\mathscr F_\perp^{-1}
+\left\{
+e^{i\,k_z(\mathbf k_\perp)\,z}
+\mathscr F_\perp \left\{ \right\} \right\}.
+\label{eq:propagation_operator}
+\end{equation}
+O, equivalentemente,
+\begin{equation}
+\mathscr R_{ASM}(z)
+=
+\mathscr F_\perp^{-1}
+\left\{
+  e^{i\, k \sqrt{1 - (k_r/k)^2 }  \,z}
+\mathscr F_\perp \left\{ \right\} \right\}.
+\label{eq:propagation_operator_explicit}
+\end{equation}
+El operador $\mathscr R_{ASM}(z)$ diagonaliza el laplaciano transversal $\nabla_\perp^2$, transformando la ecuación diferencial parcial de Helmholtz en una operación espectral.
+
+
+
+
+
+
+
+
+% ==== SEC : LÍMITE DE RESOLUCIÓN ===
+\subsection{Límite de resolución} 
+\label{sec:resolution_limit}
+
+Tomamos como punto de partida el resultado del método de espectro angular, ecuación \eqref{eq:angular_spectrum_propagation}, que expresa el campo como superposición de ondas planas propagantes y evanescentes. En particular, el campo escalar en el medio puede escribirse como:
+\begin{equation}
+\begin{aligned}
+\Psi(\mathbf r)
+&= \frac{1}{(2\pi)^2}
+\int_{-\infty}^{\infty}\!\!\int_{-\infty}^{\infty}
+\tilde\Psi(k_x,k_y,0)\,
+e^{i(k_x x + k_y y + k_z z)}\, dk_x\,dk_y,
+\end{aligned}
+\end{equation}
+
+donde
+\begin{equation}
+k_z = \sqrt{k^2 - k_x^2 - k_y^2},
+\qquad
+k = \lvert\mathbf k\rvert = \frac{2\pi n}{\lambda},
+\end{equation}
+con \(n\) el índice de refracción del medio y \(\lambda\) la longitud de onda en el vacío.
+
+La dirección de propagación de cada onda plana viene dada por
+\begin{equation}
+\frac{\mathbf k\cdot\hat{\mathbf z}}{k} = \cos\theta
+\qquad\Rightarrow\qquad
+\frac{k_z}{k} = \cos\theta.
+\end{equation}
+De donde se obtiene
+\begin{equation}
+\sin\theta
+= \frac{k_\perp}{k}
+= \frac{\sqrt{k_x^2 + k_y^2}}{k},
+\end{equation}
+con \(k_\perp = \sqrt{k_x^2 + k_y^2}\).
+La apertura numérica del sistema está dada por \cite{bornwolf1999}
+\begin{equation}
+\mathrm{NA} = n \sin\theta.
+\label{eq:def_NA}
+\end{equation}
+
+La finitud de los sistemas ópticos, debida a la finitud de las lentes y de las pupilas, impone
+un ángulo máximo de aceptación desde el cual los rayos del objeto pueden ser emitidos para que pasen al sistema, 
+sea $\alpha$ este ángulo, se sigue que las componentes que se emiten con un ángulo $\theta$ deben ser menores o iguales al ángulo máximo de aceptación $\alpha$, de lo que se sigue que
+\begin{equation}
+n\sin\alpha \ge n\sin\theta = \mathrm{NA},
+\end{equation}
+
+\begin{figure}[H]
+    \centering
+    \input{tikzfigures/na_diagram.tex}
+    \caption{Ilustración del ángulo de apertura $\alpha$.}
+    \label{fig:na_geometry}
+\end{figure}
+que es equivalente a
+\begin{equation}
+k_\perp \le k \sin\theta_{\max}
+= k\,\frac{\mathrm{NA}}{n}.
+\end{equation}
+En términos de frecuencias espaciales
+\begin{equation}
+\begin{aligned}
+f_\perp &= \frac{k_\perp}{2\pi}
+\le \frac{k}{2\pi}\,\frac{\mathrm{NA}}{n}
+= \frac{n/\lambda}{1}\,\frac{\mathrm{NA}}{n}
+= \frac{\mathrm{NA}}{\lambda}.
+\end{aligned}
+\end{equation}
+Por tanto, el sistema transmite frecuencias espaciales hasta
+\begin{equation}
+f_{\max} = \frac{\mathrm{NA}}{\lambda}.
+\end{equation}
+
+Considérese ahora un objeto limitado a una extensión \(d\) en la dirección \(x\). Su desarrollo en serie de Fourier contiene armónicas con números de onda
+\begin{equation}
+\begin{aligned}
+k_x &= \frac{n\pi}{d},
+\\
+n &= 0,1,2,\dots,
+\end{aligned}
+\end{equation}
+y por tanto
+\begin{equation}
+f_x = \frac{k_x}{2\pi} = \frac{n}{2d}.
+\end{equation}
+Para que la estructura correspondiente sea resoluble, al menos el primer armónico \(n=1\) debe ser transmitido por el sistema:
+\begin{equation}
+\frac{1}{2d} \le f_{\max} = \frac{\mathrm{NA}}{\lambda}.
+\end{equation}
+
+De aquí se obtiene el límite de resolución de Abbe \cite{Abbe1873}:
+\begin{equation}
+d \ge \frac{\lambda}{2\,\mathrm{NA}}.
+\end{equation}
+Por lo que el límite inferior de detalle resoluble está dado por
+\begin{equation}
+  d_{min} = \frac{\lambda}{2\,\mathrm{NA}},
+\label{eq:abbe_resolution_limit}
+\end{equation}
+donde \(\lambda\) es la longitud de onda en el vacío, y \(\mathrm{NA}\) es la apertura numérica definida en la ecuación \eqref{eq:def_NA}.
+
+\begin{figure}[H]
+    \centering
+    \thesisincludegraphics[width=0.85\textwidth]
+      {figures/Loss_of_detail_in_small_apertures.jpg}
+      {figures/fast/Loss_of_detail_in_small_apertures.jpg}
+    \caption{Pérdida de detalle al reducir la apertura numérica: las frecuencias espaciales altas quedan fuera de banda y no son transmitidas por el sistema óptico. Se observa que las frecuencias espaciales más altas contienen los detalles más finos.}
+    \label{fig:loss_detail_small_apertures}
+\end{figure}
+
+De acá se sigue que aumentar el tamaño de la pupila y aumentar el índice de refracción $n$ da lugar a una mayor resolución, por lo que las aproximaciones paraxiales limitan la resolución que los sistemas pueden alcanzar debido a que no contemplan frecuencias mayores, donde están los detalles más finos.
+
+\printbibliography
+\end{document}
