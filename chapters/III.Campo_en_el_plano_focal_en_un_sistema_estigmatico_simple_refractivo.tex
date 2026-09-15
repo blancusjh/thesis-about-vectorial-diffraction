@@ -1057,28 +1057,20 @@ Dado que en el frente de onda inicial la fase es constante, era de esperar que e
 \medskip
 
 \noindent\textit{Relación con la formulación de Richards y Wolf.} El resultado
-\eqref{eq:E_prime_func_of_M_E0} tiene la misma estructura de la fórmula
-canónica del campo focal derivada por Richards y Wolf~\cite{RichardsWolf1959}
-(véase también \cite{Torok1995})
-para sistemas aplanáticos idealizados: una transformada de Fourier
-bidimensional sobre la esfera de referencia imagen, aplicada al producto de
-la función pupila escalar por un operador vectorial que gira los estados de
-polarización. La diferencia esencial es que en la formulación de Richards y
-Wolf el operador vectorial se postula desde la construcción aplanática, pues
-asume una lente ideal que satisface la condición de los senos de Abbe~\cite{Abbe1873}, y
-la amplitud sobre la pupila queda ponderada por el factor apodizador
-$\sqrt{\cos\theta}$ característico. En cambio, la función pupila vectorial
-$\mathbb E^{\mathscr G'}=\mathbb T\mathbb E_0/\ell_0$ derivada aquí se
-construye punto a punto desde la geometría de la superficie
-cartesiana y desde la transmisión de Fresnel evaluada sobre ella, sin
-suponer ninguna lente ideal: la factorización $1/\ell_0$ absorbe la
-divergencia esférica sobre $\mathscr G$, y las variaciones angulares de
-$t_p$ y $t_s$ producen tanto la modulación de amplitud como el acoplamiento
-vectorial. En el límite en que la superficie cartesiana se aproxima por su
-esfera osculatriz y $t_p,t_s$ se toman constantes, la función pupila aquí
-obtenida colapsa sobre la de Richards y Wolf; la formulación presente es,
-por tanto, una generalización que incorpora la geometría real del sistema
-estigmático y la transmisión de Fresnel completa.
+\eqref{eq:E_prime_func_of_M_E0} debe distinguirse de la fórmula canónica del
+campo focal derivada por Richards y Wolf~\cite{RichardsWolf1959} (véase
+también \cite{Torok1995}). En esta última, el sistema se modela como una lente
+aplanática ideal que satisface la condición de los senos de
+Abbe~\cite{Abbe1873}, y la amplitud sobre la pupila queda ponderada por el
+factor apodizador $\sqrt{\cos\theta}$. En la formulación presente, la función
+pupila vectorial
+$\mathbb E^{\mathscr G'}=\mathbb T\mathbb E_0/\ell_0$ se construye punto a
+punto a partir de la geometría de la superficie cartesiana y de la
+transmisión de Fresnel evaluada localmente. La factorización $1/\ell_0$
+incorpora la divergencia esférica sobre $\mathscr G$, mientras que las
+variaciones angulares de $t_p$ y $t_s$ producen la modulación de amplitud y el
+acoplamiento vectorial. De esta manera, la transformación vectorial se
+obtiene directamente de la superficie refractora considerada.
 
 \medskip
 
@@ -1446,16 +1438,19 @@ compacta mediante la coordenada proyectiva compleja \cite{azzam1977}
 \tan \vartheta(\rho',\phi')\, e^{i\delta(\rho',\phi')},
 \label{eq:zeta_def}
 \end{equation}
+
+
 donde $\mathscr E_x$ y $\mathscr E_y$ son las componentes cartesianas
-transversales del campo sobre $\mathscr{G}$. El ángulo de amplitudes
-$\vartheta$, definido por $\tan\vartheta=|\mathscr E_y|/|\mathscr E_x|$, mide
+transversales del campo sobre $\mathscr{G}$. El "ángulo de amplitudes" 
+$\, \vartheta$, definido por $\tan\vartheta=|\mathscr E_y|/|\mathscr E_x|$, mide
 la razón entre las amplitudes de las dos componentes cartesianas, mientras que
 $\delta=\arg\mathscr E_y-\arg\mathscr E_x$ es la fase relativa entre ellas.
 Estos dos parámetros determinan por completo la elipse de polarización local:
 $\vartheta$ fija el reparto de amplitud entre las componentes y $\delta$ la
 elipticidad y el sentido de recorrido. Nótese que $\zeta$ es insensible
-a la fase global $\gamma$. Después de la transmisión, el estado sobre
-$\mathscr{G}'$ queda caracterizado por
+a la fase global $\gamma$. Después de la transmisión, el estado sobre $\mathscr{G}'$ queda caracterizado por
+
+
 \begin{equation}
 \zeta_{\mathscr{G}'}(\rho',\phi')
 =
@@ -1479,8 +1474,8 @@ t_-(\rho')\sin 2\phi'\,\zeta(\rho',\phi')
 }
 \label{eq:mobius_transformation}
 \end{equation}
-Esta expresión muestra que la transmisión vectorial induce una transformación
-de Möbius sobre el estado local de polarización, la cual es invertible siempre
+Esta expresión muestra que la transmisión vectorial puede ser representada 
+mediante una transformación de Möbius sobre el estado local de polarización, la cual es invertible siempre
 que $\det \mathbb{T}_{xy}=t_p t_s \neq 0$, condición que se satisface en
 transmisión. De $\zeta_{\mathscr{G}'}$ se obtienen el ángulo de amplitudes y
 la fase relativa del estado transmitido,
@@ -1801,31 +1796,28 @@ t_-
 \end{equation}
 con ambas transformadas evaluadas en $\frac{n}{\lambda f}\vb r$.
 
-La ecuación \eqref{eq:zeta_focal_mobius} incorpora de manera explícita la
-transformación local \eqref{eq:mobius_transformation} en el resultado focal.
-De ella se recuperan, en cada punto de observación, la razón entre las
-amplitudes y la fase relativa,
-$\tan\vartheta_f=|\zeta_f|$ y $\delta_f=\arg\zeta_f$, y con ellas, junto con
-la componente $E'_x$, el campo en el plano focal.
+La ecuación \eqref{eq:zeta_focal_mobius} determina el estado de polarización 
+en el plano focal, producto de la refracción del campo incidente con amplitudes 
+$(\mathscr E_x, \mathscr E_y)$.
 
-Este resultado es completamente general: no requiere simetría azimutal de las
-amplitudes ni uniformidad del estado de polarización sobre la pupila. Nótese
-la diferencia esencial con la transformación local de la
+Nótese la diferencia esencial con la transformación local de la
 sección~\ref{subsec:polarizacion_refraccion}: las amplitudes $A_{x,y}$ y
-las fases $\Phi_{x,y}$ en un punto de observación son funcionales de la
-distribución completa del campo sobre la pupila, de modo que en general no
-existe una relación local entre el estado incidente $\zeta(\rho',\phi')$ y el
-estado focal $\zeta_f(\vb r)$.
+las fases $\Phi_{x,y}$, definidas en \eqref{eq:Axy_Phixy_def}, en un punto de observación son funcionales de la distribución completa del campo sobre la pupila. En general no
+existe una relación local la polarización del campo incidente $\zeta(\rho',\phi')$ y la polarización del campo transmitido en el plano focal $\zeta_f(\vb r)$.
 
-La lectura física de \eqref{eq:theta_delta_focal} es directa. Aunque el campo
-sobre la pupila tenga fase constante, como garantiza la condición
-estigmática, las dos síntesis de Fourier adquieren fases de difracción
-$\Phi_x$ y $\Phi_y$ que son funciones distintas del punto de observación. La
+Vale la pena destacar, que como se puede observar desde la 
+ecuación \eqref{eq:theta_delta_focal}, la propagación del 
+campo añade una fase generalmente distinta a cada componente, $\Phi_x$ y $\Phi_y$. La
 diferencia $\delta_f=\Phi_y-\Phi_x$ actúa entonces como un desfasador efectivo
-distribuido sobre el plano focal: allí donde toma valores distintos de $0$ y
+distribuido sobre el plano focal, allí donde toma valores distintos de $0$ y
 $\pi$ genera elipticidad, aun para iluminación incidente linealmente
-polarizada. La razón $A_y/A_x$, por su parte, redistribuye el peso entre las
-componentes y con ello la orientación de la elipse.
+polarizada a difrencia de la transformación del campo incidente al campo en la pupila 
+que no introducia elipticidad si la iluminación incidente era polarizada linealmente. 
+\\
+Sin embargo, si la iluminación incidente es simetrica axialmente y las componentes 
+del vector de amplitud $\mathbb E_0$ son reales, $\Phi_x=\Phi_y=-$ por las propiedades de 
+la transformada de Fourier para funciones reales y pares \cite{arfken2013}.
+
 
 Como caso ilustrativo, bajo las simetrías azimutales que se estudiarán en la
 subsección~\ref{subsec:representacion_cartesiana}, las síntesis se reducen a
