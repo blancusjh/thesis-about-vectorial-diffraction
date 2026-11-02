@@ -32,3 +32,9 @@ kept with a warning.
 
 Permanent simulation assets live under `figures/results_of_simulation/`.
 `to_insert/` is staging-only and must not be referenced from the LaTeX sources.
+
+## License
+
+Original project code and documentation are licensed under the [MIT License](LICENSE).
+Third-party code, publications, datasets, fonts, and other assets retain their
+respective licenses and copyright notices; this license does not replace them.
