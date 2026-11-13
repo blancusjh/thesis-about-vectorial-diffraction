@@ -2,10 +2,12 @@
 $pdf_mode = 4;
 $lualatex = 'lualatex -interaction=nonstopmode -file-line-error %O %S';
 
-# NOTE:
-# Keep outputs in the project root for stable biblatex/biber runs.
+# Keep generated files in build/ and publish only the finished PDF beside the TeX.
+$out_dir = 'build';
+$out2_dir = '.';
+@out2_exts = ('pdf');
 
-# Ensure biber runs against the default working directory outputs.
+# Let latexmk pass the build directory to biber.
 $bibtex_use = 2;
 $biber = 'biber %O %B';
 

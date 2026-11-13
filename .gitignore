@@ -1,4 +1,5 @@
 # LaTeX build cache and auxiliary files
+/build/
 .tex-cache/
 .texlive-var/
 *.aux

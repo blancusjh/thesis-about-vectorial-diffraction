@@ -24,6 +24,14 @@ Use the final entry point to embed the original, full-quality figures:
 latexmk -pdf main-final.tex
 ```
 
+La configuración de `latexmkrc` guarda todos los archivos de compilación en
+`build/` y copia únicamente el PDF terminado a la raíz, junto al `.tex`.
+Los comandos de compilación son los mismos para las tres versiones.
+Los archivos SyncTeX para la navegación entre el código y el PDF quedan en
+`build/`; si el visor necesita encontrarlos junto al PDF, abre el PDF de esa
+carpeta. Para limpiar los auxiliares: `latexmk -c main.tex` (o el nombre de
+la versión correspondiente).
+
 Optimized previews live in `figures/fast/`. They are derived assets; the original
 figures remain the source of truth for the final document. `latexmk` regenerates
 only previews whose original files have changed. ImageMagick's `magick` command
