@@ -450,16 +450,26 @@ la intensidad transversal se obtiene sin término de interferencia entre las com
 \label{eq:I_perp_cylindrical}
 \end{equation}
 
-Sin embargo, la intensidad total debe incluir la componente longitudinal. Usando
+Sin embargo, la intensidad total debe incluir la componente longitudinal. Esta no se obtiene multiplicando $E'_r(\vb r,f)$ por un factor local en el plano focal, pues la relación de transversalidad \eqref{eq:Ez_from_Er} vale sobre la esfera de referencia y no punto a punto en dicho plano; se obtiene transformando la componente longitudinal de la función pupila, ecuación \eqref{eq:Ez_focal_from_pupil}. Para un campo incidente axialmente simétrico en la base cilíndrica, dicha componente es una función escalar axialmente simétrica y resulta
 \begin{equation}
-E'_z(\vb r,f)=-\tan\theta_A'(r)\,E'_r(\vb r,f),
+E'_z(\vb r,f)
+=
+\frac{2\pi n}{i\lambda f z_0}\,e^{inkf}e^{i\frac{nk}{2f}r^2}\,
+\mathscr H_0\{t_p\sin\alpha'\,\mathscr E_r\}(q),
 \qquad
-\theta_A'(r)=\frac{r}{z_i-z(r)},
+\tan\alpha'(\rho')=\frac{r(\rho')}{z_i-z(\rho')},
 \label{eq:Ez_from_Er_cylindrical}
 \end{equation}
-se obtiene
+de modo que
 \begin{equation}
-I_z(\vb r,f)=|E'_z|^2=\tan^2\theta_A'(r)\,|E'_r|^2,
+I_z(\vb r,f)=|E'_z|^2
+=
+\left(
+\frac{2\pi n}{\lambda f z_0}
+\right)^2
+\left|
+\mathscr H_0\{t_p\sin\alpha'\,\mathscr E_r\}(q)
+\right|^2,
 \label{eq:Iz_cylindrical}
 \end{equation}
 y por tanto
@@ -470,9 +480,12 @@ I(\vb r,f)=I_\perp(\vb r,f)+I_z(\vb r,f)
 \frac{2\pi n}{\lambda f z_0}
 \right)^2
 \left[
-\left(1+\tan^2\theta_A'(r)\right)
 \left|
 \mathscr H_1\{t_p\mathscr E_r\}(q)
+\right|^2
++
+\left|
+\mathscr H_0\{t_p\sin\alpha'\,\mathscr E_r\}(q)
 \right|^2
 +
 \left|
@@ -481,6 +494,7 @@ I(\vb r,f)=I_\perp(\vb r,f)+I_z(\vb r,f)
 \right].
 \label{eq:I_total_cylindrical}
 \end{equation}
+La contribución longitudinal solo existe para la componente radial del campo incidente y, al ser de orden cero, no se anula sobre el eje.
 
 Para el caso uniforme sobre la pupila,
 \begin{equation}
@@ -557,7 +571,7 @@ z_0^2z_i^2(n_0-n_i)(n_0+n_i)
 \end{aligned}
 \label{eq:I_perp_cylindrical_homogeneous}
 \end{equation}
-incluyendo la componente longitudinal:
+y, incluyendo la componente longitudinal,
 \begin{equation}
 \begin{aligned}
 I(\vb r,f)
@@ -566,11 +580,16 @@ I(\vb r,f)
 \frac{2\pi n}{\lambda f z_0}
 \right)^2
 \Bigg[
-\left(1+\tan^2\theta_A'(r)\right)
 |E_{r,0}|^2
+\left(
 \left|
 \mathcal G_r(q)
 \right|^2
++
+\left|
+\mathcal G_z(q)
+\right|^2
+\right)
 \\
 &\qquad
 +
@@ -578,10 +597,13 @@ I(\vb r,f)
 \left|
 \mathcal G_\phi(q)
 \right|^2
-\Bigg].
+\Bigg],
+\qquad
+\mathcal G_z(q)\equiv\mathscr H_0\{t_p\sin\alpha'\,A_a\}(q).
 \end{aligned}
 \label{eq:I_total_cylindrical_homogeneous}
 \end{equation}
+Al orden paraxial más bajo, $t_p\sin\alpha'\simeq \tfrac{2n_0}{n_0+n_i}\,\rho'/z_i$ y $\mathcal G_z(q)\simeq\tfrac{2n_0}{(n_0+n_i)z_i}\,\big[(qa)^2J_1(qa)+qa\,J_0(qa)-\mathcal I(qa)\big]/q^3$, con $\mathcal I$ definida en \eqref{eq:Lommel_I_def_cylindrical}, cuyo valor en el eje es $\tfrac{2n_0}{n_0+n_i}\,\tfrac{a^3}{3z_i}$.
 
 Este resultado expresa una diferencia estructural con la representación circular: en la base circular aparecen naturalmente los órdenes \(0\) y \(2\), asociados respectivamente al término diagonal y al acoplamiento \(\ket L\leftrightarrow\ket R\). En cambio, para campos axialmente simétricos escritos directamente en la base cilíndrica, la dependencia angular de los propios vectores \(\uvec r(\phi')\) y \(\uvec\phi(\phi')\) impone el orden \(1\). Por eso los haces radial y azimutalmente polarizados presentan un cero axial en la componente transversal del campo focal: la ausencia de campo en el centro es un resultado puramente vectorial que la teoría escalar no puede describir, pues emerge de la estructura geométrica de los vectores $\uvec r(\varphi')$ y $\uvec\phi(\varphi')$ sobre la pupila, no de una modulación de amplitud.
 

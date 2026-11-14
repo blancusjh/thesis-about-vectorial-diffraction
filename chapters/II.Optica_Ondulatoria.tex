@@ -480,15 +480,15 @@ Para definir las polarizaciones $\uvec s$ y $\uvec p$ primero hay que definir el
 definimos así entonces los vectores unitarios $\uvec s$ y $\uvec p$ según
 \begin{equation}
   \uvec{s}(\uvec{k},\uvec N)
-  = \frac{\uvec N\times\uvec{k}}
-  {\left\|\uvec N\times\uvec{k}\right\|},
+  = \frac{\uvec{k}\times\uvec N}
+  {\left\|\uvec{k}\times\uvec N\right\|},
 \label{eq:sdef}
 \end{equation}
 
 \begin{equation}
   \uvec{p}(\uvec{k},\uvec N)
   = \uvec{s}(\uvec{k},\uvec N)\times\uvec{k}
-  = \frac{(\uvec N\cdot\uvec{k})\uvec{k}-\uvec N}
+  = \frac{\uvec N-(\uvec N\cdot\uvec{k})\uvec{k}}
   {\sqrt{1-\left(\uvec N\cdot\uvec{k}\right)^2}}.
 \label{eq:pdef}
 \end{equation}

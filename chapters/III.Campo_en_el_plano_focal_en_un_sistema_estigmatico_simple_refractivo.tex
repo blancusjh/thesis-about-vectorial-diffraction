@@ -77,8 +77,8 @@ Sustituyendo en la expresión del campo transmitido,
     \sqrt{\rho^2 - 2zz_i + z_i^2}
     }
     \big\{
-    (z(\rho) - z_i) \uvec{r}
-    -
+    (z_i - z(\rho)) \uvec{r}
+    +
     r(\rho) \uvec{z}
     \big\}
     +
@@ -199,7 +199,7 @@ n\frac{e^{inkz}}{i\lambda z}\,
 \right),
 \label{E_in_observation_plane_as_FT_3D}
 \end{equation}
-donde
+donde $\mathscr F\{\cdot\}(\boldsymbol\nu)$ denota la transformada de Fourier bidimensional evaluada en la frecuencia espacial $\boldsymbol\nu=n\vb r/(\lambda z)$, esto es, en el vector de onda transversal $\vb k_\perp=2\pi\boldsymbol\nu=nk\,\vb r/z$ de la convención \eqref{eq:fresnel_fourier_form}, y
 \begin{equation}
 \vb P(\|\vb r'\|)
 =
@@ -216,7 +216,14 @@ t_s (\vb{E}_P\cdot \uvec{\phi}) \uvec{\phi}
 \label{eq:P_definition}
 \end{equation}
 
-Defínase un sistema coordenado esférico centrado en el foco del sistema, que es el punto $A'$; llámense por $\uvec R_{A'}$, $\uvec \theta_{A'}$, $\uvec \phi$ los vectores curvilíneos asociados al sistema. Los estados de polarización $\uvec p'$ y $\uvec s$ son la polarización definida por los vectores base del sistema esférico centrado en $A'$ tangentes a la esfera, esto es $\uvec \theta_{A'}$ y $\uvec \phi$ respectivamente, como puede ser comprobado con facilidad desde las expresiones \eqref{eq:p_prime_mode_ovoid} y \eqref{eq:s_mode_ovoid}. De modo que en el sistema esférico centrado en $A'$ la base de polarización queda escrita como
+Defínase un sistema coordenado esférico centrado en el foco del sistema, que es el punto $A'$; llámense por $\uvec R_{A'}$, $\uvec \theta_{A'}$, $\uvec \phi$ los vectores curvilíneos asociados al sistema. Los estados de polarización $\uvec p'$ y $\uvec s$ son tangentes a la esfera centrada en $A'$ y coinciden, salvo el signo de $\uvec p'$, con los vectores base $\uvec \theta_{A'}$ y $\uvec \phi$ del sistema esférico, como puede ser comprobado con facilidad desde las expresiones \eqref{eq:p_prime_mode_ovoid} y \eqref{eq:s_mode_ovoid}. Un punto $Q$ de la superficie tiene ángulo polar $\theta_{A'}>\pi/2$ respecto de $A'$, pues queda a la izquierda del foco; resulta más cómodo usar el ángulo de convergencia del rayo refractado con el eje óptico,
+\begin{equation}
+  \alpha' = \pi-\theta_{A'},
+  \qquad
+  \tan\alpha' = \frac{r(\rho)}{z_i-z(\rho)},
+  \label{eq:alpha_prime_def}
+\end{equation}
+con el cual la base de polarización queda escrita como
 \begin{align}
 \uvec{s}
 &=
@@ -228,22 +235,22 @@ Defínase un sistema coordenado esférico centrado en el foco del sistema, que e
 \\
 \uvec{p}'
 &=
-\uvec{\theta}_{A'}
+-\uvec{\theta}_{A'}
 =
-\cos\theta_{A'}
+\cos\alpha'
 (\cos\phi\,\uvec{x}+\sin\phi\,\uvec{y})
--
-\sin\theta_{A'}\,\uvec{z}.
++
+\sin\alpha'\,\uvec{z}.
 \label{s_p_in_A_prime_system}
 \end{align}
-La figura~\ref{fig:sphere_theta_phi_fields} ilustra esta identificación: sobre la esfera de referencia centrada en $A'$, los modos de polarización $p$ y $s$ no son direcciones fijas sino los campos vectoriales tangentes $\uvec{\theta}_{A'}$ y $\uvec{\phi}$, de carácter meridional y azimutal respectivamente.
+La figura~\ref{fig:sphere_theta_phi_fields} ilustra esta identificación: sobre la esfera de referencia centrada en $A'$, los modos de polarización $p$ y $s$ no son direcciones fijas sino los campos vectoriales tangentes meridional ($\mp\uvec{\theta}_{A'}$) y azimutal ($\uvec{\phi}$) respectivamente.
 
 \begin{figure}[H]
   \centering
   \thesisincludegraphics[width=0.65\textwidth]
     {figures/geometrical_setups/esfera_polarizacion_rotada.pdf}
     {figures/fast/esfera_polarizacion_rotada.png}
-  \caption{Campos vectoriales tangentes sobre la esfera de referencia centrada en el foco $A'$: (a)~parametrización de la dirección $\uvec{k}(\theta,\varphi)$; (b)~campo meridional $\uvec{\theta}$; (c)~campo azimutal $\uvec{\phi}$. El modo de polarización $p$ corresponde al campo meridional $\uvec{\theta}_{A'}$ y el modo $s$ al campo azimutal $\uvec{\phi}$.}
+  \caption{Campos vectoriales tangentes sobre la esfera de referencia centrada en el foco $A'$: (a)~parametrización de la dirección $\uvec{k}(\theta,\varphi)$; (b)~campo meridional $\uvec{\theta}$; (c)~campo azimutal $\uvec{\phi}$. El modo de polarización $p$ corresponde al campo meridional ($\uvec p'=-\uvec{\theta}_{A'}$) y el modo $s$ al campo azimutal $\uvec{\phi}$.}
   \label{fig:sphere_theta_phi_fields}
 \end{figure}
 
@@ -317,15 +324,16 @@ El vector normal unitario en cada punto de la superficie considerada es
   \uvec{N}(\rho,\varphi)
   =
   \frac{
-  r'(\rho)\,\uvec{z}
-  -
   z'(\rho)\,\uvec{r}(\varphi)
+  -
+  r'(\rho)\,\uvec{z}
   }
   {
   \sqrt{(r'(\rho))^2+(z'(\rho))^2}
-  }.
+  },
   \label{eq:N_ovoid_rho_phi_app}
 \end{equation}
+orientado hacia el medio de incidencia.
 Los vectores unitarios de incidencia y transmisión del sistema son
 \begin{equation}
   \uvec{u}
@@ -344,8 +352,8 @@ Los vectores unitarios de incidencia y transmisión del sistema son
   \uvec{u}'
   =
   \frac{
-  (z(\rho) - z_i)\uvec{z}
-  +
+  (z_i - z(\rho))\uvec{z}
+  -
   r(\rho)\uvec{r}(\varphi)
   }
   {
@@ -369,7 +377,7 @@ donde $\uvec s$, $\uvec p$ y $\uvec p'$ se definen como
 \begin{equation}
     \uvec s
     =
-    \frac{\uvec N \times \uvec u}{\lvert  \uvec N \times \uvec u \rvert},
+    \frac{\uvec u \times \uvec N}{\lvert  \uvec u \times \uvec N \rvert},
     \label{eq:s_hat_def_app}
 \end{equation}
 \begin{equation}
@@ -401,8 +409,8 @@ Reemplazando por las ecuaciones anteriores, se obtiene
   =
   \frac{1}{\sqrt{\rho^2 - 2zz_i + z_i^2}}
   \left\{
-  (z(\rho) - z_i)\uvec{r}(\varphi)
-  -
+  (z_i - z(\rho))\uvec{r}(\varphi)
+  +
   r(\rho)\uvec{z}
   \right\},
   \label{eq:p_prime_mode_ovoid}
@@ -437,7 +445,7 @@ Los cosenos $\cos\theta_i$ y $\cos\theta_t$ los obtenemos a partir de las siguie
   \\
   \cos\theta_t &= -\uvec{N} \cdot \uvec{u}'.
 \end{align}
-Sustituyendo la normal \eqref{eq:N_ovoid_rho_phi_app} y los vectores unitarios \eqref{eq:u_for_P_in_optical_axis_app} y \eqref{eq:u_prime_for_P_in_optical_axis_app}, se obtiene
+Ambos cosenos son positivos con la orientación adoptada para la normal. Sustituyendo la normal \eqref{eq:N_ovoid_rho_phi_app} y los vectores unitarios \eqref{eq:u_for_P_in_optical_axis_app} y \eqref{eq:u_prime_for_P_in_optical_axis_app}, se obtiene
 \begin{align}
 \cos\theta_i(\rho)
 &=
@@ -447,7 +455,7 @@ Sustituyendo la normal \eqref{eq:N_ovoid_rho_phi_app} y los vectores unitarios \
 &=
 -\;
 \frac{
-\big(r'(\rho)\uvec z-z'(\rho)\uvec r(\varphi)\big)
+\big(z'(\rho)\uvec r(\varphi)-r'(\rho)\uvec z\big)
 \cdot
 \big((z(\rho)-z_0)\uvec z+r(\rho)\uvec r(\varphi)\big)
 }
@@ -462,9 +470,9 @@ De donde se obtiene
   \cos\theta_i(\rho)
   =
   \frac{
-  z'(\rho)\,r(\rho)
-  -
   r'(\rho)\,\big(z(\rho)-z_0\big)
+  -
+  z'(\rho)\,r(\rho)
   }
   {
   \sqrt{(r'(\rho))^2+(z'(\rho))^2}\;
@@ -472,14 +480,14 @@ De donde se obtiene
   }.
   \label{eq:cos_theta_i_ovoid_z_and_r}
 \end{equation}
-Usando $r^2(\rho)=\rho^2-z^2(\rho)$, esta expresión puede escribirse como
+Usando $r^2(\rho)=\rho^2-z^2(\rho)$, de donde $r\,r'=\rho-z\,z'$, esta expresión puede escribirse como
 \begin{equation}
 \cos\theta_i(\rho)
 =
 \frac{
-z'(\rho)\,\big(\rho^2-z(\rho)z_0\big)
--
 \rho\big(z(\rho)-z_0\big)
+-
+z'(\rho)\,\big(\rho^2-z(\rho)z_0\big)
 }
 {
 \sqrt{\rho^2\big(1+z'(\rho)^2\big)-2\rho z(\rho)z'(\rho)}
@@ -488,7 +496,7 @@ z'(\rho)\,\big(\rho^2-z(\rho)z_0\big)
 }.
 \label{eq:cos_theta_i_ovoid}
 \end{equation}
-Luego, $\cos\theta_t$ se obtiene simplemente reemplazando $z_0$ por $z_i$:
+De la misma manera, con $\uvec u'$ dirigido de $Q$ hacia $A'$,
 \begin{equation}
 \cos\theta_t(\rho)
 =
@@ -511,7 +519,7 @@ Así pues, los cosenos de incidencia y transmisión son
 \cos\theta_i
 &=
 \frac{
-z'\,\big(\rho^2 - z\,z_0\big) - \rho\big(z - z_0\big)
+\rho\big(z - z_0\big) - z'\,\big(\rho^2 - z\,z_0\big)
 }
 {
 \sqrt{\rho^2\big(1+z'^2\big) - 2\rho z z'}\;
@@ -531,11 +539,12 @@ z'\,\big(\rho^2 - z\,z_i\big) - \rho\big(z - z_i\big)
 \right.
 \label{cosines_ovoid_compact}
 \end{equation}
-Usando las definiciones
+En la configuración de conjugados reales ($z_0<0<z_i$) ambos se reducen a la unidad en el vértice. Usando las definiciones
 \begin{align}
 l_0
 &=
 \sqrt{\rho^2 - 2zz_0 + z_0^2},
+\label{eq:l0_definition}
 \\
 l_i
 &=
@@ -551,21 +560,21 @@ que son las distancias $\overline{AQ}$ y $\overline{A'Q}$ respectivamente, y def
   \sqrt{(z')^2 + (r')^2},
   \label{eq:ds_drho}
 \end{equation}
-los cosenos de incidencia y transmisión quedan expresados como
+para la cual $r\,s'=\sqrt{\rho^2(1+z'^2)-2\rho z z'}$, los cosenos de incidencia y transmisión quedan expresados como
 \begin{equation}
 \begin{aligned}
   \cos\theta_i
   &=
-  \frac{1}{s'l_0}
+  \frac{1}{r\,s'\,l_0}
   \big\{
-  z'\big(\rho^2 - z z_0\big)
-  -
   \rho\big(z - z_0\big)
+  -
+  z'\big(\rho^2 - z z_0\big)
   \big\},
 \\
   \cos\theta_t
   &=
-  \frac{1}{s'l_i}
+  \frac{1}{r\,s'\,l_i}
   \big\{
   z'\big(\rho^2 - z z_i\big)
   -
@@ -586,10 +595,10 @@ Reemplazando \eqref{cosines_ovoid_compact} en \eqref{eq:ts_app} y en \eqref{eq:t
  t_s
  =
  \frac{
- 2 \left\{ z'(\rho^2 - zz_0) - \rho(z - z_0) \right\}
+ 2 \left\{ \rho(z - z_0) - z'(\rho^2 - zz_0) \right\}
  }
  {
- \left\{ z'(\rho^2 - zz_0) - \rho(z - z_0) \right\}
+ \left\{ \rho(z - z_0) - z'(\rho^2 - zz_0) \right\}
  +
  \eta \frac{l_0}{l_i}
  \left\{ z'(\rho^2 - zz_i) - \rho(z - z_i) \right\}
@@ -600,17 +609,18 @@ Reemplazando \eqref{cosines_ovoid_compact} en \eqref{eq:ts_app} y en \eqref{eq:t
  t_p
  =
  \frac{
- 2 \left\{ z'(\rho^2 - zz_0) - \rho(z - z_0) \right\}
+ 2 \left\{ \rho(z - z_0) - z'(\rho^2 - zz_0) \right\}
  }
  {
  \eta
- \left\{ z'(\rho^2 - zz_0) - \rho(z - z_0) \right\}
+ \left\{ \rho(z - z_0) - z'(\rho^2 - zz_0) \right\}
  +
  \frac{l_0}{l_i}
  \left\{ z'(\rho^2 - zz_i) - \rho(z - z_i) \right\}
- }.
+ },
   \label{eq:t_p_ovoid}
 \end{equation}
+con $\eta=n_i/n_0$; estas expresiones coinciden con las del apéndice~\ref{apx:ovoids_series}.
 Con esto, terminamos de proporcionar la forma exacta de las cantidades relevantes necesarias para el cálculo del campo eléctrico en el plano focal en función de la función sagita que define el dioptrio estigmático de interés.
 
 % ---------------------------------------------------------------------------
@@ -626,7 +636,7 @@ El campo incidente es aquel que tiene como fuente el primer punto estigmático, 
   \frac{e^{ik\overline{AV}}}{\overline{AV}},
   \label{eq:initial_field}
 \end{equation}
-que evaluado en $\Sigma$ y usando la definición \eqref{eq:l0_li_definitions},
+que evaluado en $\Sigma$ y usando la definición \eqref{eq:l0_definition},
 \begin{equation}
   \vb E_\Sigma (\vb r)
   =
@@ -634,7 +644,7 @@ que evaluado en $\Sigma$ y usando la definición \eqref{eq:l0_li_definitions},
   \frac{e^{ik\ell_0}}{\ell_0},
   \label{eq:initial_field_sigma}
 \end{equation}
-donde $\ell_0$ se define según \eqref{eq:l0_li_definitions}, y $\mathbb E_0$ es
+donde $\ell_0$ se define según \eqref{eq:l0_definition}, y $\mathbb E_0$ es
 \begin{equation}
   \mathbb E_0 (\vb r)
   =
@@ -975,7 +985,7 @@ Reemplazando el término de la sagita en la expresión de la fase total $\Phi$:
     \mathcal{O}(r^4).
 \end{align}
 
-Es evidente a partir de este resultado que, cuando la distancia de observación $z$ coincide con el foco del sistema, $z=f$, el término cuadrático en $r$ de la fase se cancela exactamente. Esto significa que la fase de la pupila se vuelve constante, $\Phi\simeq -z_0$, y podemos hacerla $1$ sin pérdida de generalidad. Reemplazando la fase de pupila por una fase constante en la ecuación \eqref{eq:E_field_perp_no_phase_replacement}, obtenemos
+Es evidente a partir de este resultado que, cuando la distancia de observación $z$ coincide con el foco del sistema, $z=f$, el término cuadrático en $r$ de la fase se cancela. Esto significa que, hasta términos de orden $r^4$, la fase de la pupila se vuelve constante, $\Phi\simeq -z_0$, y el factor $e^{ik\Phi}$ puede omitirse como una fase global. Reemplazando la fase de pupila por una fase constante en la ecuación \eqref{eq:E_field_perp_no_phase_replacement}, obtenemos
 \begin{equation}
   \vb E'(\vb r, f)
   =
@@ -1108,30 +1118,47 @@ introducida por $t_-$. Si bien el caso de reflexión no es tratado en detalle en
 \section{Reducción del problema a la parte transversal}
 % ---------------------------------------------------------------------------
 
-Si bien el resultado \eqref{eq:E_field_pupil_phase_and_TT} sugiere un campo tridimensional, el problema puede restringirse al plano perpendicular al eje óptico mediante la condición de transversalidad, que establece una dependencia entre el campo transversal y longitudinal, permitiendo determinar el segundo conociendo el primero. Escribiendo la condición de transversalidad como que el campo ha de ser tangente al vector radial unitario con origen en $A'$,
+Si bien el resultado \eqref{eq:E_field_pupil_phase_and_TT} involucra un campo tridimensional, el problema puede restringirse a la parte transversal mediante la condición de transversalidad, que establece una dependencia entre el campo transversal y el longitudinal y permite determinar el segundo conociendo el primero. Sobre la esfera de referencia $\mathscr G'$ el campo es tangente a la esfera, es decir, perpendicular al vector radial unitario con origen en $A'$,
 \begin{equation}
-\vb{E}\cdot\uvec{R}_{A'}=0,
+\mathbb E^{\mathscr G'}\cdot\uvec{R}_{A'}=0,
 \label{eq:transversality_condition}
 \end{equation}
-lo que implica
+lo que, con $\uvec R_{A'}=\sin\theta_{A'}\,\uvec r+\cos\theta_{A'}\,\uvec z$, implica
 \begin{equation}
-E_r\sin\theta_{A'} + E_z\cos\theta_{A'} = 0,
+E^{\mathscr G'}_r\sin\theta_{A'} + E^{\mathscr G'}_z\cos\theta_{A'} = 0,
 \end{equation}
-y por tanto
+y por tanto, en términos del ángulo de convergencia $\alpha'=\pi-\theta_{A'}$ definido en \eqref{eq:alpha_prime_def},
 \begin{equation}
-E_z
+E^{\mathscr G'}_z
 =
--\tan\theta_{A'}\,E_r.
+\tan\alpha'\,E^{\mathscr G'}_r,
+\qquad
+\tan\alpha'=\frac{r'}{z_i-z(r')}.
 \label{eq:Ez_from_Er}
 \end{equation}
-Esto es equivalente a
+Cerca del eje esto se reduce a
 \begin{equation}
-  E_z
-  =
-  -\frac{r}{z_i} \,E_r.
+  E^{\mathscr G'}_z
+  \simeq
+  \frac{r'}{z_i} \,E^{\mathscr G'}_r.
 \label{eq:Ez_from_Er_rz}
 \end{equation}
-De esta manera, el campo transversal determina completamente el campo longitudinal, y por ende el campo vectorial $\vb E$ completamente.
+La relación \eqref{eq:Ez_from_Er} es local sobre la esfera de referencia, donde a cada punto $\vb r'$ le corresponde una única dirección de propagación. No se traslada punto a punto al plano focal: allí se superponen las contribuciones de toda la pupila, cada una con su propia dirección, y la transversalidad se impone componente espectral a componente espectral, como en \eqref{eq:Ez_from_transverse_spectrum}. En el marco del resultado \eqref{eq:E_field_pupil_phase_and_TT} esto equivale a transformar la componente longitudinal de la función pupila. De \eqref{eq:E_G_prime_def} y \eqref{s_p_in_A_prime_system},
+\begin{equation}
+  E^{\mathscr G'}_z
+  =
+  \frac{1}{\ell_0}\,t_p\,\sin\alpha'\,\mathscr E_\theta,
+  \label{eq:Ez_pupil}
+\end{equation}
+de modo que la componente longitudinal en el plano focal es
+\begin{equation}
+  E'_z(\vb r, f)
+  =
+  \frac{ne^{inkf}}{i\lambda f}\,e^{i\frac{nk}{2f}r^2}
+  \,\mathscr F\!\left\{E^{\mathscr G'}_z\right\}\!\left(\frac{n}{\lambda f}\vb r\right).
+  \label{eq:Ez_focal_from_pupil}
+\end{equation}
+De esta manera, el campo sobre $\mathscr G'$ determina completamente el campo longitudinal, y por ende el campo vectorial $\vb E'$ completo.
 
 La intensidad total en la pantalla está dada por
 \begin{equation}
@@ -1146,70 +1173,42 @@ donde la contribución transversal $I_\perp$ es
 \begin{equation}
     I_\perp(\vb{r}, f)
     =
-    \|\vb{E}_\perp(\vb{r}, f)\|^2.
+    \|\vb{E}'_\perp(\vb{r}, f)\|^2.
 \end{equation}
 Si la parte transversal del campo se escribe como
 \begin{equation}
-  \vb E_\perp
+  \vb E'_\perp
   =
-  E_r \uvec r
+  E'_r \uvec r
   +
-  E_\phi \uvec \phi ,
+  E'_\phi \uvec \phi ,
 \end{equation}
 entonces
 \begin{equation}
   I_\perp(\vb r, f)
   =
-  |E_r(\vb r, f)|^2
+  |E'_r(\vb r, f)|^2
   +
-  |E_\phi(\vb r, f)|^2 .
+  |E'_\phi(\vb r, f)|^2 .
 \end{equation}
-La componente longitudinal se determina por la dependencia entre $E_z$ y la parte radial del campo transversal, como se sigue de la ecuación \eqref{eq:Ez_from_Er}. En particular,
-\begin{equation}
-  E_z(\vb r, f)
-  =
-  -\tan\theta\,
-  E_r(\vb r, f),
-\end{equation}
-de modo que
+La contribución longitudinal se obtiene de \eqref{eq:Ez_focal_from_pupil},
 \begin{equation}
   I_z(\vb r, f)
   =
-  |E_z(\vb r, f)|^2
-  =
-  \tan^2\theta\,
-  |E_r(\vb r, f)|^2 .
+  |E'_z(\vb r, f)|^2 .
 \end{equation}
 La intensidad total en la pantalla focal es el módulo cuadrado del campo eléctrico completo; al ser ortogonales las contribuciones transversal y longitudinal, se obtiene como la suma de sus intensidades. Por tanto,
 \begin{equation}
   I(\vb r, f)
   =
-  I_\perp(\vb r, f)
+  |E'_r(\vb r, f)|^2
   +
-  I_z(\vb r, f).
+  |E'_\phi(\vb r, f)|^2
+  +
+  |E'_z(\vb r, f)|^2 .
   \label{eq:Intensity_in_Focal_Plane}
 \end{equation}
-Usando las expresiones anteriores, queda
-\begin{equation}
-  I(\vb r, f)
-  =
-  |E_r(\vb r, f)|^2
-  +
-  |E_\phi(\vb r, f)|^2
-  +
-  \tan^2\theta\,
-  |E_r(\vb r, f)|^2 ,
-\end{equation}
-o equivalentemente,
-\begin{equation}
-  I(\vb r, f)
-  =
-  \sec^2\theta\,
-  |E_r(\vb r, f)|^2
-  +
-  |E_\phi(\vb r, f)|^2 .
-\end{equation}
-Queda evidenciado cómo la intensidad del campo en el plano focal depende únicamente de la parte transversal del campo eléctrico.
+A diferencia de lo que ocurre sobre la esfera de referencia, en el plano focal $I_z$ no es proporcional a $|E'_r|^2$ punto a punto: ambas componentes provienen de transformadas distintas de la función pupila y, en general, tienen distribuciones espaciales diferentes. La intensidad en el plano focal queda, en todo caso, determinada por el campo sobre $\mathscr G'$.
 
 Como ejemplo de aplicación de la formulación general a un campo sin ninguna
 simetría, consideramos la formación de la imagen de una máscara litográfica de
@@ -1814,8 +1813,9 @@ $\pi$ genera elipticidad, aun para iluminación incidente linealmente
 polarizada a difrencia de la transformación del campo incidente al campo en la pupila 
 que no introducia elipticidad si la iluminación incidente era polarizada linealmente. 
 \\
-Sin embargo, si la iluminación incidente es simetrica axialmente y las componentes 
-del vector de amplitud $\mathbb E_0$ son reales, $\Phi_x=\Phi_y=-$ por las propiedades de 
+Sin embargo, si la iluminación incidente es simétrica axialmente y las componentes 
+del vector de amplitud $\mathbb E_0$ son reales, las fases $\Phi_x$ y $\Phi_y$ solo toman 
+los valores $0$ y $\pi$, por las propiedades de 
 la transformada de Fourier para funciones reales y pares \cite{arfken2013}.
 
 
@@ -2328,7 +2328,7 @@ En coordenadas polares de frecuencia, la transformada de Fourier bidimensional s
 \end{equation}
 con
 \begin{equation}
-  q=\frac{n}{\lambda f}r.
+  q=\frac{2\pi n}{\lambda f}\,r=\frac{nk}{f}\,r.
 \end{equation}
 
 Para efectuar la integral angular usamos la identidad de Jacobi--Anger \cite{Watson1944},
@@ -2433,9 +2433,19 @@ e^{i\frac{nk}{2f}r^2}
 
 Los resultados para la pupila circular uniforme se desarrollan en el apéndice~\ref{apx:focal_forms}.
 
-Es claro cómo en esta representación la transformación que sufre el campo al refractarse en la interfaz $\Sigma$ es diagonal, esto es que los modos radiales y azimutales de la polarización son modos propios de este proceso de refracción a través de una superficie. La modulación radial está dada por la transformada de Hankel de orden 1 de los coeficientes de Fresnel; dado que la transformada de Hankel de orden uno es una integral ponderada por la función de Bessel $J_1$, no hay contribución central del campo en el eje óptico, como se observa en las figuras~\ref{fig:radial-plano-focal-componentes} y~\ref{fig:azimutal-plano-focal-componentes}. Esto es consecuencia de la homogeneidad del campo en la polarización radial y azimutal.
+Es claro cómo en esta representación la transformación que sufre el campo al refractarse en la interfaz $\Sigma$ es diagonal, esto es que los modos radiales y azimutales de la polarización son modos propios de este proceso de refracción a través de una superficie. La modulación radial está dada por la transformada de Hankel de orden 1 de los coeficientes de Fresnel; dado que la transformada de Hankel de orden uno es una integral ponderada por la función de Bessel $J_1$, no hay contribución central del campo transversal en el eje óptico, como se observa en las figuras~\ref{fig:radial-plano-focal-componentes} y~\ref{fig:azimutal-plano-focal-componentes}. Esto es consecuencia de la homogeneidad del campo en la polarización radial y azimutal.
 
-Podemos decir que \textit{un campo radial o azimutal simétrico que sea axialmente simétrico, en su propagación hasta el plano focal, da lugar a un campo sin contribución central}, resultado bien conocido en la literatura de haces vectoriales cilíndricos \cite{Youngworth2000, Zhan2009}.
+Podemos decir que \textit{un campo radial o azimutal que sea axialmente simétrico, en su propagación hasta el plano focal, da lugar a un campo transversal sin contribución central}, resultado bien conocido en la literatura de haces vectoriales cilíndricos \cite{Youngworth2000, Zhan2009}.
+
+Esta afirmación concierne a la parte transversal. Para incidencia azimutal no hay componente longitudinal y el anillo con centro oscuro es el campo completo. Para incidencia radial, en cambio, la componente longitudinal de la función pupila \eqref{eq:Ez_pupil} es una función escalar axialmente simétrica, y \eqref{eq:Ez_focal_from_pupil} se reduce a una transformada de Hankel de orden cero,
+\begin{equation}
+  E'_z(\vb r, f)
+  =
+  \frac{2\pi n}{i\lambda f z_0}\,e^{inkf}e^{i\frac{nk}{2f}r^2}\,
+  \mathscr H_0\{t_p\sin\alpha'\,\mathscr E_r\}(q),
+  \label{eq:Ez_focal_radial}
+\end{equation}
+que no se anula sobre el eje: a aperturas altas el foco de un haz radial posee un máximo axial de campo longitudinal \cite{Youngworth2000, Zhan2009}, cuyo peso relativo crece con $\sin\alpha'$.
 
 \begin{figure}[H]
   \centering
@@ -2685,7 +2695,9 @@ donde
 \begin{equation}
   q
   =
-  \frac{n r}{\lambda f}.
+  \frac{2\pi n r}{\lambda f}
+  =
+  \frac{nk\,r}{f}.
 \label{eq:q_cartesian_def}
 \end{equation}
 

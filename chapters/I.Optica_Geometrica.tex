@@ -151,7 +151,7 @@ Finalmente, despejando el vector unitario transmitido $\uvec{u}'$ se obtiene la 
   \label{eq:vectorial_law_of_snell_descartes}
 \end{equation}
 %
-donde el signo de la componente normal se fija según el sentido físico de propagación.
+donde la normal $\uvec N$ se toma orientada hacia el medio de incidencia, de modo que $\uvec u\cdot\uvec N<0$ y el signo negativo de la componente normal corresponde al rayo transmitido que se propaga hacia el segundo medio.
 
 Esta forma es particularmente útil en \emph{ray tracing}, pues entrega directamente el vector unitario del rayo transmitido $\uvec{u}'$ a partir del vector unitario del rayo incidente $\uvec{u}$ y de la normal unitaria local $\uvec{N}$ en el punto de incidencia.
 
@@ -237,14 +237,14 @@ y finalmente obtenemos el vector unitario de incidencia
   }.
   \label{eq:u_for_any_P}
 \end{equation}
-De manera análoga, si el rayo transmitido converge al punto $P'$ de coordenadas $(z_i, r_i, \varphi_0)$, el vector unitario de transmisión resulta
+De manera análoga, si el rayo transmitido converge al punto $P'$ de coordenadas $(z_i, r_i, \varphi_0)$, el vector unitario de transmisión es el vector unitario de $\lvec{QP'} = \lvec{OP'} - \lvec{OQ}$, dirigido de $Q$ hacia $P'$, y resulta
 \begin{equation}
    \uvec{u}'
   =
   \frac{
-  (z(\rho) - z_i)\,\uvec{z}
-  + \bigl(r(\rho) - r_i \cos\Delta\varphi\bigr)\,\uvec{r}(\varphi)
-  + \bigl(r_i \sin\Delta\varphi\bigr)\,\uvec{\varphi}(\varphi)
+  (z_i - z(\rho))\,\uvec{z}
+  - \bigl(r(\rho) - r_i \cos\Delta\varphi\bigr)\,\uvec{r}(\varphi)
+  - \bigl(r_i \sin\Delta\varphi\bigr)\,\uvec{\varphi}(\varphi)
   }{
   \sqrt{(z(\rho) - z_i)^2 + r(\rho)^2 + r_i^2 - 2 r(\rho) r_i \cos\Delta\varphi}
   }.
@@ -258,15 +258,15 @@ Si los puntos $P$ y $P'$ viven en el eje óptico, las expresiones anteriores se 
 \end{equation}
 y
 \begin{equation}
-  \uvec{u}' = \frac{(z(\rho) - z_i)\uvec{z} + r(\rho)\uvec{r}(\varphi)}{\sqrt{\rho^2 - 2z(\rho)z_i + z_i^2}}.
+  \uvec{u}' = \frac{(z_i - z(\rho))\uvec{z} - r(\rho)\uvec{r}(\varphi)}{\sqrt{\rho^2 - 2z(\rho)z_i + z_i^2}}.
   \label{eq:u_prime_for_P_in_optical_axis}
 \end{equation}
 
-Procedemos ahora con el cálculo de la normal en un punto $Q$ parametrizado por $(\rho, \varphi)$. Denotemos al vector normal unitario en el punto $Q=Q(\rho, \varphi)$ como $\uvec{N}$, y construyamos un vector $\vb{N}$ proporcional a $\uvec{N}$ mediante el producto vectorial de los vectores tangentes coordenados,
+Procedemos ahora con el cálculo de la normal en un punto $Q$ parametrizado por $(\rho, \varphi)$. Denotemos al vector normal unitario en el punto $Q=Q(\rho, \varphi)$ como $\uvec{N}$, y construyamos un vector $\vb{N}$ proporcional a $\uvec{N}$ mediante el producto vectorial de los vectores tangentes coordenados, tomados en el orden que orienta la normal hacia el medio de incidencia (en el vértice, $\uvec N = -\uvec z$), que es la orientación con la que se escribió la ley vectorial \eqref{eq:vectorial_law_of_snell_descartes},
 \[
-  \vb{N} = \frac{\partial \lvec{OQ}}{\partial \rho} \times \frac{\partial \lvec{OQ}}{\partial \varphi}
-= r(\rho)\,r'(\rho)\,\uvec{z}-r(\rho)\,z'(\rho)\,\uvec{r}(\varphi)
-= r(\rho)\Bigl(r'(\rho)\,\uvec{z}-z'(\rho)\,\uvec{r}(\varphi)\Bigr),
+  \vb{N} = \frac{\partial \lvec{OQ}}{\partial \varphi} \times \frac{\partial \lvec{OQ}}{\partial \rho}
+= r(\rho)\,z'(\rho)\,\uvec{r}(\varphi)-r(\rho)\,r'(\rho)\,\uvec{z}
+= r(\rho)\Bigl(z'(\rho)\,\uvec{r}(\varphi)-r'(\rho)\,\uvec{z}\Bigr),
 \]
 donde hemos usado el hecho de que
 \[
@@ -287,7 +287,7 @@ de manera que, normalizando,
 \]
 obtenemos
 \begin{equation}
-\uvec{N}(\rho,\varphi) = \frac{r'(\rho)\,\uvec{z}-z'(\rho)\,\uvec{r}(\varphi)}{\sqrt{(r'(\rho))^2+(z'(\rho))^2}}.
+\uvec{N}(\rho,\varphi) = \frac{z'(\rho)\,\uvec{r}(\varphi)-r'(\rho)\,\uvec{z}}{\sqrt{(r'(\rho))^2+(z'(\rho))^2}}.
   \label{eq:N_ovoid_rho_and_phi}
 \end{equation}
 
