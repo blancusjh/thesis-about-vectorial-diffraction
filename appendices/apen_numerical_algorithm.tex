@@ -41,9 +41,11 @@ $I(r,\varphi,f)$.
 para cada nodo de pupila.
 \State Calcular los cosenos de incidencia y transmisión desde la geometría
 local y la ley de Snell.
-\State Evaluar los coeficientes de Fresnel $t_p(\rho'_i)$, $t_s(\rho'_i)$.
+\State Evaluar los coeficientes de Fresnel $t_p(\rho'_i)$, $t_s(\rho'_i)$ y el
+coeficiente transversal $\tau_p=t_p\cos\alpha'$, con
+$\tan\alpha'=r/(z_i-z)$.
 \If{modo $=$ escalar}
-  \State $t_p\gets 1,\;t_s\gets 1$ \Comment{ver
+  \State $\tau_p\gets 1,\;t_s\gets 1$ \Comment{ver
   \eqref{eq:t_plus_t_minus_def} y \eqref{eq:E_field_cartesian_paraxial}}
 \EndIf
 \State Construir el operador de transmisión en la base cartesiana
@@ -68,8 +70,9 @@ $K_z\,E'_z=-(K_x E'_x+K_y E'_y)$ en el espacio de frecuencias.
 \end{algorithmic}
 \end{algorithm}
 
-El paso~5 aísla la aberración vectorial: fijar $t_p=t_s=1$ suprime el
-canal $t_-$ y hace que $\mathbb T$ se reduzca a la identidad, con lo que el
+El paso~5 aísla la aberración vectorial: fijar $\tau_p=t_s=1$ suprime el
+canal $t_-$ y hace que la acción transversal de $\mathbb T$ se reduzca a la
+identidad, con lo que el
 campo focal colapsa sobre la predicción escalar de la difracción. Ambos
 modos comparten la misma grilla y el mismo propagador, y sus resultados se
 comparan directamente punto a punto.
@@ -113,7 +116,7 @@ consistencia entre las tres representaciones del capítulo~\ref{ch:focal}:
 los mismos parámetros y las mismas condiciones de iluminación producen la
 misma intensidad focal cuando se calculan en base cartesiana, cilíndrica y
 circular. Segundo, la reducción al límite escalar: fijando
-$t_p=t_s=1$ y anulando la reconstrucción longitudinal, el algoritmo
+$\tau_p=t_s=1$ y anulando la reconstrucción longitudinal, el algoritmo
 reproduce el patrón de Airy hasta la precisión de la grilla, verificando
 que la modulación por $\mathbb T$ es la única fuente de la desviación
 vectorial. Tercero, el refinamiento de malla: los contrastes

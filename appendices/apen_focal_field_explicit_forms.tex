@@ -36,26 +36,34 @@ e^{i\frac{nk}{2f}r^2}
 \label{eq:E_L_E_R_Hankel_recall}
 \end{equation}
 donde $\mathscr H_m$ es la transformada de Hankel de orden $m$ definida en
-\eqref{eq:def_Hankel_Transform_m_order} y $t_\pm=t_p\pm t_s$ según
+\eqref{eq:def_Hankel_Transform_m_order} y $t_\pm=\tau_p\pm t_s$, con $\tau_p=t_p\cos\alpha'$, según
 \eqref{eq:t_plus_t_minus_def}.
 
 El término transformado por $\mathscr{H}_0$ es diagonal y no mezcla las helicidades: puede identificarse con el correspondiente a la teoría escalar de la difracción \cite{goodman2005}, salvo por la modulación por $t_+$; si esta se toma constante, se obtiene exactamente el resultado escalar. Los términos que $\mathscr{H}_2$ transforma acoplan $\ket{L}\leftrightarrow\ket{R}$ con fase azimutal $e^{\mp 2i\varphi}$ y, dado que $J_2(0)=0$, su contribución es estrictamente fuera de eje, por lo que dicha contribución ensancha el tamaño de la mancha focal de manera general y da lugar a un cambio en la polarización.
 
-Las series paraxiales, derivadas en el apéndice~\ref{apx:ovoids_series} (véanse \eqref{eq:tp_plus_ts_series_fourth_order} y \eqref{eq:tp_minus_ts_series_fourth_order}), son, al orden cuadrático,
+Las series paraxiales, derivadas en el apéndice~\ref{apx:ovoids_series} (véase \eqref{eq:t_plus_minus_transverse_series}), son, al orden cuadrático,
 \begin{equation}
 t_+(\rho')
 \simeq
 \frac{4n_0}{n_0+n_i}
 +
-(n_0+n_i)\,\xi\,\rho'^2,
+\xi_+\,\rho'^2,
 \qquad
 t_-(\rho')
 \simeq
-(n_0-n_i)\,\xi\,\rho'^2,
+\xi_-\,\rho'^2,
 \label{eq:t_plus_t_minus_paraxial}
 \end{equation}
-con $\xi$ definida en \eqref{eq:xi_definition_fresnel_series},
+con $\xi_\pm=\xi_p\pm\xi_s$ definidas en \eqref{eq:xi_plus_minus_def},
 \begin{equation}
+\xi_p
+=
+n_0\,\xi-\frac{n_0}{(n_0+n_i)z_i^2},
+\qquad
+\xi_s
+=
+n_i\,\xi,
+\qquad
 \xi
 =
 \frac{
@@ -78,13 +86,13 @@ e^{i\frac{nk}{2f}r^2}
 \left[
 \frac{4n_0}{n_0+n_i}\mathscr H_0\{\mathscr E_L\}
 +
-(n_0+n_i)\xi\,\mathscr H_0\{r'^2\mathscr E_L\}
+\xi_+\,\mathscr H_0\{r'^2\mathscr E_L\}
 \right.
 \\
 &\qquad\qquad
 \left.
 -\,
-(n_0-n_i)\xi\,e^{-2i\varphi}\mathscr H_2\{r'^2\mathscr E_R\}
+\xi_-\,e^{-2i\varphi}\mathscr H_2\{r'^2\mathscr E_R\}
 \right],
 \\[1em]
 E'_R
@@ -93,7 +101,7 @@ E'_R
 e^{inkf}
 e^{i\frac{nk}{2f}r^2}
 \left[
--(n_0-n_i)\xi\,e^{2i\varphi}\mathscr H_2\{r'^2\mathscr E_L\}
+-\xi_-\,e^{2i\varphi}\mathscr H_2\{r'^2\mathscr E_L\}
 +
 \frac{4n_0}{n_0+n_i}\mathscr H_0\{\mathscr E_R\}
 \right.
@@ -101,7 +109,7 @@ e^{i\frac{nk}{2f}r^2}
 &\qquad\qquad
 \left.
 +\,
-(n_0+n_i)\xi\,\mathscr H_0\{r'^2\mathscr E_R\}
+\xi_+\,\mathscr H_0\{r'^2\mathscr E_R\}
 \right].
 \end{aligned}
 \label{eq:E_L_E_R_paraxial}
@@ -173,7 +181,7 @@ donde las funciones radiales $\mathcal A$ y $\mathcal B$ son
     \frac{4n_0}{n_0+n_i}\,
     \frac{a}{q}J_1(qa)
     +
-    (n_0+n_i)\,\xi
+    \xi_+
     \left(
       \frac{a^3}{q}J_1(qa)
       +
@@ -184,7 +192,7 @@ donde las funciones radiales $\mathcal A$ y $\mathcal B$ son
     \\[0.5em]
     \mathcal B(q)
     &=
-    (n_0-n_i)\,\xi\,
+    \xi_-\,
     \frac{a^3}{q}J_3(qa).
   \end{aligned}
   \label{eq:A_B_circular_def}
@@ -217,12 +225,12 @@ Agrupando por funciones de Bessel, las funciones radiales se reescriben como
   \begin{aligned}
     \mathcal A(q)
     &=
-    \frac{2(n_0+n_i)\xi a^2}{q^2}\,J_0(qa)
+    \frac{2\xi_+ a^2}{q^2}\,J_0(qa)
     +
     \left[
       \frac{4n_0}{n_0+n_i}\,\frac{a}{q}
       +
-      (n_0+n_i)\xi
+      \xi_+
       \left(
         \frac{a^3}{q}
         -
@@ -232,32 +240,34 @@ Agrupando por funciones de Bessel, las funciones radiales se reescriben como
     \\[0.5em]
     \mathcal B(q)
     &=
-    (n_0-n_i)\xi\,\frac{a^3}{q}\,J_3(qa).
+    \xi_-\,\frac{a^3}{q}\,J_3(qa).
   \end{aligned}
   \label{eq:EL_ER_constant_E0_bessel_series}
 \end{equation}
 
 En términos de los parámetros físicos del sistema, las combinaciones que pesan cada canal son
 \begin{equation}
-  (n_0+n_i)\,\xi
+  \xi_+
   =
   \frac{
     n_0(z_0-z_i)^2
   }{
     z_0^2 z_i^2 (n_0-n_i)
-  },
+  }
+  -
+  \frac{n_0}{(n_0+n_i)z_i^2},
   \qquad
-  (n_0-n_i)\,\xi
+  \xi_-
   =
   \frac{
-    n_0(z_0-z_i)^2
+    n_0(z_i-2z_0)
   }{
-    z_0^2 z_i^2 (n_0+n_i)
+    (n_0+n_i)\,z_i\,z_0^2
   }.
   \label{eq:xi_combinations_physical}
 \end{equation}
 
-La estructura de \eqref{eq:EL_ER_constant_E0_matrix} separa los dos canales. La función $\mathcal A$, dominada por el término $\tfrac{4n_0}{n_0+n_i}\tfrac{a}{q}J_1(qa)$, es el patrón de Airy de la teoría escalar modulado por $t_+(0)$, con una corrección cuadrática de peso $(n_0+n_i)\xi$; como $\mathcal A(0)\neq 0$, este canal controla el pico central. La función $\mathcal B\propto J_3(qa)/q$ se anula en $q=0$, de modo que la conversión de helicidad, acompañada de las fases azimutales $e^{\mp 2i\varphi}$, es estrictamente fuera de eje y de peso $(n_0-n_i)\xi$: esta es la manifestación de la aberración vectorial en la representación circular.
+La estructura de \eqref{eq:EL_ER_constant_E0_matrix} separa los dos canales. La función $\mathcal A$, dominada por el término $\tfrac{4n_0}{n_0+n_i}\tfrac{a}{q}J_1(qa)$, es el patrón de Airy de la teoría escalar modulado por $t_+(0)$, con una corrección cuadrática de peso $\xi_+$; como $\mathcal A(0)\neq 0$, este canal controla el pico central. La función $\mathcal B\propto J_3(qa)/q$ se anula en $q=0$, de modo que la conversión de helicidad, acompañada de las fases azimutales $e^{\mp 2i\varphi}$, es estrictamente fuera de eje y de peso $\xi_-$: esta es la manifestación de la aberración vectorial en la representación circular.
 
 % -----------------------------------------------------------------------
 \section{Representación cilíndrica}
@@ -269,13 +279,13 @@ En esta representación no hay acoplamiento entre las componentes radial y azimu
 \end{equation}
 siempre que las integrales radiales correspondientes sean finitas.
 
-Para obtener resultados en forma cerrada, especializamos el campo incidente a una pupila circular uniforme y aproximamos los coeficientes de Fresnel por su expansión paraxial. Para esta última, conectamos con las series del apéndice~\ref{apx:ovoids_series} (véanse \eqref{eq:fresnel_ts_series_fourth_order} y \eqref{eq:fresnel_tp_series_fourth_order}). Con $\xi$ definida en \eqref{eq:xi_focal_forms}, al orden cuadrático
+Para obtener resultados en forma cerrada, especializamos el campo incidente a una pupila circular uniforme y aproximamos los coeficientes de transmisión transversales por su expansión paraxial. Para esta última, conectamos con las series del apéndice~\ref{apx:ovoids_series} (véanse \eqref{eq:fresnel_ts_series_fourth_order} y \eqref{eq:tau_p_series_second_order}). Con $\xi_p$ y $\xi_s$ dadas en \eqref{eq:xi_focal_forms}, al orden cuadrático
 \begin{equation}
-  t_p(\rho')
+  \tau_p(\rho')
   \simeq
   \frac{2n_0}{n_0+n_i}
   +
-  n_0\xi\,\rho'^2,
+  \xi_p\,\rho'^2,
   \label{eq:tp_paraxial_cylindrical}
 \end{equation}
 \begin{equation}
@@ -283,7 +293,7 @@ Para obtener resultados en forma cerrada, especializamos el campo incidente a un
   \simeq
   \frac{2n_0}{n_0+n_i}
   +
-  n_i\xi\,\rho'^2.
+  \xi_s\,\rho'^2.
   \label{eq:ts_paraxial_cylindrical}
 \end{equation}
 
@@ -298,7 +308,7 @@ e^{i\frac{nk}{2f}r^2}
 \left[
 \frac{2n_0}{n_0+n_i}\mathscr H_1\{\mathscr E_r\}
 +
-n_0\xi
+\xi_p
 \mathscr H_1\{\rho'^2\mathscr E_r\}
 \right],
 \\
@@ -310,7 +320,7 @@ e^{i\frac{nk}{2f}r^2}
 \left[
 \frac{2n_0}{n_0+n_i}\mathscr H_1\{\mathscr E_\phi\}
 +
-n_i\xi
+\xi_s
 \mathscr H_1\{\rho'^2\mathscr E_\phi\}
 \right].
 \end{aligned}
@@ -394,7 +404,7 @@ E_{r,0}
 \left[
 \frac{2n_0}{n_0+n_i}L_1(q)
 +
-n_0\xi\,M_1(q)
+\xi_p\,M_1(q)
 \right]\uvec r(\varphi)
 \\
 +
@@ -403,7 +413,7 @@ E_{\phi,0}
 \left[
 \frac{2n_0}{n_0+n_i}L_1(q)
 +
-n_i\xi\,M_1(q)
+\xi_s\,M_1(q)
 \right]\uvec\phi(\varphi)
 \Bigg\}.
 \end{aligned}
@@ -440,7 +450,7 @@ la intensidad transversal se obtiene sin término de interferencia entre las com
   \right)^2
   \left[
   \left|
-  \mathscr H_1\{t_p\mathscr E_r\}(q)
+  \mathscr H_1\{\tau_p\mathscr E_r\}(q)
   \right|^2
   +
   \left|
@@ -481,7 +491,7 @@ I(\vb r,f)=I_\perp(\vb r,f)+I_z(\vb r,f)
 \right)^2
 \left[
 \left|
-\mathscr H_1\{t_p\mathscr E_r\}(q)
+\mathscr H_1\{\tau_p\mathscr E_r\}(q)
 \right|^2
 +
 \left|
@@ -505,11 +515,7 @@ Para el caso uniforme sobre la pupila,
 \frac{\mathcal I(qa)-qaJ_0(qa)}{q^2}
 \\[0.3em]
 &+
-\frac{
-n_0^2(z_0-z_i)^2
-}{
-z_0^2z_i^2(n_0-n_i)(n_0+n_i)
-}
+\xi_p
 \frac{
 (qa)^3J_2(qa)
 +
@@ -530,11 +536,7 @@ z_0^2z_i^2(n_0-n_i)(n_0+n_i)
 \frac{\mathcal I(qa)-qaJ_0(qa)}{q^2}
 \\[0.3em]
 &+
-\frac{
-n_0n_i(z_0-z_i)^2
-}{
-z_0^2z_i^2(n_0-n_i)(n_0+n_i)
-}
+\xi_s
 \frac{
 (qa)^3J_2(qa)
 +
@@ -618,13 +620,13 @@ E'_\phi
 e^{inkf}
 e^{i\frac{nk}{2f}r^2}
 \begin{pmatrix}
-\dfrac{2n_0}{n_0+n_i}\mathscr H_1+n_0\xi\,\mathscr H_1[\rho'^2]
+\dfrac{2n_0}{n_0+n_i}\mathscr H_1+\xi_p\,\mathscr H_1[\rho'^2]
 &
 0
 \\[0.8em]
 0
 &
-\dfrac{2n_0}{n_0+n_i}\mathscr H_1+n_i\xi\,\mathscr H_1[\rho'^2]
+\dfrac{2n_0}{n_0+n_i}\mathscr H_1+\xi_s\,\mathscr H_1[\rho'^2]
 \end{pmatrix}
 \begin{pmatrix}
 \mathscr E_r\\
@@ -649,11 +651,7 @@ E_{r,0}
 \\
 &\qquad\qquad
 +
-\frac{
-n_0^2(z_0-z_i)^2
-}{
-z_0^2z_i^2(n_0-n_i)(n_0+n_i)
-}
+\xi_p
 \frac{
 (qa)^3J_2(qa)
 +
@@ -677,11 +675,7 @@ E_{\phi,0}
 \\
 &\qquad\qquad
 +
-\frac{
-n_0n_i(z_0-z_i)^2
-}{
-z_0^2z_i^2(n_0-n_i)(n_0+n_i)
-}
+\xi_s
 \frac{
 (qa)^3J_2(qa)
 +
@@ -708,7 +702,7 @@ E_{r,0}
 \left(
 \frac{2n_0}{n_0+n_i}\frac{1}{q^2}
 -
-\frac{3n_0^2(z_0-z_i)^2}{z_0^2z_i^2(n_0-n_i)(n_0+n_i)}\frac{1}{q^4}
+3\xi_p\,\frac{1}{q^4}
 \right)\mathcal I(x)
 \\
 &\qquad
@@ -716,17 +710,17 @@ E_{r,0}
 \left(
 -\frac{2n_0}{n_0+n_i}\frac{x}{q^2}
 +
-\frac{3n_0^2(z_0-z_i)^2}{z_0^2z_i^2(n_0-n_i)(n_0+n_i)}\frac{x}{q^4}
+3\xi_p\,\frac{x}{q^4}
 \right)J_0(x)
 +
 \left(
-\frac{n_0^2(z_0-z_i)^2}{z_0^2z_i^2(n_0-n_i)(n_0+n_i)}\frac{x^2}{q^4}
+\xi_p\,\frac{x^2}{q^4}
 \right)J_1(x)
 \\
 &\qquad
 +
 \left(
-\frac{n_0^2(z_0-z_i)^2}{z_0^2z_i^2(n_0-n_i)(n_0+n_i)}\frac{x^3}{q^4}
+\xi_p\,\frac{x^3}{q^4}
 \right)J_2(x)
 \Bigg],
 \\[0.6em]
@@ -740,7 +734,7 @@ E_{\phi,0}
 \left(
 \frac{2n_0}{n_0+n_i}\frac{1}{q^2}
 -
-\frac{3n_0n_i(z_0-z_i)^2}{z_0^2z_i^2(n_0-n_i)(n_0+n_i)}\frac{1}{q^4}
+3\xi_s\,\frac{1}{q^4}
 \right)\mathcal I(x)
 \\
 &\qquad
@@ -748,17 +742,17 @@ E_{\phi,0}
 \left(
 -\frac{2n_0}{n_0+n_i}\frac{x}{q^2}
 +
-\frac{3n_0n_i(z_0-z_i)^2}{z_0^2z_i^2(n_0-n_i)(n_0+n_i)}\frac{x}{q^4}
+3\xi_s\,\frac{x}{q^4}
 \right)J_0(x)
 +
 \left(
-\frac{n_0n_i(z_0-z_i)^2}{z_0^2z_i^2(n_0-n_i)(n_0+n_i)}\frac{x^2}{q^4}
+\xi_s\,\frac{x^2}{q^4}
 \right)J_1(x)
 \\
 &\qquad
 +
 \left(
-\frac{n_0n_i(z_0-z_i)^2}{z_0^2z_i^2(n_0-n_i)(n_0+n_i)}\frac{x^3}{q^4}
+\xi_s\,\frac{x^3}{q^4}
 \right)J_2(x)
 \Bigg].
 \end{aligned}
@@ -776,9 +770,9 @@ E'_\phi
 e^{inkf}
 e^{i\frac{nk}{2f}r^2}
 \begin{pmatrix}
-\dfrac{2n_0}{n_0+n_i}L_1(q)+n_0\xi\,M_1(q) & 0
+\dfrac{2n_0}{n_0+n_i}L_1(q)+\xi_p\,M_1(q) & 0
 \\[0.8em]
-0 & \dfrac{2n_0}{n_0+n_i}L_1(q)+n_i\xi\,M_1(q)
+0 & \dfrac{2n_0}{n_0+n_i}L_1(q)+\xi_s\,M_1(q)
 \end{pmatrix}
 \begin{pmatrix}
 E_{r,0}\\
@@ -797,14 +791,14 @@ t_+(\rho')
 \simeq
 \frac{4n_0}{n_0+n_i}
 +
-(n_0+n_i)\,\xi\,\rho'^2,
+\xi_+\,\rho'^2,
 \qquad
 t_-(\rho')
 \simeq
-(n_0-n_i)\,\xi\,\rho'^2,
+\xi_-\,\rho'^2,
 \label{eq:t_plus_t_minus_paraxial_cartesian}
 \end{equation}
-con $\xi$ dada por \eqref{eq:xi_focal_forms}. Sustituyendo en \eqref{eq:Ex_Ey_Hankel_cartesian_matrix_separated}, la expresión compacta es
+con $\xi_\pm$ dadas por \eqref{eq:xi_combinations_physical}. Sustituyendo en \eqref{eq:Ex_Ey_Hankel_cartesian_matrix_separated}, la expresión compacta es
 \begin{equation}
 \begin{aligned}
 \vb E'_\perp(\vb r,f)
@@ -815,14 +809,14 @@ e^{i\frac{nk}{2f}r^2}
 \frac{4n_0}{n_0+n_i}
 \mathscr H_0\{\mathscr E_\perp\}(q)
 +
-(n_0+n_i)\xi\,
+\xi_+\,
 \mathscr H_0\{\rho'^2\mathscr E_\perp\}(q)
 \right.
 \\
 &\qquad\qquad
 \left.
 -\,
-(n_0-n_i)\xi\,
+\xi_-\,
 \mathbb W(\varphi)\,
 \mathscr H_2\{\rho'^2\mathscr E_\perp\}(q)
 \right].
@@ -877,7 +871,7 @@ Definimos
 \frac{4n_0}{n_0+n_i}\,
 \frac{a}{q}J_1(qa)
 +
-(n_0+n_i)\,\xi
+\xi_+
 \left[
 \frac{a^3}{q}J_1(qa)
 +
@@ -888,7 +882,7 @@ Definimos
 \\[0.5em]
 \mathcal B(q)
 &=
-(n_0-n_i)\,\xi\,
+\xi_-\,
 \frac{a^3}{q}J_3(qa),
 \end{aligned}
 \label{eq:A_B_cartesian_def}
@@ -1126,7 +1120,7 @@ la transmisión. Está gobernado por la diferencia
 \begin{equation}
   t_-
   =
-  t_p-t_s,
+  \tau_p-t_s,
 \end{equation}
 y por el operador angular
 \begin{equation}
@@ -1174,12 +1168,12 @@ e^{i\frac{nk}{2f}r^2}
 \frac{4n_0}{n_0+n_i}
 \mathscr H_0\{\mathscr E_x\}(q)
 +
-(n_0+n_i)\xi\,
+\xi_+\,
 \mathscr H_0\{\rho'^2\mathscr E_x\}(q)
 \\
 &\quad
 -
-(n_0-n_i)\xi
+\xi_-
 \left(
 \cos2\varphi\,
 \mathscr H_2\{\rho'^2\mathscr E_x\}(q)
@@ -1197,12 +1191,12 @@ e^{i\frac{nk}{2f}r^2}
 \frac{4n_0}{n_0+n_i}
 \mathscr H_0\{\mathscr E_y\}(q)
 +
-(n_0+n_i)\xi\,
+\xi_+\,
 \mathscr H_0\{\rho'^2\mathscr E_y\}(q)
 \\
 &\quad
 -
-(n_0-n_i)\xi
+\xi_-
 \left(
 \sin2\varphi\,
 \mathscr H_2\{\rho'^2\mathscr E_x\}(q)
@@ -1296,7 +1290,7 @@ E'_x(\vb r,f)
 e^{i\frac{nk}{2f}r^2}
 \Bigg\{
 J_0(qa)\,
-\frac{2(n_0+n_i)\xi a^2}{q^2}\,
+\frac{2\xi_+ a^2}{q^2}\,
 \mathscr E_{x,0}
 \\
 &\qquad
@@ -1305,7 +1299,7 @@ J_1(qa)
 \left[
 \frac{4n_0}{n_0+n_i}\,\frac{a}{q}
 +
-(n_0+n_i)\xi
+\xi_+
 \left(
 \frac{a^3}{q}
 -
@@ -1317,7 +1311,7 @@ J_1(qa)
 &\qquad
 -
 J_3(qa)\,
-(n_0-n_i)\xi\,\frac{a^3}{q}\,
+\xi_-\,\frac{a^3}{q}\,
 \mathcal C(\varphi)
 \Bigg\},
 \\[1em]
@@ -1327,7 +1321,7 @@ E'_y(\vb r,f)
 e^{i\frac{nk}{2f}r^2}
 \Bigg\{
 J_0(qa)\,
-\frac{2(n_0+n_i)\xi a^2}{q^2}\,
+\frac{2\xi_+ a^2}{q^2}\,
 \mathscr E_{y,0}
 \\
 &\qquad
@@ -1336,7 +1330,7 @@ J_1(qa)
 \left[
 \frac{4n_0}{n_0+n_i}\,\frac{a}{q}
 +
-(n_0+n_i)\xi
+\xi_+
 \left(
 \frac{a^3}{q}
 -
@@ -1348,13 +1342,13 @@ J_1(qa)
 &\qquad
 -
 J_3(qa)\,
-(n_0-n_i)\xi\,\frac{a^3}{q}\,
+\xi_-\,\frac{a^3}{q}\,
 \mathcal S(\varphi)
 \Bigg\},
 \end{aligned}
 \label{eq:Ex_Ey_cartesian_bessel_series}
 \end{equation}
-donde las combinaciones $(n_0\pm n_i)\,\xi$ en términos de los parámetros
+donde las combinaciones $\xi_\pm$ en términos de los parámetros
 físicos del sistema están dadas en \eqref{eq:xi_combinations_physical}.
 
 Las tres representaciones describen el mismo fenómeno físico: la transmisión

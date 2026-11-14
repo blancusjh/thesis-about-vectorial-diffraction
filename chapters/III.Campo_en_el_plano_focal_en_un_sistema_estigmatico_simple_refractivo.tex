@@ -284,7 +284,11 @@ t_p E_{P,p} \uvec p'_\perp
 t_s E_{P,\phi} \uvec \phi
 \right\}.
 \end{equation}
-Aquí $\uvec p'_\perp$ y $\uvec s$ denotan las proyecciones transversales de las polarizaciones $\uvec p'$ y $\uvec s$ respectivamente.
+Aquí $\uvec p'_\perp$ y $\uvec s$ denotan las proyecciones transversales de las polarizaciones $\uvec p'$ y $\uvec s$ respectivamente. De \eqref{s_p_in_A_prime_system}, $\uvec s$ ya es transversal, mientras que
+\begin{equation}
+  \uvec p'_\perp = \cos\alpha'\,\uvec r .
+  \label{eq:p_prime_perp}
+\end{equation}
 
 % ===========================================================================
 \section{Caso particular: sistema estigmático cartesiano con fuente puntual en $A$}
@@ -701,7 +705,7 @@ t_s \mathbb E_0 \cdot \uvec s \, \uvec s
 \frac{n\vb r}{\lambda z}
 \right).
 \end{equation}
-Dado que las polarizaciones $\uvec p$ y $\uvec s$ coinciden con los vectores angulares de la base esférica centrada en $A$, $\uvec \theta_A$ y $\uvec \phi$, podemos escribir
+Dado que las polarizaciones $\uvec p$ y $\uvec s$ coinciden con los vectores angulares de la base esférica centrada en $A$, $\uvec \theta_A$ y $\uvec \phi$, y usando la proyección \eqref{eq:p_prime_perp}, podemos escribir
 \begin{equation}
 \vb{E}'_\perp(\vb r,z)
 =
@@ -712,7 +716,7 @@ n\frac{e^{inkz}}{i\lambda z}e^{i\frac{nk}{2z}r^2}
 \frac{1}{\ell_0}
 e^{ik\left( \frac{n}{2 z}r'^2 - nz(r') + \ell_0 \right) }
 \left\{
-t_p \mathscr E_{\theta} \uvec{r}
+t_p \cos\alpha'\, \mathscr E_{\theta} \uvec{r}
 +
 t_s \mathscr E_{\phi} \uvec \phi
 \right\}
@@ -722,6 +726,12 @@ t_s \mathscr E_{\phi} \uvec \phi
 \right).
 \label{eq:E_perp_for_ovoid_in_prog}
 \end{equation}
+El factor $\cos\alpha'$ es puramente geométrico: es la proyección sobre el plano transversal de la componente $p$ transmitida, que es tangente a la esfera $\mathscr G'$ y no al plano. Conviene absorberlo en un coeficiente de transmisión transversal,
+\begin{equation}
+  \tau_p \equiv t_p\cos\alpha',
+  \label{eq:tau_p_def}
+\end{equation}
+de modo que la parte transversal del campo transmitido es proporcional a $\tau_p\mathscr E_\theta\,\uvec r+t_s\mathscr E_\phi\,\uvec\phi$. La componente $s$ no lleva factor alguno por ser ya transversal.
 
 Identificamos
 \begin{equation}
@@ -1085,19 +1095,36 @@ obtiene directamente de la superficie refractora considerada.
 \medskip
 
 \noindent\textit{Límite escalar y definición operativa de la aberración vectorial.}
-El resultado \eqref{eq:E_prime_func_of_M_E0} recupera la teoría escalar de
-la difracción de forma exacta al imponer $t_p=t_s=1$, en cuyo caso
-$\mathbb T$ se reduce a la identidad transversal y la función pupila se
-convierte en una amplitud escalar isótropa sobre $\mathscr G'$. Este límite
-no es un régimen físicamente accesible (los coeficientes $t_p$ y $t_s$
-solo coinciden con la unidad simultáneamente en el caso trivial de un mismo
-medio a ambos lados de la interfaz), sino un límite matemático de
-referencia: la desviación del campo focal completo respecto a él es lo que
-llamamos aberración vectorial. Adoptamos esta definición porque el
-propósito del trabajo es aislar la contribución de la refracción vectorial,
-sin mezclarla con otros efectos residuales (contraste de índice, apodización
-paraxial, etc.). La cantidad que la gobierna es la combinación anisotrópica
-$t_-=t_p-t_s$; el límite escalar corresponde a $t_-\equiv 0$.
+La parte transversal del resultado \eqref{eq:E_prime_func_of_M_E0} recupera la
+teoría escalar de la difracción de forma exacta al imponer $\tau_p=t_s=1$, en
+cuyo caso la acción transversal de $\mathbb T$ se reduce a la identidad y la
+función pupila se convierte en una amplitud escalar isótropa sobre
+$\mathscr G'$. Este límite no es un régimen físicamente accesible, sino un
+límite matemático de referencia: la desviación del campo focal completo
+respecto a él es lo que llamamos aberración vectorial. Adoptamos esta
+definición porque el propósito del trabajo es aislar la contribución de la
+refracción vectorial, sin mezclarla con otros efectos residuales (contraste de
+índice, apodización paraxial, etc.). La cantidad que la gobierna es la
+combinación anisotrópica
+\begin{equation}
+  t_-=\tau_p-t_s=t_p\cos\alpha'-t_s ;
+\end{equation}
+el límite escalar corresponde a $t_-\equiv 0$. En ella concurren dos
+contribuciones del mismo orden: la diferencia entre los coeficientes de
+Fresnel y la proyección geométrica $\cos\alpha'$. Como
+$t_s=t_p\cos(\theta_i-\theta_t)$ y la desviación del rayo en la superficie es
+$\theta_i-\theta_t=\alpha+\alpha'$, con $\alpha$ el ángulo del rayo incidente
+con el eje óptico, se tiene
+\begin{equation}
+  t_-
+  =
+  t_s\left[\frac{\cos\alpha'}{\cos(\alpha+\alpha')}-1\right],
+  \label{eq:t_minus_deviation_identity}
+\end{equation}
+que se anula sobre el eje y es positiva fuera de él para una fuente puntual a
+distancia finita ($\alpha\neq 0$). En el límite de incidencia colimada
+($\alpha=0$) ambas contribuciones se cancelan y $t_-$ se anula en toda la
+pupila.
 
 \medskip
 
@@ -1221,7 +1248,7 @@ litografía ultravioleta profunda: $\lambda=193\,\mathrm{nm}$,
 $\mathrm{NA}=0.94$, con trazas de anchura $0.64\lambda$ y paso fino de
 $1.23\lambda$, cercano al límite de resolución. La máscara es una transmisión
 binaria iluminada coherentemente, y se comparan dos modelos de propagación: el
-escalar, con $t_p=t_s=1$, y el vectorial completo, que aplica la matriz de
+escalar, con $\tau_p=t_s=1$, y el vectorial completo, que aplica la matriz de
 transmisión $\mathbb T$ en cada dioptrio y reconstruye la componente
 longitudinal mediante la condición de transversalidad. En ambos casos se
 reporta la intensidad total \eqref{eq:Intensity_in_Focal_Plane}. El pipeline
@@ -1351,13 +1378,14 @@ introducido las combinaciones
 \begin{equation}
 t_+
 =
-t_p+t_s,
+\tau_p+t_s,
 \qquad
 t_-
 =
-t_p-t_s.
+\tau_p-t_s,
 \label{eq:t_plus_t_minus_def}
 \end{equation}
+con $\tau_p=t_p\cos\alpha'$ el coeficiente de transmisión transversal de la componente $p$ definido en \eqref{eq:tau_p_def}.
 
 La deducción detallada de esta forma de $\mathbb{T}_{xy}$ a partir de
 \eqref{eq:def_M_bb} se presenta en la
@@ -1475,7 +1503,7 @@ t_-(\rho')\sin 2\phi'\,\zeta(\rho',\phi')
 \end{equation}
 Esta expresión muestra que la transmisión vectorial puede ser representada 
 mediante una transformación de Möbius sobre el estado local de polarización, la cual es invertible siempre
-que $\det \mathbb{T}_{xy}=t_p t_s \neq 0$, condición que se satisface en
+que $\det \mathbb{T}_{xy}=\tau_p t_s \neq 0$, condición que se satisface en
 transmisión. De $\zeta_{\mathscr{G}'}$ se obtienen el ángulo de amplitudes y
 la fase relativa del estado transmitido,
 \begin{equation}
@@ -1521,10 +1549,10 @@ relaciones válidas tanto para el estado incidente como para el transmitido.
 
 Por tanto, la matriz de transmisión no solo introduce una modulación espacial
 de amplitud, sino también una transformación local del estado de polarización.
-En el límite escalar $t_p=t_s$ se tiene $t_-=0$, y la
+En el límite escalar $\tau_p=t_s$ se tiene $t_-=0$, y la
 ecuación~\eqref{eq:mobius_transformation} se reduce a
 $\zeta_{\mathscr{G}'}=\zeta$: la transmisión no modifica el estado local de
-polarización. En cambio, cuando $t_p\neq t_s$, la diferencia entre las
+polarización. En cambio, cuando $\tau_p\neq t_s$, la diferencia entre las
 transmisiones de las componentes $p$ y $s$ produce una redistribución espacial
 de la polarización sobre $\mathscr{G}'$.
 
@@ -1849,7 +1877,7 @@ Para proceder con los resultados en cada representación, se parte de la ecuaci�
 f(r')J_m(qr')r'\,dr',
 \label{eq:def_Hankel_Transform_m_order}
 \end{equation}
-donde $q$ es la frecuencia radial conjugada a $r'$ en la transformada de Fourier bidimensional. También usaremos las combinaciones $t_\pm = t_p \pm t_s$ introducidas en
+donde $q$ es la frecuencia radial conjugada a $r'$ en la transformada de Fourier bidimensional. También usaremos las combinaciones $t_\pm = \tau_p \pm t_s$ introducidas en
 \eqref{eq:t_plus_t_minus_def}. Para el caso de una pupila circular de radio $a$, definimos la función pupila
 \begin{equation}
 A_a(r')
@@ -1901,9 +1929,14 @@ Por lo tanto, los vectores $\uvec s_\perp$ y $\uvec p'_\perp$ en la base circula
 \\
 \uvec{p}'_\perp
 &=
+\cos\alpha'\,\uvec r
+=
+\cos\alpha'
+\left(
 \cos\phi\,\uvec{x}
 +
-\sin\phi\,\uvec{y}.
+\sin\phi\,\uvec{y}
+\right).
 \end{align}
 Las proyecciones perpendiculares de la base de Fresnel se expresan como
 \begin{align}
@@ -1918,22 +1951,22 @@ e^{-i\phi}\ket{L}
 \\
 \uvec{p}'_\perp
 &=
-\frac{1}{\sqrt{2}}
+\frac{\cos\alpha'}{\sqrt{2}}
 \left(
 e^{-i\phi}\ket{L}
 +
 e^{i\phi}\ket{R}
 \right).
 \end{align}
-Reemplazando en \eqref{eq:E_G_prime_def},
+Reemplazando en \eqref{eq:E_G_prime_def} y usando $\tau_p=t_p\cos\alpha'$,
 \begin{equation}
   \ell_0 \mathbb{E}^{\mathscr G'}_\perp
 =
 \frac{1}{\sqrt{2}}
 \Big\{
-(t_p \mathscr E_\theta - i t_s \mathscr E_\phi)e^{-i\phi}\ket{L}
+(\tau_p \mathscr E_\theta - i t_s \mathscr E_\phi)e^{-i\phi}\ket{L}
 +
-(t_p \mathscr E_\theta + i t_s \mathscr E_\phi)e^{i\phi}\ket{R}
+(\tau_p \mathscr E_\theta + i t_s \mathscr E_\phi)e^{i\phi}\ket{R}
 \Big\}.
 \end{equation}
 Para que la integral quede completamente formulada en términos de la base circular, escribimos las componentes del campo incidente en dicha representación:
@@ -1962,23 +1995,23 @@ e^{-i\phi}\mathscr E_R
 \end{align}
 Por lo tanto,
 \begin{equation}
-t_p\mathscr E_\theta+i t_s\mathscr E_\phi
+\tau_p\mathscr E_\theta+i t_s\mathscr E_\phi
 =
 \frac{1}{\sqrt2}
 \left[
-(t_p-t_s)e^{i\phi}\mathscr E_L
+(\tau_p-t_s)e^{i\phi}\mathscr E_L
 +
-(t_p+t_s)e^{-i\phi}\mathscr E_R
+(\tau_p+t_s)e^{-i\phi}\mathscr E_R
 \right],
 \end{equation}
 \begin{equation}
-t_p\mathscr E_\theta-i t_s\mathscr E_\phi
+\tau_p\mathscr E_\theta-i t_s\mathscr E_\phi
 =
 \frac{1}{\sqrt2}
 \left[
-(t_p+t_s)e^{i\phi}\mathscr E_L
+(\tau_p+t_s)e^{i\phi}\mathscr E_L
 +
-(t_p-t_s)e^{-i\phi}\mathscr E_R
+(\tau_p-t_s)e^{-i\phi}\mathscr E_R
 \right].
 \end{equation}
 Definimos, en favor de la simple escritura
@@ -1993,9 +2026,9 @@ De modo que,
 =
 \frac{1}{2}
 \Big\{
-\big[(t_p+t_s)\mathscr E_L+(t_p-t_s)e^{-2i\phi}\mathscr E_R\big]\ket L
+\big[(\tau_p+t_s)\mathscr E_L+(\tau_p-t_s)e^{-2i\phi}\mathscr E_R\big]\ket L
 +
-\big[(t_p-t_s)e^{2i\phi}\mathscr E_L+(t_p+t_s)\mathscr E_R\big]\ket R
+\big[(\tau_p-t_s)e^{2i\phi}\mathscr E_L+(\tau_p+t_s)\mathscr E_R\big]\ket R
 \Big\}.
 \label{eq:T_perp_circular_basis}
 \end{equation}
@@ -2006,18 +2039,18 @@ T_L
 &=
 \frac{1}{2}
 \big[
-(t_p+t_s)\mathscr E_L
+(\tau_p+t_s)\mathscr E_L
 +
-(t_p-t_s)e^{-2i\phi}\mathscr E_R
+(\tau_p-t_s)e^{-2i\phi}\mathscr E_R
 \big],
 \\
 T_R
 &=
 \frac{1}{2}
 \big[
-(t_p-t_s)e^{2i\phi}\mathscr E_L
+(\tau_p-t_s)e^{2i\phi}\mathscr E_L
 +
-(t_p+t_s)\mathscr E_R
+(\tau_p+t_s)\mathscr E_R
 \big],
 \end{aligned}
 \label{eq:TL_TR_circular}
@@ -2179,7 +2212,7 @@ donde $\mathscr H_m[f]$ denota el operador que multiplica por $f(r')$ y aplica l
 
 Los resultados para la pupila circular uniforme en las distintas polarizaciones se desarrollan en el apéndice~\ref{apx:focal_forms}.
 
-El término proporcional a $\mathscr{H}_0[t_+]\,\mathbb{I}_\perp$ es diagonal: transforma $\ket{L}\to\ket{L}$ y $\ket{R}\to\ket{R}$ sin mezclar helicidades, reproduciendo el resultado de la difracción escalar modulado por $t_+$. La aparición de la aberración vectorial queda asociada de forma explícita al término de mezcla proporcional a $t_-=t_p-t_s$, que acopla $\ket{L}$ con $\ket{R}$ mediante factores de fase azimutal $e^{\pm 2i\varphi}$. Si $t_p=t_s$, dicho acoplamiento desaparece.
+El término proporcional a $\mathscr{H}_0[t_+]\,\mathbb{I}_\perp$ es diagonal: transforma $\ket{L}\to\ket{L}$ y $\ket{R}\to\ket{R}$ sin mezclar helicidades, reproduciendo el resultado de la difracción escalar modulado por $t_+$. La aparición de la aberración vectorial queda asociada de forma explícita al término de mezcla proporcional a $t_-=\tau_p-t_s$, que acopla $\ket{L}$ con $\ket{R}$ mediante factores de fase azimutal $e^{\pm 2i\varphi}$. Si $\tau_p=t_s$, dicho acoplamiento desaparece.
 
 Las series paraxiales del apéndice~\ref{apx:ovoids_series} muestran que, al orden cuadrático en la coordenada pupilar,
 \begin{equation}
@@ -2187,21 +2220,26 @@ t_+(\rho')
 \approx
 \frac{4n_0}{n_0+n_i}
 +
+\left[
 \frac{
 n_0(z_0-z_i)^2
 }{
 z_0^2z_i^2(n_0-n_i)
-}\,\rho'^2,
+}
+-
+\frac{n_0}{(n_0+n_i)z_i^2}
+\right]\rho'^2,
 \qquad
 t_-(\rho')
 \approx
 \frac{
-n_0(z_0-z_i)^2
+n_0(z_i-2z_0)
 }{
-z_0^2z_i^2(n_0+n_i)
-}\,\rho'^2,
+(n_0+n_i)\,z_i\,z_0^2
+}\,\rho'^2.
 \label{eq:t_plus_t_minus_paraxial_second_order}
 \end{equation}
+En $t_-$ la contribución de Fresnel, $n_0(z_0-z_i)^2/[z_0^2z_i^2(n_0+n_i)]$, y la proyección geométrica, $-n_0/[(n_0+n_i)z_i^2]$, son del mismo orden; su suma es positiva para conjugados reales ($z_0<0<z_i$) y tiende a cero cuando $z_0\to-\infty$.
 
 Así, $t_+(0)=4n_0/(n_0+n_i)\neq 0$ mientras que $t_-(0)=0$: el coeficiente de mezcla es nulo sobre el eje y crece cuadráticamente alejándose de él. A esto se añade que $J_2(0)=0$, de modo que tanto el coeficiente $t_-$ como la función de Bessel $J_2$ se anulan simultáneamente en el origen, suprimiendo la conversión de helicidad en el eje. En contraste, $J_0(0)=1$ y $t_+(0)\neq 0$ garantizan que el término diagonal sí contribuye en el eje, generando un brillo central en el plano focal.
 
@@ -2252,7 +2290,7 @@ entonces el campo transmitido transversalmente queda dado por
 \begin{equation}
   \vb E_t(\rho',\phi')
   =
-  t_p(\rho')\mathscr E_r(\rho',\phi')\,\uvec r(\phi')
+  \tau_p(\rho')\mathscr E_r(\rho',\phi')\,\uvec r(\phi')
   +
   t_s(\rho')\mathscr E_\phi(\rho',\phi')\,\uvec \phi(\phi').
   \label{eq:T_cylindrical_basis}
@@ -2260,9 +2298,9 @@ entonces el campo transmitido transversalmente queda dado por
 
 En notación operatorial,
 \begin{equation}
-  \mathbb T
+  \mathbb T_\perp
   =
-  t_p\,\ket{\uvec r}\bra{\uvec r}
+  \tau_p\,\ket{\uvec r}\bra{\uvec r}
   +
   t_s\,\ket{\uvec\phi}\bra{\uvec\phi},
   \label{eq:M_in_cylindrical_basis}
@@ -2293,7 +2331,7 @@ Por tanto, reemplazando en la expresión general del campo en el plano focal,
   e^{i\frac{nk}{2f}r^2}
   \mathscr F
   \left\{
-    t_p\mathscr E_r\,\uvec r
+    \tau_p\mathscr E_r\,\uvec r
     +
     t_s\mathscr E_\phi\,\uvec\phi
   \right\}
@@ -2382,7 +2420,7 @@ Nótese que lo que se transforma de esta forma no es el operador diádico $\math
   e^{inkf}
   e^{i\frac{nk}{2f}r^2}
   \left[
-    \mathscr H_1\{t_p\mathscr E_r\}(q)\,\uvec r(\varphi)
+    \mathscr H_1\{\tau_p\mathscr E_r\}(q)\,\uvec r(\varphi)
     +
     \mathscr H_1\{t_s\mathscr E_\phi\}(q)\,\uvec\phi(\varphi)
   \right].
@@ -2420,7 +2458,7 @@ E'_\phi
 e^{inkf}
 e^{i\frac{nk}{2f}r^2}
 \begin{pmatrix}
-\mathscr H_1[t_p] & 0\\
+\mathscr H_1[\tau_p] & 0\\
 0 & \mathscr H_1[t_s]
 \end{pmatrix}
 \begin{pmatrix}
@@ -2433,7 +2471,7 @@ e^{i\frac{nk}{2f}r^2}
 
 Los resultados para la pupila circular uniforme se desarrollan en el apéndice~\ref{apx:focal_forms}.
 
-Es claro cómo en esta representación la transformación que sufre el campo al refractarse en la interfaz $\Sigma$ es diagonal, esto es que los modos radiales y azimutales de la polarización son modos propios de este proceso de refracción a través de una superficie. La modulación radial está dada por la transformada de Hankel de orden 1 de los coeficientes de Fresnel; dado que la transformada de Hankel de orden uno es una integral ponderada por la función de Bessel $J_1$, no hay contribución central del campo transversal en el eje óptico, como se observa en las figuras~\ref{fig:radial-plano-focal-componentes} y~\ref{fig:azimutal-plano-focal-componentes}. Esto es consecuencia de la homogeneidad del campo en la polarización radial y azimutal.
+Es claro cómo en esta representación la transformación que sufre el campo al refractarse en la interfaz $\Sigma$ es diagonal, esto es que los modos radiales y azimutales de la polarización son modos propios de este proceso de refracción a través de una superficie. La modulación radial está dada por la transformada de Hankel de orden 1 de los coeficientes de transmisión transversales $\tau_p$ y $t_s$; dado que la transformada de Hankel de orden uno es una integral ponderada por la función de Bessel $J_1$, no hay contribución central del campo transversal en el eje óptico, como se observa en las figuras~\ref{fig:radial-plano-focal-componentes} y~\ref{fig:azimutal-plano-focal-componentes}. Esto es consecuencia de la homogeneidad del campo en la polarización radial y azimutal.
 
 Podemos decir que \textit{un campo radial o azimutal que sea axialmente simétrico, en su propagación hasta el plano focal, da lugar a un campo transversal sin contribución central}, resultado bien conocido en la literatura de haces vectoriales cilíndricos \cite{Youngworth2000, Zhan2009}.
 
@@ -2539,7 +2577,7 @@ Después de la transmisión en la superficie dióptrica, el campo transversal lo
 \begin{equation}
   \vb T
   =
-  t_p\mathscr E_r\,\uvec{r}
+  \tau_p\mathscr E_r\,\uvec{r}
   +
   t_s\mathscr E_\phi\,\uvec{\phi}.
 \label{eq:T_cartesian_local_fresnel}
@@ -2553,25 +2591,25 @@ cartesiana, se obtiene
 T_x
 &=
 \left(
-t_p\cos^2\phi'
+\tau_p\cos^2\phi'
 +
 t_s\sin^2\phi'
 \right)\mathscr E_x
 +
 \left(
-t_p-t_s
+\tau_p-t_s
 \right)
 \sin\phi'\cos\phi'\,\mathscr E_y,
 \\
 T_y
 &=
 \left(
-t_p-t_s
+\tau_p-t_s
 \right)
 \sin\phi'\cos\phi'\,\mathscr E_x
 +
 \left(
-t_p\sin^2\phi'
+\tau_p\sin^2\phi'
 +
 t_s\cos^2\phi'
 \right)\mathscr E_y.
@@ -2618,9 +2656,9 @@ la matriz de transmisión en la base cartesiana adopta la forma
 \boxed{
   \mathbb T_{xy}
   =
-  \frac{t_p+t_s}{2}\,\mathbb I_\perp
+  \frac{\tau_p+t_s}{2}\,\mathbb I_\perp
   +
-  \frac{t_p-t_s}{2}
+  \frac{\tau_p-t_s}{2}
   \begin{pmatrix}
     \cos 2\phi' & \sin 2\phi' \\
     \sin 2\phi' & -\cos 2\phi'
@@ -2901,7 +2939,7 @@ En esta expresión, $\mathscr H_m[t_\pm]$ denota el operador que primero
 multiplica por $t_\pm(\rho')$ y luego aplica la transformada de Hankel de
 orden $m$; los resultados para la pupila homogénea y los casos particulares de polarización se desarrollan en el apéndice~\ref{apx:focal_forms}.
 
-El término $\mathscr{H}_0[t_+]\,\mathbb{I}_\perp$ es isótropo: preserva la dirección de polarización ($\uvec{x}\to\uvec{x}$, $\uvec{y}\to\uvec{y}$) y reproduce el resultado escalar modulado por $t_+$. La aparición de la aberración vectorial se identifica en el término anisótropo proporcional a $t_-=t_p-t_s$, que introduce la mezcla angular de orden dos a través de $\mathbb{W}(\varphi)$ y de las contribuciones $\mathscr{H}_2[t_-]$. Si $t_p=t_s$, sobrevive solo la parte isotrópica y el término vectorial aberrante desaparece.
+El término $\mathscr{H}_0[t_+]\,\mathbb{I}_\perp$ es isótropo: preserva la dirección de polarización ($\uvec{x}\to\uvec{x}$, $\uvec{y}\to\uvec{y}$) y reproduce el resultado escalar modulado por $t_+$. La aparición de la aberración vectorial se identifica en el término anisótropo proporcional a $t_-=\tau_p-t_s$, que introduce la mezcla angular de orden dos a través de $\mathbb{W}(\varphi)$ y de las contribuciones $\mathscr{H}_2[t_-]$. Si $\tau_p=t_s$, sobrevive solo la parte isotrópica y el término vectorial aberrante desaparece.
 
 Al igual que en la representación circular, la supresión axial de la mezcla queda garantizada por la aproximación paraxial \eqref{eq:t_plus_t_minus_paraxial_second_order}: $t_-(0)=0$ y $J_2(0)=0$ anulan simultáneamente la contribución de $\mathscr{H}_2[t_-]$ sobre el eje, mientras que $t_+(0)\neq 0$ y $J_0(0)=1$ aseguran un brillo central en el canal isótropo.
 
@@ -2975,7 +3013,7 @@ polarización y se expande en la dirección perpendicular,
 \end{equation}
 
 La figura~\ref{fig:spot-cortes-principales} compara el perfil focal
-vectorial con la referencia escalar ideal ($t_p=t_s=1$) para el dioptrio de
+vectorial con la referencia escalar ideal ($\tau_p=t_s=1$) para el dioptrio de
 vidrio usado en los resultados anteriores, a apertura alta: la transmisión
 vectorial de Fresnel ensancha el lóbulo central respecto de la predicción
 escalar. La deformación anisótropa crece con la apertura y con el contraste
@@ -2990,7 +3028,7 @@ de índice, pues ambos incrementan el canal $H_2$.
   lineal en el dioptrio de vidrio ($n_0=1$, $n_i=1.5$, $z_0=-10\,\mathrm{mm}$,
   $z_i=6\,\mathrm{mm}$, $\lambda=532\,\mathrm{nm}$, pupila uniforme a apertura
   alta). La transmisión vectorial de Fresnel ensancha el punto focal respecto
-  de la referencia escalar ideal ($t_p=t_s=1$); a esta escala los cortes por
+  de la referencia escalar ideal ($\tau_p=t_s=1$); a esta escala los cortes por
   los dos ejes principales son indistinguibles.}
   \label{fig:spot-cortes-principales}
 \end{figure}

@@ -683,7 +683,65 @@ z_0^2z_i^2(n_0+n_i)
 O(\rho^4).
 \label{eq:tp_minus_ts_quadratic_explicit}
 \end{equation}
-Esta expresión muestra que la diferencia entre los canales \(p\) y \(s\) desaparece axialmente y que su primera contribución es de segundo orden en la coordenada pupilar.
+Esta expresión muestra que la diferencia entre los coeficientes de Fresnel \(p\) y \(s\) desaparece axialmente y que su primera contribución es de segundo orden en la coordenada pupilar.
+
+La parte transversal del campo transmitido no involucra directamente a \(t_p\), sino al coeficiente de transmisión transversal \(\tau_p=t_p\cos\alpha'\) definido en \eqref{eq:tau_p_def}, donde \(\alpha'\) es el ángulo del rayo refractado con el eje óptico. De \(\cos\alpha'=(z_i-z)/\ell_i\) y de las series \eqref{eq:z_rho_series_substituted} y \eqref{eq:li_series_expansion} se obtiene
+\begin{equation}
+\cos\alpha'
+=
+1-\frac{\rho^2}{2z_i^2}+O(\rho^4),
+\label{eq:cos_alpha_prime_series}
+\end{equation}
+de modo que
+\begin{equation}
+\tau_p
+=
+\frac{2n_0}{n_0+n_i}
++
+\xi_p\,\rho^2
++
+O(\rho^4),
+\qquad
+\xi_p
+\equiv
+n_0\xi-\frac{n_0}{(n_0+n_i)z_i^2}.
+\label{eq:tau_p_series_second_order}
+\end{equation}
+Con \(\xi_s\equiv n_i\xi\) el coeficiente cuadrático de \(t_s\), las combinaciones transversales \(t_\pm=\tau_p\pm t_s\) de \eqref{eq:t_plus_t_minus_def} resultan
+\begin{equation}
+t_+
+=
+\frac{4n_0}{n_0+n_i}
++
+\xi_+\rho^2
++
+O(\rho^4),
+\qquad
+t_-
+=
+\xi_-\rho^2
++
+O(\rho^4),
+\label{eq:t_plus_minus_transverse_series}
+\end{equation}
+con
+\begin{equation}
+\xi_+
+\equiv
+\xi_p+\xi_s
+=
+\frac{n_0(z_0-z_i)^2}{z_0^2z_i^2(n_0-n_i)}
+-
+\frac{n_0}{(n_0+n_i)z_i^2},
+\qquad
+\xi_-
+\equiv
+\xi_p-\xi_s
+=
+\frac{n_0(z_i-2z_0)}{(n_0+n_i)\,z_i\,z_0^2}.
+\label{eq:xi_plus_minus_def}
+\end{equation}
+En \(\xi_-\) concurren, con el mismo orden, la diferencia de los coeficientes de Fresnel, \((n_0-n_i)\xi\), y la proyección geométrica, \(-n_0/[(n_0+n_i)z_i^2]\).
 
 En la representación circular, los canales transmitidos se escriben como
 \begin{align}
@@ -691,9 +749,9 @@ T_L
 &=
 \frac{1}{2}
 \big[
-(t_p+t_s)\mathscr E_L
+t_+\mathscr E_L
 +
-(t_p-t_s)e^{-2i\phi'}\mathscr E_R
+t_-e^{-2i\phi'}\mathscr E_R
 \big],
 \label{eq:TL_exact_circular}
 \\[6pt]
@@ -701,9 +759,9 @@ T_R
 &=
 \frac{1}{2}
 \big[
-(t_p-t_s)e^{2i\phi'}\mathscr E_L
+t_-e^{2i\phi'}\mathscr E_L
 +
-(t_p+t_s)\mathscr E_R
+t_+\mathscr E_R
 \big].
 \label{eq:TR_exact_circular}
 \end{align}
@@ -714,18 +772,18 @@ T_L
 \simeq{}&
 \frac{2n_0}{n_0+n_i}\mathscr E_L
 +
-\frac{(n_0+n_i)\xi}{2}\,\rho'^2\mathscr E_L
+\frac{\xi_+}{2}\,\rho'^2\mathscr E_L
 +
-\frac{(n_0-n_i)\xi}{2}\,\rho'^2e^{-2i\phi'}\mathscr E_R,
+\frac{\xi_-}{2}\,\rho'^2e^{-2i\phi'}\mathscr E_R,
 \label{eq:TL_second_order_corrected}
 \\[8pt]
 T_R
 \simeq{}&
 \frac{2n_0}{n_0+n_i}\mathscr E_R
 +
-\frac{(n_0+n_i)\xi}{2}\,\rho'^2\mathscr E_R
+\frac{\xi_+}{2}\,\rho'^2\mathscr E_R
 +
-\frac{(n_0-n_i)\xi}{2}\,\rho'^2e^{2i\phi'}\mathscr E_L.
+\frac{\xi_-}{2}\,\rho'^2e^{2i\phi'}\mathscr E_L.
 \label{eq:TR_second_order_corrected}
 \end{align}
 
@@ -789,13 +847,13 @@ Si \(\mathscr E_L\) y \(\mathscr E_R\) son radialmente simétricos en la pupila 
 \mathscr H_0[\mathscr E_L]
 +
 \pi
-(n_0+n_i)\xi
+\xi_+
 \mathscr H_0[r'^2\mathscr E_L]
 \nonumber
 \\[4pt]
 &-
 \pi
-(n_0-n_i)\xi
+\xi_-
 e^{-2i\varphi}
 \mathscr H_2[r'^2\mathscr E_R],
 \label{eq:FT_TL_paraxial_corrected}
@@ -807,13 +865,13 @@ e^{-2i\varphi}
 \mathscr H_0[\mathscr E_R]
 +
 \pi
-(n_0+n_i)\xi
+\xi_+
 \mathscr H_0[r'^2\mathscr E_R]
 \nonumber
 \\[4pt]
 &-
 \pi
-(n_0-n_i)\xi
+\xi_-
 e^{2i\varphi}
 \mathscr H_2[r'^2\mathscr E_L].
 \label{eq:FT_TR_paraxial_corrected}
@@ -821,18 +879,20 @@ e^{2i\varphi}
 
 La estructura de \eqref{eq:FT_TL_paraxial_corrected} y \eqref{eq:FT_TR_paraxial_corrected} muestra la jerarquía local del acoplamiento vectorial. El término dominante es diagonal en la base circular y corresponde al límite escalar-paraxial. Los términos de conversión circular, proporcionales a \(e^{\pm2i\varphi}\), aparecen solamente en orden cuadrático y están controlados por
 \begin{equation}
-t_p-t_s
+t_-
 =
-(n_0-n_i)\xi\,\rho^2
+\tau_p-t_s
+=
+\xi_-\,\rho^2
 +
 O(\rho^4).
 \label{eq:polarization_conversion_quadratic_order}
 \end{equation}
-Así, la diferencia entre los canales \(p\) y \(s\) no altera el orden axial dominante, sino que introduce una corrección vectorial de segundo orden en la coordenada pupilar. En términos físicos, \(\xi\) mide la intensidad local de la aberración vectorial inducida por la transmisión local en la superficie cartesiana.
+Así, la diferencia entre los canales transversales \(p\) y \(s\) no altera el orden axial dominante, sino que introduce una corrección vectorial de segundo orden en la coordenada pupilar. En términos físicos, \(\xi_-\) mide la intensidad local de la aberración vectorial inducida por la transmisión en la superficie cartesiana.
 
 Un caso degenerado importante ocurre cuando \(z_i=z_0\). En tal caso,
 \begin{equation}
 \xi=0,
 \label{eq:xi_zero_equal_conjugates}
 \end{equation}
-y la diferencia \(t_p-t_s\) se anula al orden cuadrático. Geométricamente, ambos puntos conjugados coinciden axialmente y la superficie local se reduce a una superficie centrada respecto a dicho punto; por consiguiente, la incidencia local pierde la distinción angular ordinaria entre las polarizaciones \(s\) y \(p\) al orden considerado.
+y la diferencia \(t_p-t_s\) se anula al orden cuadrático. Geométricamente, ambos puntos conjugados coinciden axialmente y la superficie local se reduce a una superficie centrada respecto a dicho punto; por consiguiente, la incidencia local pierde la distinción angular ordinaria entre las polarizaciones \(s\) y \(p\) al orden considerado. La combinación transversal se reduce entonces a su parte geométrica, \(\xi_-=-n_0/[(n_0+n_i)z_i^2]\), que solo refleja la proyección de la componente \(p\) sobre el plano transversal.
