@@ -164,8 +164,9 @@ Por lo tanto, el campo eléctrico en el plano focal está dado por
 \end{equation}
 O equivalentemente,
 \begin{equation}
+\begin{aligned}
     \vb{E}'(r, z)
-    =
+    ={}&
     n\frac{e^{inkz}}{i \lambda z}
     \iint_{-\infty}^{\infty}
     \exp\!\left[
@@ -174,12 +175,15 @@ O equivalentemente,
         +
         ik(1-n)z(r')
     \right]
+    \\
+    &\times
     \Big\{
         t_p (\vb{E}_P \cdot \uvec{p}) \uvec{p}'
         +
         t_s (\vb{E}_P \cdot \uvec{\phi}) \uvec{\phi}
     \Big\}
     dx'dy'.
+\end{aligned}
 \label{eq:E_field_at_z_3D}
 \end{equation}
 Esta expresión nos da el campo en el plano paralelo a $P$ a una distancia $z$, dado el campo inicial en $P$.
@@ -245,7 +249,7 @@ con el cual la base de polarización queda escrita como
 \end{align}
 La figura~\ref{fig:sphere_theta_phi_fields} ilustra esta identificación: sobre la esfera de referencia centrada en $A'$, los modos de polarización $p$ y $s$ no son direcciones fijas sino los campos vectoriales tangentes meridional ($\mp\uvec{\theta}_{A'}$) y azimutal ($\uvec{\phi}$) respectivamente.
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
   \centering
   \thesisincludegraphics[width=0.65\textwidth]
     {figures/geometrical_setups/esfera_polarizacion_rotada.pdf}
@@ -776,7 +780,7 @@ Identificamos
 \end{equation}
 donde $\mathbb E^{\mathscr G'}$ es el campo sobre la esfera $\mathscr G'$ centrada en el punto imagen $A'$ y tangente al dioptrio, y $\mathbb E^{\mathscr G}$ el campo sobre la esfera $\mathscr G$ centrada en el punto objeto $A$. Dado que la fase es constante sobre $\mathscr G'$, dicho campo es netamente real.
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
   \centering
   \thesisincludegraphics[width=0.65\textwidth]
     {figures/geometrical_setups/esferas_GGp.pdf}
@@ -1320,7 +1324,7 @@ trazas ortogonales, pero su efecto es menor que el de la diatenuación. La
 mezcla de polarizaciones inducida por $t_-$ es aquí despreciable: la fracción
 de energía del canal cruzado es del orden de $0.05\,\%$.
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
   \centering
   \thesisincludegraphics[width=0.95\textwidth]
     {figures/results_of_simulation/vecdiff_final/litografia/litografia_lineal_imagenes.png}
@@ -1348,7 +1352,7 @@ la litografía de alta apertura numérica a controlar la polarización de la
 iluminación \cite{flagello1996, ruoff2009}; aquí, la orientación favorecida la
 fija la diatenuación de las superficies.
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
   \centering
   \thesisincludegraphics[width=0.85\textwidth]
     {figures/results_of_simulation/vecdiff_final/litografia/litografia_circular_imagenes.png}
@@ -1875,9 +1879,10 @@ campo añade una fase generalmente distinta a cada componente, $\Phi_x$ y $\Phi_
 diferencia $\delta_f=\Phi_y-\Phi_x$ actúa entonces como un desfasador efectivo
 distribuido sobre el plano focal, allí donde toma valores distintos de $0$ y
 $\pi$ genera elipticidad, aun para iluminación incidente linealmente
-polarizada a difrencia de la transformación del campo incidente al campo en la pupila 
-que no introducia elipticidad si la iluminación incidente era polarizada linealmente. 
-\\
+polarizada, a diferencia de la transformación del campo incidente al campo en la
+pupila, que no introducía elipticidad si la iluminación incidente era polarizada
+linealmente.
+
 Sin embargo, si la iluminación incidente es simétrica axialmente y las componentes 
 del vector de amplitud $\mathbb E_0$ son reales, las fases $\Phi_x$ y $\Phi_y$ solo toman 
 los valores $0$ y $\pi$, por las propiedades de 
@@ -2285,7 +2290,7 @@ proporcional a $\sqrt I$, la misma con que se muestran las amplitudes $|E_j|$,
 para que los máximos secundarios sean visibles; las barras de color dan la
 intensidad.
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
   \centering
   \thesisincludegraphics[width=\textwidth]
     {figures/results_of_simulation/vecdiff_final/circular/circular_componentes.png}
@@ -2294,7 +2299,7 @@ intensidad.
   \label{fig:circular-plano-focal-componentes}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
   \centering
   \thesisincludegraphics[width=\textwidth]
     {figures/results_of_simulation/vecdiff_final/circular/circular_mapa_polarizacion.png}
@@ -2303,7 +2308,7 @@ intensidad.
   \label{fig:circular-plano-focal-mapa-polarizacion}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
   \centering
   \thesisincludegraphics[width=0.9\textwidth]
     {figures/results_of_simulation/vecdiff_final/circular/circular_angulos_elipse.png}
@@ -2525,7 +2530,7 @@ Esta afirmación concierne a la parte transversal. Para incidencia azimutal no h
 \end{equation}
 que no se anula sobre el eje: a aperturas altas el foco de un haz radial posee un máximo axial de campo longitudinal \cite{Youngworth2000, Zhan2009}, cuyo peso relativo crece con $\sin\alpha'$.
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
   \centering
   \thesisincludegraphics[width=\textwidth]
     {figures/results_of_simulation/vecdiff_final/cilindrico/radial_componentes.png}
@@ -2534,7 +2539,7 @@ que no se anula sobre el eje: a aperturas altas el foco de un haz radial posee u
   \label{fig:radial-plano-focal-componentes}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
   \centering
   \thesisincludegraphics[width=\textwidth]
     {figures/results_of_simulation/vecdiff_final/cilindrico/radial_mapa_polarizacion.png}
@@ -2543,7 +2548,7 @@ que no se anula sobre el eje: a aperturas altas el foco de un haz radial posee u
   \label{fig:radial-plano-focal-mapa-polarizacion}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
   \centering
   \thesisincludegraphics[width=\textwidth]
     {figures/results_of_simulation/vecdiff_final/cilindrico/azimutal_componentes.png}
@@ -2552,7 +2557,7 @@ que no se anula sobre el eje: a aperturas altas el foco de un haz radial posee u
   \label{fig:azimutal-plano-focal-componentes}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
   \centering
   \thesisincludegraphics[width=\textwidth]
     {figures/results_of_simulation/vecdiff_final/cilindrico/azimutal_mapa_polarizacion.png}
@@ -2985,7 +2990,7 @@ Al igual que en la representación circular, la supresión axial de la mezcla qu
 
 La consecuencia más visible de $\mathbb{W}(\varphi)$ es la aparición de una componente cruzada en el plano focal con dependencia azimutal de orden dos. Para una entrada puramente $\uvec{x}$, el término $-\sin 2\varphi\,\mathscr{H}_2[t_-\mathscr{E}_x]$ genera una componente $E_y'$ con patrón de cuatro lóbulos, unas veinte veces menor en amplitud que $E_x'$, como se observa en la figura~\ref{fig:lineal-plano-focal-componentes}. El mapa de la figura~\ref{fig:lineal-plano-focal-mapa-polarizacion} evidencia la rotación local inducida por esta componente cruzada, y la figura~\ref{fig:lineal-plano-focal-mapas-escalares} separa dicha variación en los ángulos $\chi$ y $\psi$: la elipticidad permanece nula en todo el plano focal y la aberración vectorial se manifiesta exclusivamente como una rotación local de la orientación, hecho que se justificó en la sección~\ref{subsec:polarizacion_plano_focal}.
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
   \centering
   \thesisincludegraphics[width=\textwidth]
     {figures/results_of_simulation/vecdiff_final/lineal/lineal_componentes.png}
@@ -2994,7 +2999,7 @@ La consecuencia más visible de $\mathbb{W}(\varphi)$ es la aparición de una co
   \label{fig:lineal-plano-focal-componentes}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
   \centering
   \thesisincludegraphics[width=\textwidth]
     {figures/results_of_simulation/vecdiff_final/lineal/lineal_mapa_polarizacion.png}
@@ -3003,7 +3008,7 @@ La consecuencia más visible de $\mathbb{W}(\varphi)$ es la aparición de una co
   \label{fig:lineal-plano-focal-mapa-polarizacion}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
   \centering
   \thesisincludegraphics[width=0.9\textwidth]
     {figures/results_of_simulation/vecdiff_final/lineal/lineal_angulos_elipse.png}
@@ -3113,7 +3118,7 @@ transversales con la referencia escalar para un dioptrio de vidrio
 ($n_i=1.5$): $R_{\mathrm{esc}}=3.50\lambda$, $R_\parallel=3.90\lambda$ y
 $R_\perp=4.30\lambda$.
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
   \centering
   \thesisincludegraphics[width=0.7\textwidth]
     {figures/results_of_simulation/vecdiff_final/spot/spot_cortes_principales.png}
@@ -3134,7 +3139,7 @@ La figura~\ref{fig:spot-radios-anotados} presenta el caso de un vidrio denso
 $R_\perp=2.49\lambda$ frente a $R_{\mathrm{esc}}=1.91\lambda$, es decir,
 $R_\perp/R_\parallel=1.20$.
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
   \centering
   \thesisincludegraphics[width=\textwidth]
     {figures/results_of_simulation/vecdiff_final/spot/spot_radios_anotados.png}

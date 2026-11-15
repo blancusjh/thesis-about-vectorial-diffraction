@@ -28,9 +28,10 @@ $\mathbb T$ sobre la esfera de referencia objeto y su posterior propagación
 al plano focal. El algoritmo~\ref{alg:single_diopter} lo resume para un
 dioptrio.
 
-\begin{algorithm}[H]
+\begin{algorithm}[!htbp]
 \caption{Campo focal tras un dioptrio estigmático}
 \label{alg:single_diopter}
+\small
 \begin{algorithmic}[1]
 \Require Parámetros $(n_0,n_i,z_0,z_i,\lambda)$; superficie cartesiana
 $z(\rho')$; campo incidente $\mathbb E_0(\rho',\varphi')$; modo
@@ -85,9 +86,10 @@ fundida. El campo se propaga por composición de operadores: cada superficie
 se trata mediante el algoritmo~\ref{alg:single_diopter}, y su salida se
 utiliza como campo incidente sobre la superficie siguiente.
 
-\begin{algorithm}[H]
+\begin{algorithm}[!htbp]
 \caption{Sistema de dos superficies cartesianas conjugadas}
 \label{alg:two_diopter}
+\small
 \begin{algorithmic}[1]
 \Require Máscara de entrada $M(x,y)$; parámetros de cada superficie
 $(n_0^{(k)},n_i^{(k)},z_0^{(k)},z_i^{(k)})$ para $k=1,2$; modo.

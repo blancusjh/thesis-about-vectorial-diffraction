@@ -103,6 +103,15 @@
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
 \usepackage{float}
+% Parámetros de colocación de flotantes: permiten hasta tres figuras por
+% página y páginas de figuras más llenas, para no dejar huecos en el texto.
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.07}
+\renewcommand{\floatpagefraction}{0.75}
+\setcounter{topnumber}{3}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}
 \usepackage{longtable}
 
 % Fast build switch:
@@ -134,6 +143,11 @@
 % ======================
 \usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
 \addbibresource{bibliography.bib}
+% Permite cortar DOI y URL largos en la bibliografía para que no desborden.
+\setcounter{biburlnumpenalty}{9000}
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000}
+\AtBeginBibliography{\setlength{\emergencystretch}{2em}}
 
 % Commands  
 \newcommand{\uvec}[1]{\bm{\hat{\mathbf{#1}}}}
