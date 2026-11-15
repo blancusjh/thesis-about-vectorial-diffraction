@@ -52,7 +52,7 @@ Calculamos las proyecciones sobre los vectores de la base de Fresnel $\uvec p$ y
 \begin{equation}
     \vb{E}_{\Sigma} \cdot \uvec{p}
     =
-    \frac{1}{\sqrt{\rho^2 - 2zz_0 + z_0^2}}
+    \frac{1}{|\ell_0|}
     \big\{
     (z(\rho) - z_0) E_r
     -
@@ -73,8 +73,8 @@ Sustituyendo en la expresión del campo transmitido,
     \big\{ (z(\rho) - z_0) E_r - r(\rho) E_z \big\}
     }
     {
-    \sqrt{\rho^2 - 2zz_0 + z_0^2}
-    \sqrt{\rho^2 - 2zz_i + z_i^2}
+    \ell_0
+    \ell_i
     }
     \big\{
     (z_i - z(\rho)) \uvec{r}
@@ -348,7 +348,7 @@ Los vectores unitarios de incidencia y transmisión del sistema son
   r(\rho)\uvec{r}(\varphi)
   }
   {
-  \sqrt{\rho^2 - 2z(\rho)z_0 + z_0^2}
+  \ell_0
   },
   \label{eq:u_for_P_in_optical_axis_app}
 \end{equation}
@@ -361,7 +361,7 @@ Los vectores unitarios de incidencia y transmisión del sistema son
   r(\rho)\uvec{r}(\varphi)
   }
   {
-  \sqrt{\rho^2 - 2z(\rho)z_i + z_i^2}
+  \ell_i
   }.
   \label{eq:u_prime_for_P_in_optical_axis_app}
 \end{equation}
@@ -400,7 +400,7 @@ Reemplazando por las ecuaciones anteriores, se obtiene
 \begin{equation}
   \uvec p
   =
-  \frac{1}{\sqrt{\rho^2 - 2zz_0 + z_0^2}}
+  \frac{1}{|\ell_0|}
   \left\{
   (z(\rho) - z_0)\uvec{r}(\varphi)
   -
@@ -411,7 +411,7 @@ Reemplazando por las ecuaciones anteriores, se obtiene
 \begin{equation}
   \uvec{p}'
   =
-  \frac{1}{\sqrt{\rho^2 - 2zz_i + z_i^2}}
+  \frac{1}{\ell_i}
   \left\{
   (z_i - z(\rho))\uvec{r}(\varphi)
   +
@@ -465,7 +465,7 @@ Ambos cosenos son positivos con la orientación adoptada para la normal. Sustitu
 }
 {
 \sqrt{(r'(\rho))^2+(z'(\rho))^2}\;
-\sqrt{\rho^2-2z(\rho)z_0+z_0^2}
+\ell_0
 }.
 \label{eq:cos_theta_i_closed_app}
 \end{align}
@@ -480,7 +480,7 @@ De donde se obtiene
   }
   {
   \sqrt{(r'(\rho))^2+(z'(\rho))^2}\;
-  \sqrt{\rho^2-2z(\rho)z_0+z_0^2}
+  \ell_0
   }.
   \label{eq:cos_theta_i_ovoid_z_and_r}
 \end{equation}
@@ -496,7 +496,7 @@ z'(\rho)\,\big(\rho^2-z(\rho)z_0\big)
 {
 \sqrt{\rho^2\big(1+z'(\rho)^2\big)-2\rho z(\rho)z'(\rho)}
 \;
-\sqrt{\rho^2-2z(\rho)z_0+z_0^2}
+\ell_0
 }.
 \label{eq:cos_theta_i_ovoid}
 \end{equation}
@@ -512,7 +512,7 @@ z'(\rho)\,\big(\rho^2-z(\rho)z_i\big)
 {
 \sqrt{\rho^2\big(1+z'(\rho)^2\big)-2\rho z(\rho)z'(\rho)}
 \;
-\sqrt{\rho^2-2z(\rho)z_i+z_i^2}
+\ell_i
 }.
 \label{eq:cos_theta_t_ovoid}
 \end{equation}
@@ -527,7 +527,7 @@ Así pues, los cosenos de incidencia y transmisión son
 }
 {
 \sqrt{\rho^2\big(1+z'^2\big) - 2\rho z z'}\;
-\sqrt{\rho^2 - 2 z z_0 + z_0^2}
+\ell_0
 },
 \\
 \cos\theta_t
@@ -537,25 +537,25 @@ z'\,\big(\rho^2 - z\,z_i\big) - \rho\big(z - z_i\big)
 }
 {
 \sqrt{\rho^2\big(1+z'^2\big) - 2\rho z z'}\;
-\sqrt{\rho^2 - 2 z z_i + z_i^2}
+\ell_i
 }.
 \end{aligned}
 \right.
 \label{cosines_ovoid_compact}
 \end{equation}
-En la configuración de conjugados reales ($z_0<0<z_i$) ambos se reducen a la unidad en el vértice. Usando las definiciones
+Con las longitudes con signo \eqref{eq:signed_lengths_axis}, ambos se reducen a la unidad en el vértice para cualquier signo de $z_0$ y $z_i$. Usando dichas longitudes,
 \begin{align}
-l_0
+\ell_0
 &=
-\sqrt{\rho^2 - 2zz_0 + z_0^2},
+-\operatorname{sgn}(z_0)\ell_0,
 \label{eq:l0_definition}
 \\
-l_i
+\ell_i
 &=
-\sqrt{\rho^2 - 2zz_i + z_i^2},
+\operatorname{sgn}(z_i)\ell_i,
 \label{eq:l0_li_definitions}
 \end{align}
-que son las distancias $\overline{AQ}$ y $\overline{A'Q}$ respectivamente, y definiendo también
+cuyos valores absolutos son las distancias $\overline{AQ}$ y $\overline{A'Q}$, y definiendo también
 \begin{equation}
   s'
   :=
@@ -569,7 +569,7 @@ para la cual $r\,s'=\sqrt{\rho^2(1+z'^2)-2\rho z z'}$, los cosenos de incidencia
 \begin{aligned}
   \cos\theta_i
   &=
-  \frac{1}{r\,s'\,l_0}
+  \frac{1}{r\,s'\,\ell_0}
   \big\{
   \rho\big(z - z_0\big)
   -
@@ -578,7 +578,7 @@ para la cual $r\,s'=\sqrt{\rho^2(1+z'^2)-2\rho z z'}$, los cosenos de incidencia
 \\
   \cos\theta_t
   &=
-  \frac{1}{r\,s'\,l_i}
+  \frac{1}{r\,s'\,\ell_i}
   \big\{
   z'\big(\rho^2 - z z_i\big)
   -
@@ -604,7 +604,7 @@ Reemplazando \eqref{cosines_ovoid_compact} en \eqref{eq:ts_app} y en \eqref{eq:t
  {
  \left\{ \rho(z - z_0) - z'(\rho^2 - zz_0) \right\}
  +
- \eta \frac{l_0}{l_i}
+ \eta \frac{\ell_0}{\ell_i}
  \left\{ z'(\rho^2 - zz_i) - \rho(z - z_i) \right\}
  },
   \label{eq:t_s_ovoid}
@@ -619,7 +619,7 @@ Reemplazando \eqref{cosines_ovoid_compact} en \eqref{eq:ts_app} y en \eqref{eq:t
  \eta
  \left\{ \rho(z - z_0) - z'(\rho^2 - zz_0) \right\}
  +
- \frac{l_0}{l_i}
+ \frac{\ell_0}{\ell_i}
  \left\{ z'(\rho^2 - zz_i) - \rho(z - z_i) \right\}
  },
   \label{eq:t_p_ovoid}
@@ -645,10 +645,12 @@ que evaluado en $\Sigma$ y usando la definición \eqref{eq:l0_definition},
   \vb E_\Sigma (\vb r)
   =
   \mathbb{E}_0(\vb r)
-  \frac{e^{ik\ell_0}}{\ell_0},
+  \frac{e^{ik\ell_0}}{|\ell_0|},
   \label{eq:initial_field_sigma}
 \end{equation}
-donde $\ell_0$ se define según \eqref{eq:l0_definition}, y $\mathbb E_0$ es
+donde $\ell_0$ es la longitud con signo \eqref{eq:l0_definition}: la misma
+expresión describe una onda divergente desde un objeto real ($\ell_0>0$) y
+una convergente hacia un objeto virtual ($\ell_0<0$). Aquí $\mathbb E_0$ es
 \begin{equation}
   \mathbb E_0 (\vb r)
   =
@@ -672,11 +674,11 @@ De la relación \eqref{eq:Ep_from_E_Sigma},
   =
   e^{-ikz(r)}
   \mathbb{E}_0(\vb r)
-  \frac{e^{ik\ell_0}}{\ell_0}.
+  \frac{e^{ik\ell_0}}{|\ell_0|}.
   \label{eq:initial_field_in_p}
 \end{equation}
 
-De esta manera queda expresado el campo incidente sobre el plano $P$ para una fuente puntual ubicada en $A$. Si se desea evaluarlo en otro punto del espacio cualquiera $H$, basta con reemplazar $\ell_0$ en \eqref{eq:initial_field_in_p} por $\overline{AH}$. De cualquier manera, el campo incidente queda determinado por dos funciones reales, $\mathscr E_\theta$ y $\mathscr E_\phi$.
+De esta manera queda expresado el campo incidente sobre el plano $P$ para una fuente puntual ubicada en $A$. Si se desea evaluarlo en otro punto del espacio cualquiera $H$, basta con reemplazar $\ell_0$ en \eqref{eq:initial_field_in_p} por la longitud con signo de $A$ a $H$. De cualquier manera, el campo incidente queda determinado por dos funciones reales, $\mathscr E_\theta$ y $\mathscr E_\phi$.
 
 % ---------------------------------------------------------------------------
 \subsection{Campo eléctrico en el plano focal}
@@ -693,7 +695,7 @@ n\frac{e^{inkz}}{i\lambda z}\,
 \,
 \mathscr F
 \left\{
-\frac{1}{\ell_0}
+\frac{1}{|\ell_0|}
 e^{i\frac{nk}{2 z}r'^2 - inkz(r') + ik\ell_0}
 \left\{
 t_p \mathbb E_0 \cdot \uvec p \, \uvec p'_\perp
@@ -713,7 +715,7 @@ n\frac{e^{inkz}}{i\lambda z}e^{i\frac{nk}{2z}r^2}
 \,
 \mathscr F
 \left\{
-\frac{1}{\ell_0}
+\frac{1}{|\ell_0|}
 e^{ik\left( \frac{n}{2 z}r'^2 - nz(r') + \ell_0 \right) }
 \left\{
 t_p \cos\alpha'\, \mathscr E_{\theta} \uvec{r}
@@ -746,7 +748,7 @@ Identificamos
 \begin{equation}
   \mathbb E^{\mathscr G'}
   =
-  \frac{1}{\ell_0}
+  \frac{1}{|\ell_0|}
   \left\{
   t_p \mathscr E_\theta \uvec p'
   +
@@ -757,7 +759,7 @@ Identificamos
 \begin{equation}
   \mathbb E^{\mathscr G}
   =
-  \frac{1}{\ell_0}
+  \frac{1}{|\ell_0|}
   \left\{
   \mathscr E_\theta \uvec p
   +
@@ -792,15 +794,15 @@ e^{ik\Phi(r')} \mathbb E^{\mathscr G'}(\vb r')
 \label{eq:E_field_perp_no_phase_replacement}
 \end{equation}
 
-Para el término $\ell_0$ dividiendo en la amplitud, lo aproximamos por la distancia del vértice al objeto, $\ell_0\approx -z_0=|z_0|$; para la fase la aproximación ha de ser más cuidadosa. En concreto, partiendo de
+Para el término $|\ell_0|$ dividiendo en la amplitud, lo aproximamos por la distancia del vértice al objeto, $|\ell_0|\approx|z_0|$; para la fase, que contiene la longitud con signo $\ell_0$, la aproximación ha de ser más cuidadosa. En concreto, partiendo de
 \begin{equation}
     \ell_0
     =
-    \sqrt{x^2 + y^2 + (z(r) - z_0)^2}
+    -\operatorname{sgn}(z_0)\sqrt{x^2 + y^2 + (z(r) - z_0)^2}
     =
-    \sqrt{r^2 + (z(r) - z_0)^2},
+    -\operatorname{sgn}(z_0)\sqrt{r^2 + (z(r) - z_0)^2},
 \end{equation}
-extrayendo el término $(z(r) - z_0)$ para realizar una expansión binomial en el régimen paraxial, $r \ll |z(r)-z_0|$:
+extrayendo el término $(z(r) - z_0)$, que tiene el signo de $-z_0$ cuando la sagita es pequeña frente a $|z_0|$, para realizar una expansión binomial en el régimen paraxial, $r \ll |z(r)-z_0|$:
 \begin{align}
     \ell_0
     &=
@@ -1043,7 +1045,7 @@ y, sobre la esfera de Fourier $\mathscr D$ de $\mathscr G'$, libre del factor de
   \frac{n e^{inkf}}{i\lambda f}  \,\mathscr F\!\left\{\mathbb E^{\mathscr G'}\right\}\!\left(\frac{n}{\lambda f}\vb r\right).
   \label{eq:E_D_in_EGp}
 \end{equation}
-Usando $\mathbb E^{\mathscr G'} = \mathbb T \mathbb E_0 / \ell_0$ y aproximando $\ell_0 \approx |z_0|$ en la amplitud, estas se leen equivalentemente como
+Usando $\mathbb E^{\mathscr G'} = \mathbb T \mathbb E_0 / |\ell_0|$ y aproximando $\ell_0 \approx |z_0|$ en la amplitud, estas se leen equivalentemente como
 \begin{equation}
 \boxed{
   \vb E'(\vb r, f)
@@ -1084,7 +1086,7 @@ aplanática ideal que satisface la condición de los senos de
 Abbe~\cite{Abbe1873}, y la amplitud sobre la pupila queda ponderada por el
 factor apodizador $\sqrt{\cos\theta}$. En la formulación presente, la función
 pupila vectorial
-$\mathbb E^{\mathscr G'}=\mathbb T\mathbb E_0/\ell_0$ se construye punto a
+$\mathbb E^{\mathscr G'}=\mathbb T\mathbb E_0/|\ell_0|$ se construye punto a
 punto a partir de la geometría de la superficie cartesiana y de la
 transmisión de Fresnel evaluada localmente. La factorización $1/\ell_0$
 incorpora la divergencia esférica sobre $\mathscr G$, mientras que las
@@ -1191,7 +1193,7 @@ La relación \eqref{eq:Ez_from_Er} es local sobre la esfera de referencia, donde
 \begin{equation}
   E^{\mathscr G'}_z
   =
-  \frac{1}{\ell_0}\,t_p\,\sin\alpha'\,\mathscr E_\theta,
+  \frac{1}{|\ell_0|}\,t_p\,\sin\alpha'\,\mathscr E_\theta,
   \label{eq:Ez_pupil}
 \end{equation}
 de modo que la componente longitudinal en el plano focal es
@@ -1652,8 +1654,8 @@ t_-
 \end{equation}
 Las funciones \eqref{eq:TxyE0_components} no son otra cosa que las componentes
 cartesianas transversales del campo refractado sobre $\mathscr{G}'$, salvo el
-factor común $1/\ell_0 \approx 1/|z_0|$, pues
-$\mathbb E^{\mathscr{G}'}=\mathbb{T}\,\mathbb E_0/\ell_0$. En particular, su
+factor común $1/|\ell_0| \approx 1/|z_0|$, pues
+$\mathbb E^{\mathscr{G}'}=\mathbb{T}\,\mathbb E_0/|\ell_0|$. En particular, su
 cociente reproduce el estado local tras la refracción,
 \begin{equation}
 \frac{

@@ -196,9 +196,10 @@ La manera de referirse a un punto $Q$ de $\Sigma$ desde el punto $O$ es mediante
 
 Las leyes de la óptica geométrica permiten determinar, a partir de la dirección del rayo incidente y el punto de intersección del rayo con la superficie, la dirección del rayo transmitido o reflejado en dicho punto. Esta dirección no depende del punto en sí, sino de la normal de la superficie en ese punto, como es manifiesto de la ley vectorial~\eqref{eq:vectorial_law_of_snell_descartes} deducida desde el \emph{principio de Fermat}~\cite{bornwolf1999}. Procedemos, así, a escribir el vector unitario de incidencia para un punto cualquiera $Q \in \Sigma$ parametrizado por $(\rho, \varphi)$.
 
-Sean $P$ el origen del rayo incidente y $Q(\rho, \varphi)$ el punto de intersección del rayo con la superficie $\Sigma$; es manifiesto que el vector unitario de incidencia $\uvec{u}$ es el vector unitario de $\lvec{PQ}$, es decir,
+Sean $P$ el punto objeto, del que diverge el rayo incidente o hacia el que converge, y $Q(\rho, \varphi)$ el punto de intersección del rayo con la superficie $\Sigma$. El vector unitario de incidencia $\uvec{u}$ apunta en el sentido de propagación: el de $\lvec{PQ}$ si el rayo diverge desde $P$ y el opuesto si converge hacia él, es decir,
 \begin{equation}
-  \uvec{u} = \frac{\lvec{PQ}}{\lVert \lvec{PQ} \rVert}.
+  \uvec{u} = \sigma_0\,\frac{\lvec{PQ}}{\lVert \lvec{PQ} \rVert},
+  \qquad \sigma_0=\pm1.
   \label{eq:def_of_u}
 \end{equation}
 Sean $(z_0, r_0, \varphi_0)$ las coordenadas de $P$, de modo que
@@ -209,9 +210,18 @@ Sean $(z_0, r_0, \varphi_0)$ las coordenadas de $P$, de modo que
 Las coordenadas axiales se miden con signo desde el vértice $O$ y crecen en el
 sentido de propagación: un punto a la izquierda del vértice tiene coordenada
 axial negativa y uno a la derecha, positiva. Esta convención se usa en toda la
-tesis, tanto para el objeto ($z_0$) como para la imagen ($z_i$). En la
-configuración de conjugados reales, $z_0<0<z_i$, y las distancias del vértice
-al objeto y a la imagen son $|z_0|=-z_0$ y $z_i$.
+tesis, tanto para el objeto ($z_0$) como para la imagen ($z_i$), sin
+restringir sus signos: $z_0<0$ corresponde a un objeto real, del que diverge
+el haz incidente, y $z_0>0$ a un objeto virtual, hacia el que converge;
+análogamente, $z_i>0$ corresponde a una imagen real y $z_i<0$ a una virtual.
+Así, en \eqref{eq:def_of_u} es $\sigma_0=-\operatorname{sgn}z_0$, y conviene
+introducir la longitud con signo
+\begin{equation}
+  \ell_0=\sigma_0\,\lVert\lvec{PQ}\rVert ,
+  \label{eq:signed_l0_def}
+\end{equation}
+positiva para un objeto real y negativa para uno virtual, con la que
+$\uvec u=\lvec{PQ}/\ell_0$ en todos los casos.
 Construimos pues el vector $\lvec{PQ}$ como la diferencia
 \begin{equation}
   \lvec{PQ} = \lvec{OQ} - \lvec{OP},
@@ -239,11 +249,13 @@ y finalmente obtenemos el vector unitario de incidencia
   + \bigl(r(\rho) - r_0 \cos\Delta\varphi\bigr)\,\uvec{r}(\varphi)
   + \bigl(r_0 \sin\Delta\varphi\bigr)\,\uvec{\varphi}(\varphi)
   }{
-  \sqrt{(z(\rho) - z_0)^2 + r(\rho)^2 + r_0^2 - 2 r(\rho) r_0 \cos\Delta\varphi}
-  }.
+  \ell_0
+  },
+  \qquad
+  \ell_0=\sigma_0\sqrt{(z(\rho) - z_0)^2 + r(\rho)^2 + r_0^2 - 2 r(\rho) r_0 \cos\Delta\varphi}.
   \label{eq:u_for_any_P}
 \end{equation}
-De manera análoga, si el rayo transmitido converge al punto $P'$ de coordenadas $(z_i, r_i, \varphi_0)$, el vector unitario de transmisión es el vector unitario de $\lvec{QP'} = \lvec{OP'} - \lvec{OQ}$, dirigido de $Q$ hacia $P'$, y resulta
+De manera análoga, sea $P'$ el punto imagen, de coordenadas $(z_i, r_i, \varphi_0)$, hacia el que converge el rayo transmitido ($z_i>0$) o desde el que diverge ($z_i<0$). Con $\sigma_i=\operatorname{sgn}z_i$ y la longitud con signo $\ell_i=\sigma_i\lVert\lvec{QP'}\rVert$, el vector unitario de transmisión, en el sentido de propagación, es $\uvec u'=\lvec{QP'}/\ell_i$, con $\lvec{QP'} = \lvec{OP'} - \lvec{OQ}$, y resulta
 \begin{equation}
    \uvec{u}'
   =
@@ -252,21 +264,31 @@ De manera análoga, si el rayo transmitido converge al punto $P'$ de coordenadas
   - \bigl(r(\rho) - r_i \cos\Delta\varphi\bigr)\,\uvec{r}(\varphi)
   - \bigl(r_i \sin\Delta\varphi\bigr)\,\uvec{\varphi}(\varphi)
   }{
-  \sqrt{(z(\rho) - z_i)^2 + r(\rho)^2 + r_i^2 - 2 r(\rho) r_i \cos\Delta\varphi}
-  }.
+  \ell_i
+  },
+  \qquad
+  \ell_i=\sigma_i\sqrt{(z(\rho) - z_i)^2 + r(\rho)^2 + r_i^2 - 2 r(\rho) r_i \cos\Delta\varphi}.
   \label{eq:u_prime_for_any_P}
 \end{equation}
 
 Si los puntos $P$ y $P'$ viven en el eje óptico, las expresiones anteriores se simplifican como
 \begin{equation}
-  \uvec{u} = \frac{(z(\rho) - z_0)\uvec{z} + r(\rho)\uvec{r}(\varphi)}{\sqrt{\rho^2 - 2z(\rho)z_0 + z_0^2}}
+  \uvec{u} = \frac{(z(\rho) - z_0)\uvec{z} + r(\rho)\uvec{r}(\varphi)}{\ell_0}
   \label{eq:u_for_P_in_optical_axis}
 \end{equation}
 y
 \begin{equation}
-  \uvec{u}' = \frac{(z_i - z(\rho))\uvec{z} - r(\rho)\uvec{r}(\varphi)}{\sqrt{\rho^2 - 2z(\rho)z_i + z_i^2}}.
+  \uvec{u}' = \frac{(z_i - z(\rho))\uvec{z} - r(\rho)\uvec{r}(\varphi)}{\ell_i},
   \label{eq:u_prime_for_P_in_optical_axis}
 \end{equation}
+con
+\begin{equation}
+  \ell_0=-\operatorname{sgn}(z_0)\sqrt{\rho^2 - 2z(\rho)z_0 + z_0^2},
+  \qquad
+  \ell_i=\operatorname{sgn}(z_i)\sqrt{\rho^2 - 2z(\rho)z_i + z_i^2},
+  \label{eq:signed_lengths_axis}
+\end{equation}
+que en el vértice valen $\ell_0=-z_0$ y $\ell_i=z_i$ para cualquier signo de $z_0$ y $z_i$.
 
 Procedemos ahora con el cálculo de la normal en un punto $Q$ parametrizado por $(\rho, \varphi)$. Denotemos al vector normal unitario en el punto $Q=Q(\rho, \varphi)$ como $\uvec{N}$, y construyamos un vector $\vb{N}$ proporcional a $\uvec{N}$ mediante el producto vectorial de los vectores tangentes coordenados, tomados en el orden que orienta la normal hacia el medio de incidencia (en el vértice, $\uvec N = -\uvec z$), que es la orientación con la que se escribió la ley vectorial \eqref{eq:vectorial_law_of_snell_descartes},
 \[
