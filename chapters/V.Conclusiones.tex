@@ -36,7 +36,9 @@ desviación del campo focal respecto del límite escalar $t_s=\tau_p=1$ (en el
 cual el formalismo recupera exactamente la teoría escalar de la difracción),
 aparece siempre modulada por el factor $t_-$, no uniforme y no nulo fuera
 del eje para una fuente puntual a distancia finita; en el límite de incidencia
-colimada $t_-$ se anula en toda la pupila. En analogía con la teoría
+colimada $t_-$ se anula en toda la pupila, de modo que los elipsoides, que
+realizan ese límite, son superficies de interés para diseñar sistemas que
+minimicen la aberración vectorial. En analogía con la teoría
 de aberraciones de frente de onda, la aberración queda así caracterizada
 sobre la propia pupila por la función matricial $\mathbb T$.
 
@@ -59,25 +61,23 @@ predicción es única e independiente de la polarización, no puede describir.
 El régimen vectorial modifica también la forma del punto focal y, con ella,
 la formación de imágenes. Para incidencia lineal la interferencia entre los
 canales $\mathscr H_0$ y $\mathscr H_2$ rompe la simetría circular del lóbulo
-central: la PSF queda caracterizada por dos radios principales que satisfacen
-$R_\parallel<R_{\mathrm{esc}}<R_\perp$, de modo que el punto se contrae a lo
-largo de la polarización incidente, se expande en la dirección perpendicular
-y rota rígidamente con ella. La deformación crece con la apertura numérica y
-con el contraste de índice, mientras que la incidencia circular restaura la
-simetría del punto por promedio azimutal. Esta anisotropía de la PSF tiene
-consecuencias directas sobre la imagen de objetos extensos, como mostró el
-ejemplo litográfico: los detalles alineados con la polarización incidente se
-resuelven mejor que los ortogonales, y la iluminación circular reparte la
-pérdida de contraste entre ambas orientaciones sin eliminarla. A aperturas
-altas contribuye además la componente longitudinal $E_z$, determinada por la
-condición de transversalidad, que llega a transportar una fracción importante
-de la energía de la imagen. Se trata del mismo fenómeno que obliga a la
-litografía de alta apertura numérica a controlar la polarización de la
-iluminación~\cite{flagello1996, ruoff2009}, presente aun cuando el sistema
-está libre de aberración geométrica.
+central: medido por su primer mínimo, el punto queda caracterizado por dos
+radios principales que satisfacen $R_{\mathrm{esc}}<R_\parallel<R_\perp$; la
+apodización $t_+$ lo ensancha respecto del radio de Airy y el canal $t_-$ lo
+contrae a lo largo de la polarización incidente y lo expande en la dirección
+perpendicular, rotando rígidamente con ella. La deformación crece con la
+desviación que impone la superficie y con el contraste de índice, pero está
+acotada por $(n_i-n_0)/(n_i+n_0)$; la incidencia circular restaura la
+simetría del punto por promedio azimutal. En la imagen de objetos extensos,
+como mostró el ejemplo litográfico, la diatenuación de Fresnel hace que los
+detalles alineados con la polarización incidente pierdan más contraste que
+los ortogonales, y la iluminación circular reparte la pérdida entre ambas
+orientaciones sin eliminarla. Se trata de una aberración de la misma
+naturaleza que la que obliga a la litografía de alta apertura numérica a
+controlar la polarización de la iluminación~\cite{flagello1996, ruoff2009},
+presente aun cuando el sistema está libre de aberración geométrica.
 
-El formalismo admite extensiones naturales: la reflexión se obtiene
-reemplazando $t_p,t_s$ por $r_p,r_s$; los sistemas de varias superficies se
+El formalismo admite extensiones naturales: la reflexión se trata con $r_p,r_s$ y la geometría propia de la reflexión, en la que la cancelación del caso colimado no se produce; los sistemas de varias superficies se
 tratan por composición de operadores, como ilustra el ejemplo litográfico. La
 formulación del operador de transferencia como un operador espectral puede
 usarse para generalizar el cálculo de difracción vectorial a iluminaciones

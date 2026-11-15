@@ -1124,22 +1124,39 @@ con el eje óptico, se tiene
 que se anula sobre el eje y es positiva fuera de él para una fuente puntual a
 distancia finita ($\alpha\neq 0$). En el límite de incidencia colimada
 ($\alpha=0$) ambas contribuciones se cancelan y $t_-$ se anula en toda la
-pupila.
+pupila. En ese límite la superficie cartesiana es un
+elipsoide de revolución de excentricidad $n_0/n_i$, con el punto imagen en su
+foco lejano: la refracción en un elipsoide no mezcla las componentes
+transversales del campo, y solo subsisten la apodización $t_+$ y la componente
+longitudinal. Los elipsoides resultan así superficies de interés para el
+diseño de sistemas que minimicen la aberración vectorial.
 
 \medskip
 
-\noindent\textit{Propagación de Fresnel y régimen de apertura numérica alta.}
+\noindent\textit{Propagación de Fresnel y alcance de la aproximación.}
 El propagador \eqref{eq:E_prime_func_of_M_E0} corresponde al régimen de
 Fresnel en el espacio libre entre la esfera de referencia imagen y el plano
 focal (véase la subsección de aproximación de Fresnel del
-capítulo~\ref{ch:ondulatoria}). A pesar de que
-los ejemplos de aplicación al final de este capítulo incluyen aperturas
-elevadas ($\mathrm{NA}=0.94$), la aproximación de Fresnel se aplica sobre un
-tramo corto (el que va de $\mathscr G'$ al plano focal contiguo) y sobre el
-campo ya modulado por $\mathbb T$; los efectos vectoriales que estudiamos se
-localizan en el entorno del máximo focal, donde las diferencias respecto de
-un propagador exacto de espectro angular son subordinadas a la modulación
-introducida por $t_-$. Si bien el caso de reflexión no es tratado en detalle en el presente trabajo, los resultados son en esencia los mismos: bastaría con reemplazar los coeficientes de Fresnel de refracción por los de reflexión.
+capítulo~\ref{ch:ondulatoria}). El tratamiento se inscribe así en la teoría
+metaxial de Bonnet \cite{PellatFinet2009}, que describe la difracción de
+Fresnel entre casquetes esféricos de referencia; en el mismo espíritu, las
+expresiones analíticas de este capítulo retienen los coeficientes de
+transmisión hasta el orden $\rho'^2$. Los ejemplos del final del capítulo
+llevan la incidencia en el borde de la pupila hasta $80^\circ$--$88^\circ$ y,
+en el caso litográfico, la apertura hasta $\mathrm{NA}=0.75$. La aproximación
+de Fresnel se aplica sobre un tramo corto (de $\mathscr G'$ al plano focal) y
+sobre el campo ya modulado por $\mathbb T$, cuya acción se evalúa de forma
+exacta punto a punto; aun así, a esas aperturas los resultados deben leerse
+como ilustración del método y de sus tendencias, y su tratamiento
+cuantitativo a toda apertura requiere ir más allá de la aproximación
+metaxial.
+
+En reflexión el formalismo se aplica con $r_p,r_s$ en lugar de $t_p,t_s$, pero
+cambian también la proyección transversal de $\uvec p'$ y la relación angular
+entre los rayos incidente y reflejado ($\alpha+\alpha'=2\theta_i$), de modo que
+la cancelación descrita arriba para incidencia colimada no se produce: un
+espejo parabólico que enfoca un haz colimado sí mezcla las componentes
+transversales del campo.
 
 % ---------------------------------------------------------------------------
 \section{Reducción del problema a la parte transversal}
@@ -1240,49 +1257,56 @@ A diferencia de lo que ocurre sobre la esfera de referencia, en el plano focal $
 Como ejemplo de aplicación de la formulación general a un campo sin ninguna
 simetría, consideramos la formación de la imagen de una máscara litográfica de
 tipo circuito, con trazas rectas en ambas orientaciones cartesianas. El sistema
-formador de imagen es una lente formada por dos superficies cartesianas
-conjugadas (vacío $\to$ sílice fundida $\to$ vacío), con conjugación exacta y
-aumento unitario, de modo que está libre de aberración
-geométrica por construcción. Los parámetros corresponden al régimen de la
-litografía ultravioleta profunda: $\lambda=193\,\mathrm{nm}$,
-$\mathrm{NA}=0.94$, con trazas de anchura $0.64\lambda$ y paso fino de
-$1.23\lambda$, cercano al límite de resolución. La máscara es una transmisión
-binaria iluminada coherentemente, y se comparan dos modelos de propagación: el
-escalar, con $\tau_p=t_s=1$, y el vectorial completo, que aplica la matriz de
-transmisión $\mathbb T$ en cada dioptrio y reconstruye la componente
-longitudinal mediante la condición de transversalidad. En ambos casos se
-reporta la intensidad total \eqref{eq:Intensity_in_Focal_Plane}. El pipeline
-completo de la simulación (composición de operadores en las dos superficies,
-grilla, propagación de Fresnel y reconstrucción longitudinal) se detalla en
-el apéndice~\ref{apx:numerical_algorithm}.
+formador de imagen es una lente de dos superficies cartesianas idénticas y
+enfrentadas (vacío $\to$ sílice fundida $\to$ vacío): la primera colima dentro
+de la sílice el haz que emerge de cada punto de la máscara y la segunda lo
+reenfoca con aumento unitario, de modo que el sistema está libre de
+aberración geométrica por construcción. Los parámetros corresponden al régimen
+de la litografía ultravioleta profunda: $\lambda=193\,\mathrm{nm}$ e índice
+$n=1.561$. La apertura se fija llevando la incidencia en el borde de cada
+superficie hasta $88^\circ$, lo que da $\mathrm{NA}=0.75$; como una interfaz
+vacío--sílice no puede desviar un rayo más de
+$90^\circ-\arcsin(1/n)\approx 50^\circ$, esta apertura está próxima al máximo
+que admite el sistema. Las trazas tienen anchura $0.70\lambda$ y paso
+$1.41\lambda$, cercano al límite de resolución. La máscara es una transmisión
+binaria iluminada coherentemente, y se comparan dos modelos: el escalar, con
+$\tau_p=t_s=1$, y el vectorial completo. En este último cada componente de
+onda plana del espectro de la máscara atraviesa las dos superficies con la
+misma incidencia y recibe, en su base local $s$--$p$, los coeficientes
+$T_p=t_p^{(1)}t_p^{(2)}$ y $T_s=t_s^{(1)}t_s^{(2)}$; la componente
+longitudinal se reconstruye después mediante la condición de
+transversalidad. En ambos casos se reporta la intensidad total
+\eqref{eq:Intensity_in_Focal_Plane}; el procedimiento se detalla en el
+apéndice~\ref{apx:numerical_algorithm}.
 
 Para cuantificar la fidelidad de la imagen se mide el contraste
 $C=(\bar I_{\mathrm{pico}}-\bar I_{\mathrm{valle}})/(\bar
 I_{\mathrm{pico}}+\bar I_{\mathrm{valle}})$ sobre dos cortes que atraviesan
-grupos de trazas paralelas: un corte a través de trazas verticales, cuya
+grupos de trazas paralelas: uno a través de trazas verticales, cuya
 modulación espacial es paralela a $\uvec{x}$ ($C_V$), y otro a través de
-trazas horizontales, con modulación paralela a $\uvec{y}$ ($C_H$). El
-modelo escalar predice una fidelidad esencialmente independiente de la
-orientación: $C_V=0.91$ y $C_H=0.98$, cuya pequeña diferencia es puramente
-geométrica (el grupo vertical es algo más denso). El modelo vectorial rompe
-esta equivalencia, como se observa en la
-figura~\ref{fig:lithography-general-non-axisymmetric}: con iluminación lineal
-$\uvec{x}$, las trazas alineadas con la polarización conservan la mayor
-parte del contraste ($C_H: 0.98\to 0.85$), mientras que las trazas ortogonales
-a ella se degradan mucho más severamente ($C_V: 0.91\to 0.67$). Con iluminación
-$\uvec{y}$ los papeles se intercambian ($C_V=0.81$, $C_H=0.68$): los
-patrones que se alinean con la polarización lineal incidente se resuelven
-mejor que los ortogonales.
+trazas horizontales, con modulación paralela a $\uvec{y}$ ($C_H$). El modelo
+escalar predice una fidelidad esencialmente independiente de la orientación
+($C_V=0.94$, $C_H=1.00$). El modelo vectorial rompe esta equivalencia, como
+se observa en la figura~\ref{fig:lithography-general-non-axisymmetric}: con
+iluminación lineal $\uvec{x}$, las trazas horizontales, alineadas con la
+polarización, pierden buena parte del contraste ($C_H: 1.00\to 0.59$),
+mientras que las verticales, ortogonales a ella, lo conservan mejor
+($C_V: 0.94\to 0.81$). Con iluminación $\uvec{y}$ los papeles se
+intercambian ($C_V=0.55$, $C_H=0.87$).
 
-El mecanismo dominante en este régimen de apertura es la componente
-longitudinal: para las trazas cuya modulación es paralela a la polarización,
-las órdenes difractadas se separan en el plano que contiene al campo eléctrico,
-sus campos dejan de ser paralelos y la componente $E_z$, que a
-$\mathrm{NA}=0.94$ transporta cerca de la mitad de la energía de la imagen,
-rellena los valles entre trazas. Las trazas ortogonales, en cambio, difractan
-en el plano perpendicular al campo y no sufren esta proyección. La mezcla de
-polarizaciones inducida por $t_-$ es aquí secundaria: la fracción de energía
-del canal cruzado es del orden de $0.1\,\%$.
+El mecanismo dominante es la diatenuación de Fresnel de las dos superficies.
+Las órdenes difractadas por trazas alineadas con el campo se separan en el
+plano perpendicular a él y viajan como ondas $s$; las de trazas ortogonales
+lo hacen en el plano que lo contiene y viajan como ondas $p$. Como en cada
+superficie $t_s=t_p\cos(\theta_i-\theta_t)$, el sistema completo cumple
+$T_s/T_p=\cos^2\alpha$, con $\alpha$ el ángulo de la onda con el eje: en el
+borde de la pupila $T_s=0.11$ frente a $T_p=0.25$. Las órdenes $s$ llegan así
+más atenuadas respecto del orden cero, y la modulación de la imagen
+disminuye. La componente longitudinal, que transporta entre el $7\,\%$ y el
+$10\,\%$ de la energía de la imagen, rellena parcialmente los valles de las
+trazas ortogonales, pero su efecto es menor que el de la diatenuación. La
+mezcla de polarizaciones inducida por $t_-$ es aquí despreciable: la fracción
+de energía del canal cruzado es del orden de $0.05\,\%$.
 
 \begin{figure}[H]
   \centering
@@ -1290,26 +1314,27 @@ del canal cruzado es del orden de $0.1\,\%$.
     {figures/results_of_simulation/vecdiff_final/litografia/litografia_lineal_imagenes.png}
     {figures/fast/litografia_lineal_imagenes.jpg}
   \caption{Imagen de una máscara litográfica de tipo circuito formada por una
-  lente de dos superficies cartesianas conjugadas ($\lambda=193\,\mathrm{nm}$,
-  $\mathrm{NA}=0.94$, aumento unitario, trazas de $0.64\lambda$ con paso fino
-  de $1.23\lambda$). Arriba: máscara de entrada e intensidad predicha por el
-  modelo escalar. Abajo: intensidad total del modelo vectorial para
-  iluminación lineal $\uvec{x}$ (izquierda) y $\uvec{y}$
+  lente de dos superficies cartesianas de sílice fundida
+  ($\lambda=193\,\mathrm{nm}$, $\mathrm{NA}=0.75$, aumento unitario, trazas
+  de $0.70\lambda$ con paso $1.41\lambda$). Arriba: máscara de entrada e
+  intensidad predicha por el modelo escalar. Abajo: intensidad total del
+  modelo vectorial para iluminación lineal $\uvec{x}$ (izquierda) y $\uvec{y}$
   (derecha). En cada panel se indican los contrastes $C_V$ y $C_H$ medidos
   sobre los cortes señalados (rojo: trazas verticales; azul: trazas
-  horizontales): las trazas alineadas con la polarización incidente se
-  resuelven mejor que las ortogonales.}
+  horizontales): las trazas alineadas con la polarización incidente pierden
+  más contraste que las ortogonales.}
   \label{fig:lithography-general-non-axisymmetric}
 \end{figure}
 
 Por último, la iluminación circular reparte la pérdida de contraste entre ambas
-orientaciones ($C_V=0.73$, $C_H=0.74$, figura~\ref{fig:lithography-circular}):
+orientaciones ($C_V=0.69$, $C_H=0.75$, figura~\ref{fig:lithography-circular}):
 isotropiza el costo vectorial, pero no lo elimina. Este comportamiento (trazas
 nítidas en una orientación y degradadas en la ortogonal, en un sistema libre de
 aberración geométrica) es una aberración de origen netamente vectorial,
-invisible para el modelo escalar, y es el mismo fenómeno que obliga a la
-litografía de alta apertura numérica a controlar la polarización de la
-iluminación \cite{flagello1996, ruoff2009}.
+invisible para el modelo escalar, de la misma naturaleza que la que obliga a
+la litografía de alta apertura numérica a controlar la polarización de la
+iluminación \cite{flagello1996, ruoff2009}; aquí, la orientación favorecida la
+fija la diatenuación de las superficies.
 
 \begin{figure}[H]
   \centering
@@ -1319,9 +1344,9 @@ iluminación \cite{flagello1996, ruoff2009}.
   \caption{Imagen del mismo patrón de la
   figura~\ref{fig:lithography-general-non-axisymmetric} con iluminación
   circular: modelo escalar (izquierda) y vectorial con intensidad total
-  (derecha). La pérdida de contraste se reparte por igual entre ambas
-  orientaciones ($C_V=0.73$, $C_H=0.74$): la iluminación circular isotropiza
-  la aberración vectorial, pero no la elimina.}
+  (derecha). La pérdida de contraste se reparte entre ambas orientaciones
+  ($C_V=0.69$, $C_H=0.75$): la iluminación circular isotropiza la aberración
+  vectorial, pero no la elimina.}
   \label{fig:lithography-circular}
 \end{figure}
 
@@ -2250,7 +2275,7 @@ Esto se confirma para una entrada circular en la figura~\ref{fig:circular-plano-
   \thesisincludegraphics[width=\textwidth]
     {figures/results_of_simulation/vecdiff_final/circular/circular_componentes.png}
     {figures/fast/circular_componentes.jpg}
-  \caption{Componentes circulares $|E_L|$, $|E_R|$ e intensidad para incidencia circular derecha: campo sobre la pupila (fila superior) y campo en el plano focal (fila inferior). Dioptrio estigmático con $n_0=1$, $n_i=1.5$, $z_0=-10\,\mathrm{mm}$, $z_i=6\,\mathrm{mm}$, $\lambda=532\,\mathrm{nm}$ y pupila uniforme. La componente $E_L$ en el plano focal exhibe la conversión parcial de helicidad inducida por $t_-$, con estructura anular y centro oscuro.}
+  \caption{Componentes circulares $|E_L|$, $|E_R|$ e intensidad para incidencia circular derecha: campo sobre la pupila (fila superior) y campo en el plano focal (fila inferior). Dioptrio estigmático con $n_0=1$, $n_i=2.0$, $z_0=-0.6\,\mathrm{mm}$, $z_i=6\,\mathrm{mm}$, $\lambda=532\,\mathrm{nm}$ y pupila uniforme de radio $0.96\,\mathrm{mm}$ (incidencia de $80^\circ$ en el borde). La componente $E_L$ en el plano focal exhibe la conversión parcial de helicidad inducida por $t_-$, con estructura anular y centro oscuro.}
   \label{fig:circular-plano-focal-componentes}
 \end{figure}
 
@@ -2490,7 +2515,7 @@ que no se anula sobre el eje: a aperturas altas el foco de un haz radial posee u
   \thesisincludegraphics[width=\textwidth]
     {figures/results_of_simulation/vecdiff_final/cilindrico/radial_componentes.png}
     {figures/fast/radial_componentes.jpg}
-  \caption{Componentes cilíndricas $|E_r|$, $|E_\phi|$ e intensidad para incidencia radial: campo sobre la pupila (fila superior) y campo en el plano focal (fila inferior). Dioptrio estigmático con $n_0=1$, $n_i=1.5$, $z_0=-10\,\mathrm{mm}$, $z_i=6\,\mathrm{mm}$, $\lambda=532\,\mathrm{nm}$ y pupila uniforme. La transmisión es diagonal en esta base: no aparece componente azimutal, y la estructura de Hankel de orden uno produce el centro oscuro.}
+  \caption{Componentes cilíndricas $|E_r|$, $|E_\phi|$ e intensidad para incidencia radial: campo sobre la pupila (fila superior) y campo en el plano focal (fila inferior). Dioptrio estigmático con $n_0=1$, $n_i=2.0$, $z_0=-0.6\,\mathrm{mm}$, $z_i=6\,\mathrm{mm}$, $\lambda=532\,\mathrm{nm}$ y pupila uniforme de radio $0.96\,\mathrm{mm}$ (incidencia de $80^\circ$ en el borde). La transmisión es diagonal en esta base: no aparece componente azimutal, y la estructura de Hankel de orden uno produce el centro oscuro del campo transversal; la componente longitudinal, incluida en la intensidad, deja en el eje un $4\,\%$ del máximo.}
   \label{fig:radial-plano-focal-componentes}
 \end{figure}
 
@@ -2943,14 +2968,14 @@ El término $\mathscr{H}_0[t_+]\,\mathbb{I}_\perp$ es isótropo: preserva la dir
 
 Al igual que en la representación circular, la supresión axial de la mezcla queda garantizada por la aproximación paraxial \eqref{eq:t_plus_t_minus_paraxial_second_order}: $t_-(0)=0$ y $J_2(0)=0$ anulan simultáneamente la contribución de $\mathscr{H}_2[t_-]$ sobre el eje, mientras que $t_+(0)\neq 0$ y $J_0(0)=1$ aseguran un brillo central en el canal isótropo.
 
-La consecuencia más visible de $\mathbb{W}(\varphi)$ es la aparición de una componente cruzada en el plano focal con dependencia azimutal de orden dos. Para una entrada puramente $\uvec{x}$, el término $-\sin 2\varphi\,\mathscr{H}_2[t_-\mathscr{E}_x]$ genera una componente $E_y'$ con patrón de cuatro lóbulos, varios órdenes de magnitud menor que $E_x'$, como se observa en la figura~\ref{fig:lineal-plano-focal-componentes}. El mapa de la figura~\ref{fig:lineal-plano-focal-mapa-polarizacion} evidencia la rotación local inducida por esta componente cruzada, y la figura~\ref{fig:lineal-plano-focal-mapas-escalares} separa dicha variación en los ángulos $\chi$ y $\psi$: la elipticidad permanece nula en todo el plano focal y la aberración vectorial se manifiesta exclusivamente como una rotación local de la orientación, hecho que se justificó en la sección~\ref{subsec:polarizacion_plano_focal}.
+La consecuencia más visible de $\mathbb{W}(\varphi)$ es la aparición de una componente cruzada en el plano focal con dependencia azimutal de orden dos. Para una entrada puramente $\uvec{x}$, el término $-\sin 2\varphi\,\mathscr{H}_2[t_-\mathscr{E}_x]$ genera una componente $E_y'$ con patrón de cuatro lóbulos, unas veinte veces menor en amplitud que $E_x'$, como se observa en la figura~\ref{fig:lineal-plano-focal-componentes}. El mapa de la figura~\ref{fig:lineal-plano-focal-mapa-polarizacion} evidencia la rotación local inducida por esta componente cruzada, y la figura~\ref{fig:lineal-plano-focal-mapas-escalares} separa dicha variación en los ángulos $\chi$ y $\psi$: la elipticidad permanece nula en todo el plano focal y la aberración vectorial se manifiesta exclusivamente como una rotación local de la orientación, hecho que se justificó en la sección~\ref{subsec:polarizacion_plano_focal}.
 
 \begin{figure}[H]
   \centering
   \thesisincludegraphics[width=\textwidth]
     {figures/results_of_simulation/vecdiff_final/lineal/lineal_componentes.png}
     {figures/fast/lineal_componentes.jpg}
-  \caption{Componentes cartesianas $|E_x|$, $|E_y|$ e intensidad para incidencia lineal $\uvec{x}$: campo sobre la pupila (fila superior) y campo en el plano focal (fila inferior). Dioptrio estigmático con $n_0=1$, $n_i=1.5$, $z_0=-10\,\mathrm{mm}$, $z_i=6\,\mathrm{mm}$, $\lambda=532\,\mathrm{nm}$ y pupila uniforme. La componente $|E_y'|$ corresponde a la polarización cruzada, con el patrón de cuatro lóbulos $\sin 2\varphi$ predicho por \eqref{eq:Ex_Ey_Hankel_cartesian}.}
+  \caption{Componentes cartesianas $|E_x|$, $|E_y|$ e intensidad para incidencia lineal $\uvec{x}$: campo sobre la pupila (fila superior) y campo en el plano focal (fila inferior). Dioptrio estigmático con $n_0=1$, $n_i=2.0$, $z_0=-0.6\,\mathrm{mm}$, $z_i=6\,\mathrm{mm}$, $\lambda=532\,\mathrm{nm}$ y pupila uniforme de radio $0.96\,\mathrm{mm}$ (incidencia de $80^\circ$ en el borde). La componente $|E_y'|$ corresponde a la polarización cruzada, con el patrón de cuatro lóbulos $\sin 2\varphi$ predicho por \eqref{eq:Ex_Ey_Hankel_cartesian}.}
   \label{fig:lineal-plano-focal-componentes}
 \end{figure}
 
@@ -2999,68 +3024,75 @@ rígidamente con la polarización, sin grados de libertad angulares adicionales.
 La estructura de \eqref{eq:I_spot_linear_deformation} implica que el lóbulo
 central deja de ser circular: sus ejes principales son las direcciones paralela
 y perpendicular a la polarización, con cortes $I_\parallel\propto|H_0-H_2|^2$ e
-$I_\perp^{(90°)}\propto|H_0+H_2|^2$, y el radio único del caso escalar se
-reemplaza por dos radios principales $R_\parallel$ y $R_\perp$, medidos a mitad
-de la altura del máximo central. Cerca del eje se tiene
-$\operatorname{Re}(H_0H_2^*)>0$, de modo que el término de interferencia
-sustrae intensidad del flanco del lóbulo a lo largo de la polarización y la
-agrega en la dirección ortogonal: respecto de la referencia escalar
-($|H_0|^2$, con radio $R_{\mathrm{esc}}$) el punto se contrae a lo largo de la
-polarización y se expande en la dirección perpendicular,
+$I_\perp^{(90°)}\propto|H_0+H_2|^2$. Medimos su tamaño por el primer mínimo de
+intensidad: $R_\parallel$ y $R_\perp$ son las distancias del centro al primer
+mínimo en esas dos direcciones, y $R_{\mathrm{esc}}$ es el radio de Airy, es
+decir, el primer cero de la referencia escalar ideal ($\tau_p=t_s=1$) con la
+misma pupila. Los radios se miden sobre la intensidad total
+\eqref{eq:Intensity_in_Focal_Plane}. La apodización $t_+$, que decrece hacia
+el borde de la pupila, ensancha el lóbulo en todas las direcciones; sobre ese
+ensanchamiento, el término de interferencia, con
+$\operatorname{Re}(H_0H_2^*)>0$ cerca del eje, contrae el lóbulo a lo largo de
+la polarización y lo expande en la dirección perpendicular, de modo que
 \begin{equation}
-  R_\parallel < R_{\mathrm{esc}} < R_\perp.
+  R_{\mathrm{esc}} < R_\parallel < R_\perp.
 \label{eq:spot_radii_ordering}
 \end{equation}
+En la dirección paralela el primer cero se convierte en un mínimo no nulo,
+rellenado por la componente longitudinal.
 
-La figura~\ref{fig:spot-cortes-principales} compara el perfil focal
-vectorial con la referencia escalar ideal ($\tau_p=t_s=1$) para el dioptrio de
-vidrio usado en los resultados anteriores, a apertura alta: la transmisión
-vectorial de Fresnel ensancha el lóbulo central respecto de la predicción
-escalar. La deformación anisótropa crece con la apertura y con el contraste
-de índice, pues ambos incrementan el canal $H_2$.
+Por \eqref{eq:t_minus_deviation_identity}, la deformación crece con la
+desviación $\alpha+\alpha'$ que impone la superficie; por eso los ejemplos que
+siguen usan un objeto cercano a ella ($z_0=-0.6\,\mathrm{mm}$,
+$z_i=6\,\mathrm{mm}$) y una pupila que lleva la incidencia hasta $80^\circ$ en
+el borde. La anisotropía está, sin embargo, acotada: con convergencia débil,
+$t_-/t_+$ no puede superar $(n_i-n_0)/(n_i+n_0)$, valor que alcanza en
+incidencia rasante. La figura~\ref{fig:spot-cortes-principales} compara los
+cortes vectoriales con la referencia escalar para un dioptrio de vidrio
+($n_i=1.5$): $R_{\mathrm{esc}}=3.50\lambda$, $R_\parallel=3.92\lambda$ y
+$R_\perp=4.30\lambda$.
 
 \begin{figure}[H]
   \centering
   \thesisincludegraphics[width=0.7\textwidth]
     {figures/results_of_simulation/vecdiff_final/spot/spot_cortes_principales.png}
     {figures/fast/spot_cortes_principales.jpg}
-  \caption{Corte radial de la intensidad en el plano focal para incidencia
-  lineal en el dioptrio de vidrio ($n_0=1$, $n_i=1.5$, $z_0=-10\,\mathrm{mm}$,
-  $z_i=6\,\mathrm{mm}$, $\lambda=532\,\mathrm{nm}$, pupila uniforme a apertura
-  alta). La transmisión vectorial de Fresnel ensancha el punto focal respecto
-  de la referencia escalar ideal ($\tau_p=t_s=1$); a esta escala los cortes por
-  los dos ejes principales son indistinguibles.}
+  \caption{Cortes de la intensidad total en el plano focal a lo largo de los
+  ejes principales, para incidencia lineal en un dioptrio de vidrio ($n_0=1$,
+  $n_i=1.5$, $z_0=-0.6\,\mathrm{mm}$, $z_i=6\,\mathrm{mm}$,
+  $\lambda=532\,\mathrm{nm}$, pupila uniforme de radio $0.70\,\mathrm{mm}$,
+  incidencia de $80^\circ$ en el borde), comparados con la referencia escalar
+  ideal ($\tau_p=t_s=1$). Los puntos sobre el eje horizontal marcan el primer
+  mínimo de cada curva: $R_{\mathrm{esc}}=3.50\lambda$,
+  $R_\parallel=3.92\lambda$ y $R_\perp=4.30\lambda$.}
   \label{fig:spot-cortes-principales}
 \end{figure}
 
-La figura~\ref{fig:spot-radios-anotados}
-presenta el caso de un dioptrio rápido de alto índice ($n_i=2.4$,
-$z_0=-2\,\mathrm{mm}$, $z_i=6\,\mathrm{mm}$, semiapertura objeto
-$\approx 57°$): los radios medidos son $R_\parallel=0.245\lambda$ y
-$R_\perp=0.279\lambda$ frente a $R_{\mathrm{esc}}=0.260\lambda$, es decir,
-$e\approx 1.14$.
+La figura~\ref{fig:spot-radios-anotados} presenta el caso de un vidrio denso
+($n_i=2.0$, pupila de radio $0.96\,\mathrm{mm}$): $R_\parallel=2.10\lambda$ y
+$R_\perp=2.49\lambda$ frente a $R_{\mathrm{esc}}=1.91\lambda$, es decir,
+$R_\perp/R_\parallel=1.19$.
 
 \begin{figure}[H]
   \centering
   \thesisincludegraphics[width=\textwidth]
     {figures/results_of_simulation/vecdiff_final/spot/spot_radios_anotados.png}
     {figures/fast/spot_radios_anotados.jpg}
-  \caption{Radios principales del lóbulo central, medidos a mitad de altura,
-  para un dioptrio rápido de alto índice ($n_i=2.4$, $z_0=-2\,\mathrm{mm}$,
-  $z_i=6\,\mathrm{mm}$, semiapertura objeto $\approx 57°$). Izquierda:
-  incidencia lineal con polarización a $20°$; el contorno medido (blanco) es
-  elíptico, con $R_\parallel=0.245\lambda$, $R_\perp=0.279\lambda$
-  ($e\approx1.14$) frente al radio escalar $R_{\mathrm{esc}}=0.260\lambda$
+  \caption{Radios principales del lóbulo central, medidos al primer mínimo de
+  intensidad, para un dioptrio de vidrio denso ($n_i=2.0$,
+  $z_0=-0.6\,\mathrm{mm}$, $z_i=6\,\mathrm{mm}$, pupila de radio
+  $0.96\,\mathrm{mm}$, incidencia de $80^\circ$ en el borde). Izquierda:
+  incidencia lineal con polarización a $20°$; el contorno del primer mínimo
+  (blanco) es elíptico, con $R_\parallel=2.10\lambda$ y $R_\perp=2.49\lambda$
+  ($e\approx1.19$), frente al radio de Airy $R_{\mathrm{esc}}=1.91\lambda$
   (cian, a trazos), y los ejes principales siguen a la polarización. Derecha:
-  incidencia circular; el punto permanece circular con $R=0.261\lambda$,
-  levemente mayor que el escalar.}
+  incidencia circular; el punto permanece circular con
+  $R_{\mathrm{circ}}=2.29\lambda$.}
   \label{fig:spot-radios-anotados}
 \end{figure}
 
-Para incidencia circular la intensidad es $I\propto|H_0|^2+|H_2|^2$, el
-promedio azimutal del caso lineal: el punto permanece circular y solo se
-ensancha levemente ($R=0.261\lambda$ en el mismo dioptrio), pues el canal
-cruzado $|H_2|^2$ es un anillo nulo en el eje. Cabe señalar que estos
-resultados corresponden a la intensidad transversal; a aperturas muy altas la
-contribución longitudinal $I_z$, determinada por la condición de
-transversalidad, modifica adicionalmente la forma del lóbulo total.
+Para incidencia circular la intensidad transversal es $|H_0|^2+|H_2|^2$, el
+promedio azimutal del caso lineal: el punto permanece circular y se ensancha
+respecto del escalar ($R_{\mathrm{circ}}=2.29\lambda$ en el mismo dioptrio),
+pues el canal cruzado $|H_2|^2$ y la componente longitudinal son anillos nulos
+en el eje.
