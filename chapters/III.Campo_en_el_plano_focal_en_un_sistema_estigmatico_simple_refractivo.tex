@@ -792,7 +792,7 @@ e^{ik\Phi(r')} \mathbb E^{\mathscr G'}(\vb r')
 \label{eq:E_field_perp_no_phase_replacement}
 \end{equation}
 
-Para el término $\ell_0$ dividiendo en la amplitud, lo aproximamos simplemente a $z_0$; para la fase la aproximación ha de ser más cuidadosa. En concreto, partiendo de
+Para el término $\ell_0$ dividiendo en la amplitud, lo aproximamos por la distancia del vértice al objeto, $\ell_0\approx -z_0=|z_0|$; para la fase la aproximación ha de ser más cuidadosa. En concreto, partiendo de
 \begin{equation}
     \ell_0
     =
@@ -1043,12 +1043,12 @@ y, sobre la esfera de Fourier $\mathscr D$ de $\mathscr G'$, libre del factor de
   \frac{n e^{inkf}}{i\lambda f}  \,\mathscr F\!\left\{\mathbb E^{\mathscr G'}\right\}\!\left(\frac{n}{\lambda f}\vb r\right).
   \label{eq:E_D_in_EGp}
 \end{equation}
-Usando $\mathbb E^{\mathscr G'} = \mathbb T \mathbb E_0 / \ell_0$ y aproximando $\ell_0 \approx z_0$ en la amplitud, estas se leen equivalentemente como
+Usando $\mathbb E^{\mathscr G'} = \mathbb T \mathbb E_0 / \ell_0$ y aproximando $\ell_0 \approx |z_0|$ en la amplitud, estas se leen equivalentemente como
 \begin{equation}
 \boxed{
   \vb E'(\vb r, f)
   =
-  \frac{ne^{inkf}}{i\lambda f z_0}\,e^{i\frac{nk}{2f}r^2}\,\mathscr F\!\left\{\mathbb T\mathbb E_0\right\}\!\left(\frac{n}{\lambda f}\vb r\right)
+  \frac{ne^{inkf}}{i\lambda f\,|z_0|}\,e^{i\frac{nk}{2f}r^2}\,\mathscr F\!\left\{\mathbb T\mathbb E_0\right\}\!\left(\frac{n}{\lambda f}\vb r\right)
 }
   \label{eq:E_prime_func_of_M_E0}
 \end{equation}
@@ -1057,7 +1057,7 @@ y
 \boxed{
   \vb E'^{\mathscr D}(\vb r)
   =
-  \frac{ne^{inkf}}{i\lambda f z_0}  \,\mathscr F\!\left\{\mathbb T\mathbb E_0\right\}\!\left(\frac{n}{\lambda f}\vb r\right).
+  \frac{ne^{inkf}}{i\lambda f\,|z_0|}  \,\mathscr F\!\left\{\mathbb T\mathbb E_0\right\}\!\left(\frac{n}{\lambda f}\vb r\right).
 }
   \label{eq:E_prime_D_function_of_M_E0}
 \end{equation}
@@ -1603,14 +1603,14 @@ componentes cartesianas,
 \begin{aligned}
 E'_x(\vb r,f)
 &=
-\frac{n e^{inkf}}{i\lambda f z_0}
+\frac{n e^{inkf}}{i\lambda f\,|z_0|}
 e^{i\frac{nk}{2f}r^2}
 \mathscr F\left\{(\mathbb{T}_{xy}\mathbb E_0)_x\right\}
 \left(\frac{n}{\lambda f}\vb r\right),
 \\[0.5em]
 E'_y(\vb r,f)
 &=
-\frac{n e^{inkf}}{i\lambda f z_0}
+\frac{n e^{inkf}}{i\lambda f\,|z_0|}
 e^{i\frac{nk}{2f}r^2}
 \mathscr F\left\{(\mathbb{T}_{xy}\mathbb E_0)_y\right\}
 \left(\frac{n}{\lambda f}\vb r\right),
@@ -1652,7 +1652,7 @@ t_-
 \end{equation}
 Las funciones \eqref{eq:TxyE0_components} no son otra cosa que las componentes
 cartesianas transversales del campo refractado sobre $\mathscr{G}'$, salvo el
-factor común $1/\ell_0 \approx 1/z_0$, pues
+factor común $1/\ell_0 \approx 1/|z_0|$, pues
 $\mathbb E^{\mathscr{G}'}=\mathbb{T}\,\mathbb E_0/\ell_0$. En particular, su
 cociente reproduce el estado local tras la refracción,
 \begin{equation}
@@ -2118,7 +2118,7 @@ en la representación circular
 \begin{aligned}
 \vb{E}'_\perp(\vb r, f)
 =
-\frac{n e^{inkf}}{2i\lambda f z_0}
+\frac{n e^{inkf}}{2i\lambda f\,|z_0|}
 e^{i\frac{nk}{2f}r^2}
 \Bigg\{
 & \mathscr F\!\left[
@@ -2193,7 +2193,7 @@ Quedando ahora las funciones de Bessel $J_0$ y $J_2$ bajo una integral respecto 
 \begin{aligned}
 E'_L(\vb r,f)
 &=
-\frac{\pi n}{i\lambda f z_0}
+\frac{\pi n}{i\lambda f\,|z_0|}
 e^{inkf}
 e^{i\frac{nk}{2f}r^2}
 \Big[
@@ -2205,7 +2205,7 @@ e^{-2i\varphi}
 \\
 E'_R(\vb r,f)
 &=
-\frac{\pi n}{i\lambda f z_0}
+\frac{\pi n}{i\lambda f\,|z_0|}
 e^{inkf}
 e^{i\frac{nk}{2f}r^2}
 \Big[
@@ -2223,7 +2223,7 @@ O de forma equivalente, en notación matricial,
 \boxed{
 \begin{pmatrix} E'_L \\ E'_R \end{pmatrix}
 =
-\frac{\pi n}{i\lambda f z_0}\,e^{inkf}\,e^{i\frac{nk}{2f}r^2}
+\frac{\pi n}{i\lambda f\,|z_0|}\,e^{inkf}\,e^{i\frac{nk}{2f}r^2}
 \left[
 \mathscr H_0[t_+]\,\mathbb I_\perp
 -
@@ -2351,7 +2351,7 @@ Por tanto, reemplazando en la expresión general del campo en el plano focal,
 \boxed{
   \vb E'_\perp(\vb r,f)
   =
-  \frac{n}{i\lambda f z_0}
+  \frac{n}{i\lambda f\,|z_0|}
   e^{inkf}
   e^{i\frac{nk}{2f}r^2}
   \mathscr F
@@ -2441,7 +2441,7 @@ Nótese que lo que se transforma de esta forma no es el operador diádico $\math
 \boxed{
   \vb E'_\perp(\vb r,f)
   =
-  -\frac{2\pi n}{\lambda f z_0}
+  -\frac{2\pi n}{\lambda f\,|z_0|}
   e^{inkf}
   e^{i\frac{nk}{2f}r^2}
   \left[
@@ -2479,7 +2479,7 @@ E'_r\\
 E'_\phi
 \end{pmatrix}
 =
--\frac{2\pi n}{\lambda f z_0}
+-\frac{2\pi n}{\lambda f\,|z_0|}
 e^{inkf}
 e^{i\frac{nk}{2f}r^2}
 \begin{pmatrix}
@@ -2504,7 +2504,7 @@ Esta afirmación concierne a la parte transversal. Para incidencia azimutal no h
 \begin{equation}
   E'_z(\vb r, f)
   =
-  \frac{2\pi n}{i\lambda f z_0}\,e^{inkf}e^{i\frac{nk}{2f}r^2}\,
+  \frac{2\pi n}{i\lambda f\,|z_0|}\,e^{inkf}e^{i\frac{nk}{2f}r^2}\,
   \mathscr H_0\{t_p\sin\alpha'\,\mathscr E_r\}(q),
   \label{eq:Ez_focal_radial}
 \end{equation}
@@ -2721,7 +2721,7 @@ El campo transmitido en el plano focal puede escribirse entonces como
 \boxed{
 \vb E'_\perp(\vb r,f)
 =
-\frac{n e^{inkf}}{i\lambda f z_0}
+\frac{n e^{inkf}}{i\lambda f\,|z_0|}
 e^{i\frac{nk}{2f}r^2}
 \mathscr F
 \left[
@@ -2742,7 +2742,7 @@ De manera equivalente, separando la integración angular de la integración radi
 \begin{equation}
 \vb E'_\perp(\vb r,f)
 =
-\frac{n e^{inkf}}{i\lambda f z_0}
+\frac{n e^{inkf}}{i\lambda f\,|z_0|}
 e^{i\frac{nk}{2f}r^2}
 \int_0^\infty
 \mathscr F_\phi\{\mathbb T_{xy}\}
@@ -2844,7 +2844,7 @@ La sustitución de \eqref{eq:Fphi_M_cartesian} en
 \boxed{
 \vb E'_\perp(\vb r,f)
 =
-\frac{\pi n e^{inkf}}{i\lambda f z_0}
+\frac{\pi n e^{inkf}}{i\lambda f\,|z_0|}
 e^{i\frac{nk}{2f}r^2}
 \left[
 \mathbb I_\perp
@@ -2874,7 +2874,7 @@ Por componentes, \eqref{eq:E_field_cartesian_azimuthal} se escribe como
 \begin{aligned}
 E'_x(\vb r,f)
 =
-\frac{\pi n e^{inkf}}{i\lambda f z_0}
+\frac{\pi n e^{inkf}}{i\lambda f\,|z_0|}
 e^{i\frac{nk}{2f}r^2}
 \Big[
 &
@@ -2893,7 +2893,7 @@ e^{i\frac{nk}{2f}r^2}
 \\[1em]
 E'_y(\vb r,f)
 =
-\frac{\pi n e^{inkf}}{i\lambda f z_0}
+\frac{\pi n e^{inkf}}{i\lambda f\,|z_0|}
 e^{i\frac{nk}{2f}r^2}
 \Big[
 &
@@ -2922,7 +2922,7 @@ E'_x\\
 E'_y
 \end{pmatrix}
 =
-\frac{\pi n e^{inkf}}{i\lambda f z_0}
+\frac{\pi n e^{inkf}}{i\lambda f\,|z_0|}
 e^{i\frac{nk}{2f}r^2}
 \begin{pmatrix}
 \mathscr H_0[t_+] - \cos2\varphi\,\mathscr H_2[t_-]
@@ -2947,7 +2947,7 @@ E'_x\\
 E'_y
 \end{pmatrix}
 =
-\frac{\pi n e^{inkf}}{i\lambda f z_0}
+\frac{\pi n e^{inkf}}{i\lambda f\,|z_0|}
 e^{i\frac{nk}{2f}r^2}
 \left[
 \mathscr H_0[t_+]\,\mathbb I_\perp
