@@ -690,13 +690,15 @@ De esta manera queda expresado el campo incidente sobre el plano $P$ para una fu
 
 Con la geometría del dioptrio y el campo incidente ya caracterizados, estamos en condiciones de particularizar el resultado general de la sección~\ref{sec:caso_general} al sistema estigmático con fuente puntual en $A$. Reemplazando el campo incidente \eqref{eq:initial_field_in_p} en \eqref{eq:E_field_as_FT}, se tiene que
 \begin{equation}
+\begin{aligned}
 \vb{E}'_\perp(\vb r,z)
-=
+={}&
 n\frac{e^{inkz}}{i\lambda z}\,
 \exp\!\left[
 \frac{ink}{2z}\|\vb r\|^2
 \right]
-\,
+\\
+&\times
 \mathscr F
 \left\{
 \frac{1}{|\ell_0|}
@@ -710,6 +712,7 @@ t_s \mathbb E_0 \cdot \uvec s \, \uvec s
 \left(
 \frac{n\vb r}{\lambda z}
 \right).
+\end{aligned}
 \end{equation}
 Dado que las polarizaciones $\uvec p$ y $\uvec s$ coinciden con los vectores angulares de la base esférica centrada en $A$, $\uvec \theta_A$ y $\uvec \phi$, y usando la proyección \eqref{eq:p_prime_perp}, podemos escribir
 \begin{equation}
@@ -1127,8 +1130,11 @@ con el eje óptico, se tiene
   t_s\left[\frac{\cos\alpha'}{\cos(\alpha+\alpha')}-1\right],
   \label{eq:t_minus_deviation_identity}
 \end{equation}
-que se anula sobre el eje y es positiva fuera de él para una fuente puntual a
-distancia finita ($\alpha\neq 0$). En el límite de incidencia colimada
+que se anula sobre el eje y, fuera de él, es positiva siempre que
+$|\alpha+\alpha'|>|\alpha'|$; en particular para conjugados reales, en los que
+$\alpha$ y $\alpha'$ son positivos. Con objeto o imagen virtuales puede ser
+negativa: al orden paraxial, cuando $z_i-2z_0$ y $z_i$ tienen signos opuestos
+(apéndice~\ref{apx:ovoids_series}). En el límite de incidencia colimada
 ($\alpha=0$) ambas contribuciones se cancelan y $t_-$ se anula en toda la
 pupila. En ese límite la superficie cartesiana es un
 elipsoide de revolución de excentricidad $n_0/n_i$, con el punto imagen en su
@@ -1470,7 +1476,7 @@ a_3=0.
 
 Esta descomposición corresponde a la manera en que Chipman y colaboradores
 proponen caracterizar la \emph{aberración de polarización} de un sistema
-óptico \cite{mcguire1994}. Que se basa en escribir la matriz que caracteriza la transformalción del campo incidente en el campo sobre la esféra gaussiana de referencia centrada en el punto imagén como una combinación lineal de las matrices de Pauli. La analogía con la teoría de aberraciones de frente
+óptico \cite{mcguire1994}. Que se basa en escribir la matriz que caracteriza la transformalción del campo incidente en el campo sobre la esfera gaussiana de referencia centrada en el punto imagén como una combinación lineal de las matrices de Pauli. La analogía con la teoría de aberraciones de frente
 de onda es directa: así como la aberración escalar se define como una función
 de fase sobre la esfera de referencia de salida, la aberración vectorial se describe mediante la función
 matricial $\mathbb{T}_{xy}(\rho',\phi')$ definida sobre $\mathscr{G}'$, cuyos
@@ -3028,34 +3034,80 @@ Si la polarización incidente forma un ángulo $\psi_0$ con el eje $x$, el
 patrón es el mismo con $\varphi\to\varphi-\psi_0$: el punto focal rota
 rígidamente con la polarización, sin grados de libertad angulares adicionales.
 La estructura de \eqref{eq:I_spot_linear_deformation} implica que el lóbulo
-central deja de ser circular: sus ejes principales son las direcciones paralela
-y perpendicular a la polarización, con cortes $I_\parallel\propto|H_0-H_2|^2$ e
-$I_\perp^{(90°)}\propto|H_0+H_2|^2$. Medimos su tamaño por el primer mínimo de
-intensidad: $R_\parallel$ y $R_\perp$ son las distancias del centro al primer
-mínimo en esas dos direcciones, y $R_{\mathrm{esc}}$ es el radio de Airy, es
-decir, el primer cero de la referencia escalar ideal ($\tau_p=t_s=1$) con la
-misma pupila. Los radios se miden sobre la intensidad total
-\eqref{eq:Intensity_in_Focal_Plane}. La apodización $t_+$, que decrece hacia
-el borde de la pupila, ensancha el lóbulo en todas las direcciones; sobre ese
-ensanchamiento, el término de interferencia, con
-$\operatorname{Re}(H_0H_2^*)>0$ cerca del eje, contrae el lóbulo a lo largo de
-la polarización y lo expande en la dirección perpendicular, de modo que
+central de la intensidad transversal deja de ser circular: sus ejes
+principales son las direcciones paralela y perpendicular a la polarización, a
+lo largo de las cuales la intensidad es $|H_0-H_2|^2$ y $|H_0+H_2|^2$. Medimos
+su tamaño por el primer mínimo: los radios $R_\parallel$ y $R_\perp$ son los
+primeros ceros de $H_0\mp H_2$, es decir, las primeras raíces de
 \begin{equation}
-  R_{\mathrm{esc}} < R_\parallel < R_\perp.
+  \int_0^a \mathscr E_x(\rho')\bigl[t_+(\rho')\,J_0(q\rho')\mp t_-(\rho')\,J_2(q\rho')\bigr]\rho'\,d\rho'=0,
+  \qquad
+  R=\frac{\lambda f}{2\pi n}\,q,
+\label{eq:spot_radii_exact}
+\end{equation}
+con el signo superior para $R_\parallel$. Para conjugados reales $t_->0$ y,
+como $J_2>0$ cerca del primer cero de $H_0$, el canal $H_2$ desplaza el cero
+hacia adentro en la dirección paralela y hacia afuera en la perpendicular, de
+modo que
+\begin{equation}
+  R_\parallel < R_\perp .
 \label{eq:spot_radii_ordering}
 \end{equation}
-En la dirección paralela el primer cero se convierte en un mínimo no nulo,
-rellenado por la componente longitudinal.
+Si $t_-$ es negativa, como puede ocurrir con objeto o imagen virtuales, los
+papeles de los dos radios se intercambian.
+Fuera de los ejes principales el mínimo no llega a cero: lo rellena la
+componente cruzada, $H_2^2\sin^2 2\varphi$.
+
+Para una pupila uniforme de radio $a$, desarrollando $t_\pm$ hasta el orden
+$\rho'^2$ (apéndice~\ref{apx:ovoids_series}) y linealizando $H_0$ en torno a su
+primer cero, se obtiene, en el orden metaxial,
+\begin{equation}
+  R_{\parallel,\perp}
+  \simeq
+  R_{\mathrm{esc}}
+  \left\{
+  1
+  +0.034\,a^2\left[\frac{(n_i+n_0)(z_i-z_0)^2}{(n_i-n_0)\,z_0^2z_i^2}+\frac{1}{z_i^2}\right]
+  \mp 0.068\,a^2\,\frac{z_i-2z_0}{z_i\,z_0^2}
+  \right\},
+\label{eq:spot_radii_closed}
+\end{equation}
+donde $R_{\mathrm{esc}}=0.61\,\lambda f/(na)$ es el radio de Airy de la
+referencia escalar ideal ($\tau_p=t_s=1$). El término entre corchetes es el
+ensanchamiento por la apodización $t_+$, que decrece hacia el borde de la
+pupila, y el término con $\mp$ es la anisotropía debida a $t_-$. La
+elipticidad, $R_\perp/R_\parallel\simeq 1+0.136\,a^2(z_i-2z_0)/(z_iz_0^2)$, no
+depende del índice a este orden. La expresión \eqref{eq:spot_radii_closed}
+reproduce los radios exactos a aperturas moderadas; cerca de la incidencia
+rasante sobrestima la anisotropía, y los radios deben obtenerse de
+\eqref{eq:spot_radii_exact}. La anisotropía está, en todo caso, acotada: con
+convergencia débil, $t_-/t_+$ no puede superar $(n_i-n_0)/(n_i+n_0)$, valor
+que alcanza en incidencia rasante.
+
+La comparación con el radio de Airy se sigue de \eqref{eq:spot_radii_closed}.
+Para conjugados reales, con $u=-z_0/z_i>0$, el radio perpendicular siempre
+lo supera, y el paralelo lo supera si y solo si
+\begin{equation}
+  \frac{n_i+n_0}{n_i-n_0}\,(1+u)^2+u^2>2(1+2u),
+\end{equation}
+condición que se cumple para todo $u$ cuando $n_0<n_i\le 3n_0$. Con pupila
+uniforme y cualquier vidrio óptico, por tanto,
+\begin{equation}
+  R_{\mathrm{esc}} < R_\parallel < R_\perp :
+\end{equation}
+la apodización ensancha el lóbulo más de lo que el canal $t_-$ lo contrae a lo
+largo de la polarización, y el foco vectorial resulta mayor que el de Airy y
+elíptico. Solo con índices muy altos ($n_i>3n_0$) y el objeto cerca de la
+superficie puede $R_\parallel$ quedar por debajo de $R_{\mathrm{esc}}$; también
+con amplitudes incidentes que reduzcan la apodización, como una pupila anular.
 
 Por \eqref{eq:t_minus_deviation_identity}, la deformación crece con la
 desviación $\alpha+\alpha'$ que impone la superficie; por eso los ejemplos que
 siguen usan un objeto cercano a ella ($z_0=-0.6\,\mathrm{mm}$,
 $z_i=6\,\mathrm{mm}$) y una pupila que lleva la incidencia hasta $80^\circ$ en
-el borde. La anisotropía está, sin embargo, acotada: con convergencia débil,
-$t_-/t_+$ no puede superar $(n_i-n_0)/(n_i+n_0)$, valor que alcanza en
-incidencia rasante. La figura~\ref{fig:spot-cortes-principales} compara los
-cortes vectoriales con la referencia escalar para un dioptrio de vidrio
-($n_i=1.5$): $R_{\mathrm{esc}}=3.50\lambda$, $R_\parallel=3.92\lambda$ y
+el borde. La figura~\ref{fig:spot-cortes-principales} compara los cortes
+transversales con la referencia escalar para un dioptrio de vidrio
+($n_i=1.5$): $R_{\mathrm{esc}}=3.50\lambda$, $R_\parallel=3.90\lambda$ y
 $R_\perp=4.30\lambda$.
 
 \begin{figure}[H]
@@ -3063,21 +3115,21 @@ $R_\perp=4.30\lambda$.
   \thesisincludegraphics[width=0.7\textwidth]
     {figures/results_of_simulation/vecdiff_final/spot/spot_cortes_principales.png}
     {figures/fast/spot_cortes_principales.jpg}
-  \caption{Cortes de la intensidad total en el plano focal a lo largo de los
-  ejes principales, para incidencia lineal en un dioptrio de vidrio ($n_0=1$,
-  $n_i=1.5$, $z_0=-0.6\,\mathrm{mm}$, $z_i=6\,\mathrm{mm}$,
+  \caption{Cortes de la intensidad transversal en el plano focal a lo largo
+  de los ejes principales, para incidencia lineal en un dioptrio de vidrio
+  ($n_0=1$, $n_i=1.5$, $z_0=-0.6\,\mathrm{mm}$, $z_i=6\,\mathrm{mm}$,
   $\lambda=532\,\mathrm{nm}$, pupila uniforme de radio $0.70\,\mathrm{mm}$,
   incidencia de $80^\circ$ en el borde), comparados con la referencia escalar
   ideal ($\tau_p=t_s=1$). Los puntos sobre el eje horizontal marcan el primer
   mínimo de cada curva: $R_{\mathrm{esc}}=3.50\lambda$,
-  $R_\parallel=3.92\lambda$ y $R_\perp=4.30\lambda$.}
+  $R_\parallel=3.90\lambda$ y $R_\perp=4.30\lambda$.}
   \label{fig:spot-cortes-principales}
 \end{figure}
 
 La figura~\ref{fig:spot-radios-anotados} presenta el caso de un vidrio denso
-($n_i=2.0$, pupila de radio $0.96\,\mathrm{mm}$): $R_\parallel=2.10\lambda$ y
+($n_i=2.0$, pupila de radio $0.96\,\mathrm{mm}$): $R_\parallel=2.08\lambda$ y
 $R_\perp=2.49\lambda$ frente a $R_{\mathrm{esc}}=1.91\lambda$, es decir,
-$R_\perp/R_\parallel=1.19$.
+$R_\perp/R_\parallel=1.20$.
 
 \begin{figure}[H]
   \centering
@@ -3085,20 +3137,20 @@ $R_\perp/R_\parallel=1.19$.
     {figures/results_of_simulation/vecdiff_final/spot/spot_radios_anotados.png}
     {figures/fast/spot_radios_anotados.jpg}
   \caption{Radios principales del lóbulo central, medidos al primer mínimo de
-  intensidad, para un dioptrio de vidrio denso ($n_i=2.0$,
+  la intensidad transversal, para un dioptrio de vidrio denso ($n_i=2.0$,
   $z_0=-0.6\,\mathrm{mm}$, $z_i=6\,\mathrm{mm}$, pupila de radio
   $0.96\,\mathrm{mm}$, incidencia de $80^\circ$ en el borde). Izquierda:
-  incidencia lineal con polarización a $20°$; el contorno del primer mínimo
-  (blanco) es elíptico, con $R_\parallel=2.10\lambda$ y $R_\perp=2.49\lambda$
-  ($e\approx1.19$), frente al radio de Airy $R_{\mathrm{esc}}=1.91\lambda$
+  incidencia lineal con polarización a $20^\circ$; el contorno del primer mínimo
+  (blanco) es elíptico, con $R_\parallel=2.08\lambda$ y $R_\perp=2.49\lambda$
+  ($e\approx1.20$), frente al radio de Airy $R_{\mathrm{esc}}=1.91\lambda$
   (cian, a trazos), y los ejes principales siguen a la polarización. Derecha:
   incidencia circular; el punto permanece circular con
-  $R_{\mathrm{circ}}=2.29\lambda$.}
+  $R_{\mathrm{circ}}=2.28\lambda$.}
   \label{fig:spot-radios-anotados}
 \end{figure}
 
 Para incidencia circular la intensidad transversal es $|H_0|^2+|H_2|^2$, el
-promedio azimutal del caso lineal: el punto permanece circular y se ensancha
-respecto del escalar ($R_{\mathrm{circ}}=2.29\lambda$ en el mismo dioptrio),
-pues el canal cruzado $|H_2|^2$ y la componente longitudinal son anillos nulos
-en el eje.
+promedio azimutal del caso lineal: el punto permanece circular, con un mínimo
+que no llega a cero porque lo rellena el canal cruzado $|H_2|^2$, y cuyo radio
+coincide, a primer orden, con el primer cero de $H_0$
+($R_{\mathrm{circ}}=2.28\lambda$ en el mismo dioptrio).
