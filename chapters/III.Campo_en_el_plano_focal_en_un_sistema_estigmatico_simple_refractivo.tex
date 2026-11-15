@@ -547,15 +547,19 @@ Con las longitudes con signo \eqref{eq:signed_lengths_axis}, ambos se reducen a 
 \begin{align}
 \ell_0
 &=
--\operatorname{sgn}(z_0)\ell_0,
+\overline{AQ}
+=
+\operatorname{sgn}(z - z_0)\sqrt{\rho^2 - 2zz_0 + z_0^2},
 \label{eq:l0_definition}
 \\
 \ell_i
 &=
-\operatorname{sgn}(z_i)\ell_i,
+\overline{QA'}
+=
+\operatorname{sgn}(z_i - z)\sqrt{\rho^2 - 2zz_i + z_i^2},
 \label{eq:l0_li_definitions}
 \end{align}
-cuyos valores absolutos son las distancias $\overline{AQ}$ y $\overline{A'Q}$, y definiendo también
+que son las longitudes con signo \eqref{eq:signed_segment_def} de los segmentos $AQ$ y $QA'$, y definiendo también
 \begin{equation}
   s'
   :=
@@ -637,7 +641,7 @@ El campo incidente es aquel que tiene como fuente el primer punto estigmático, 
   \vb E (V)
   =
   \mathbb{E}_0(V)
-  \frac{e^{ik\overline{AV}}}{\overline{AV}},
+  \frac{e^{ik\overline{AV}}}{|\overline{AV}|},
   \label{eq:initial_field}
 \end{equation}
 que evaluado en $\Sigma$ y usando la definición \eqref{eq:l0_definition},
@@ -678,7 +682,7 @@ De la relación \eqref{eq:Ep_from_E_Sigma},
   \label{eq:initial_field_in_p}
 \end{equation}
 
-De esta manera queda expresado el campo incidente sobre el plano $P$ para una fuente puntual ubicada en $A$. Si se desea evaluarlo en otro punto del espacio cualquiera $H$, basta con reemplazar $\ell_0$ en \eqref{eq:initial_field_in_p} por la longitud con signo de $A$ a $H$. De cualquier manera, el campo incidente queda determinado por dos funciones reales, $\mathscr E_\theta$ y $\mathscr E_\phi$.
+De esta manera queda expresado el campo incidente sobre el plano $P$ para una fuente puntual ubicada en $A$. Si se desea evaluarlo en otro punto del espacio cualquiera $H$, basta con reemplazar $\ell_0$ en \eqref{eq:initial_field_in_p} por $\overline{AH}$. De cualquier manera, el campo incidente queda determinado por dos funciones reales, $\mathscr E_\theta$ y $\mathscr E_\phi$.
 
 % ---------------------------------------------------------------------------
 \subsection{Campo eléctrico en el plano focal}
@@ -798,11 +802,11 @@ Para el término $|\ell_0|$ dividiendo en la amplitud, lo aproximamos por la dis
 \begin{equation}
     \ell_0
     =
-    -\operatorname{sgn}(z_0)\sqrt{x^2 + y^2 + (z(r) - z_0)^2}
+    \overline{AQ}
     =
-    -\operatorname{sgn}(z_0)\sqrt{r^2 + (z(r) - z_0)^2},
+    \operatorname{sgn}\bigl(z(r) - z_0\bigr)\sqrt{r^2 + (z(r) - z_0)^2},
 \end{equation}
-extrayendo el término $(z(r) - z_0)$, que tiene el signo de $-z_0$ cuando la sagita es pequeña frente a $|z_0|$, para realizar una expansión binomial en el régimen paraxial, $r \ll |z(r)-z_0|$:
+extrayendo el término $(z(r) - z_0)$, que tiene el signo de $\overline{AQ}$, para realizar una expansión binomial en el régimen paraxial, $r \ll |z(r)-z_0|$:
 \begin{align}
     \ell_0
     &=
@@ -1045,7 +1049,7 @@ y, sobre la esfera de Fourier $\mathscr D$ de $\mathscr G'$, libre del factor de
   \frac{n e^{inkf}}{i\lambda f}  \,\mathscr F\!\left\{\mathbb E^{\mathscr G'}\right\}\!\left(\frac{n}{\lambda f}\vb r\right).
   \label{eq:E_D_in_EGp}
 \end{equation}
-Usando $\mathbb E^{\mathscr G'} = \mathbb T \mathbb E_0 / |\ell_0|$ y aproximando $\ell_0 \approx |z_0|$ en la amplitud, estas se leen equivalentemente como
+Usando $\mathbb E^{\mathscr G'} = \mathbb T \mathbb E_0 / |\ell_0|$ y aproximando $|\ell_0| \approx |z_0|$ en la amplitud, estas se leen equivalentemente como
 \begin{equation}
 \boxed{
   \vb E'(\vb r, f)
