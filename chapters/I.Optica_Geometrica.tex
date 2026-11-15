@@ -214,16 +214,21 @@ restringir sus signos: $z_0<0$ corresponde a un objeto real, del que diverge
 el haz incidente, y $z_0>0$ a un objeto virtual, hacia el que converge;
 análogamente, $z_i>0$ corresponde a una imagen real y $z_i<0$ a una virtual.
 
-La misma convención se extiende a los segmentos. Para dos puntos $X$ e $Y$ que
-no estén en un mismo plano transversal, definimos la longitud con signo
+La misma convención se extiende a los segmentos. Para dos puntos $X$ e $Y$
+definimos la longitud con signo
 \begin{equation}
-  \overline{XY}=\operatorname{sgn}(z_Y-z_X)\,\lVert\lvec{XY}\rVert ,
+  \overline{XY}=
+  \begin{cases}
+    \lVert\lvec{XY}\rVert, & z_Y\ge z_X,\\[2pt]
+    -\lVert\lvec{XY}\rVert, & z_Y< z_X,
+  \end{cases}
   \label{eq:signed_segment_def}
 \end{equation}
 positiva cuando $X$ está a la izquierda de $Y$, es decir, cuando la recta
-orientada de $X$ a $Y$ avanza en el sentido del eje óptico. Así,
-$\overline{YX}=-\overline{XY}$ y, para un punto $P$ del eje,
-$\overline{OP}=z_P$. Como la luz se propaga de izquierda a derecha, el signo
+orientada de $X$ a $Y$ avanza en el sentido del eje óptico, y también cuando
+ambos puntos están en un mismo plano transversal. Así, para segmentos no
+perpendiculares al eje, $\overline{YX}=-\overline{XY}$, y para un punto $P$ del
+eje, $\overline{OP}=z_P$. Como la luz se propaga de izquierda a derecha, el signo
 de \eqref{eq:def_of_u} queda fijado por esta convención:
 \begin{equation}
   \uvec{u}=\frac{\lvec{PQ}}{\overline{PQ}} ,
@@ -265,7 +270,7 @@ y finalmente obtenemos el vector unitario de incidencia
 \end{equation}
 con
 \begin{equation*}
-  \ell_0\equiv\overline{PQ}=\operatorname{sgn}\bigl(z(\rho)-z_0\bigr)\sqrt{(z(\rho) - z_0)^2 + r(\rho)^2 + r_0^2 - 2 r(\rho) r_0 \cos\Delta\varphi}.
+  \ell_0\equiv\overline{PQ},\qquad |\ell_0|=\sqrt{(z(\rho) - z_0)^2 + r(\rho)^2 + r_0^2 - 2 r(\rho) r_0 \cos\Delta\varphi}.
 \end{equation*}
 De manera análoga, sea $P'$ el punto imagen, de coordenadas $(z_i, r_i, \varphi_0)$, hacia el que converge el rayo transmitido ($z_i>0$) o desde el que diverge ($z_i<0$). Con la longitud con signo $\ell_i\equiv\overline{QP'}$, el vector unitario de transmisión, en el sentido de propagación, es $\uvec u'=\lvec{QP'}/\overline{QP'}$, con $\lvec{QP'} = \lvec{OP'} - \lvec{OQ}$, y resulta
 \begin{equation}
@@ -282,7 +287,7 @@ De manera análoga, sea $P'$ el punto imagen, de coordenadas $(z_i, r_i, \varphi
 \end{equation}
 con
 \begin{equation*}
-  \ell_i\equiv\overline{QP'}=\operatorname{sgn}\bigl(z_i-z(\rho)\bigr)\sqrt{(z(\rho) - z_i)^2 + r(\rho)^2 + r_i^2 - 2 r(\rho) r_i \cos\Delta\varphi}.
+  \ell_i\equiv\overline{QP'},\qquad |\ell_i|=\sqrt{(z(\rho) - z_i)^2 + r(\rho)^2 + r_i^2 - 2 r(\rho) r_i \cos\Delta\varphi}.
 \end{equation*}
 
 Si los puntos $P$ y $P'$ viven en el eje óptico, las expresiones anteriores se simplifican como
@@ -297,12 +302,12 @@ y
 \end{equation}
 con
 \begin{equation}
-  \ell_0=\operatorname{sgn}\bigl(z(\rho)-z_0\bigr)\sqrt{\rho^2 - 2z(\rho)z_0 + z_0^2},
-  \quad
-  \ell_i=\operatorname{sgn}\bigl(z_i-z(\rho)\bigr)\sqrt{\rho^2 - 2z(\rho)z_i + z_i^2},
+  |\ell_0|=\sqrt{\rho^2 - 2z(\rho)z_0 + z_0^2},
+  \qquad
+  |\ell_i|=\sqrt{\rho^2 - 2z(\rho)z_i + z_i^2},
   \label{eq:signed_lengths_axis}
 \end{equation}
-que en el vértice valen $\ell_0=\overline{PO}=-z_0$ y $\ell_i=\overline{OP'}=z_i$ para cualquier signo de $z_0$ y $z_i$.
+donde los signos de $\ell_0=\overline{PQ}$ y $\ell_i=\overline{QP'}$ los fija \eqref{eq:signed_segment_def}; en el vértice valen $\ell_0=\overline{PO}=-z_0$ y $\ell_i=\overline{OP'}=z_i$ para cualquier signo de $z_0$ y $z_i$.
 
 Procedemos ahora con el cálculo de la normal en un punto $Q$ parametrizado por $(\rho, \varphi)$. Denotemos al vector normal unitario en el punto $Q=Q(\rho, \varphi)$ como $\uvec{N}$, y construyamos un vector $\vb{N}$ proporcional a $\uvec{N}$ mediante el producto vectorial de los vectores tangentes coordenados, tomados en el orden que orienta la normal hacia el medio de incidencia (en el vértice, $\uvec N = -\uvec z$), que es la orientación con la que se escribió la ley vectorial \eqref{eq:vectorial_law_of_snell_descartes},
 \[
